@@ -24,6 +24,7 @@
             app:searchSuggestionBackground="@color/colorPrimary"
             app:searchCloseIcon="@drawable/ic_clear"
             app:searchBackIcon="@drawable/ic_arrow_back"
+
             app:searchVoiceIcon="@drawable/ic_keyboard_voice_black_24dp"
             />
 

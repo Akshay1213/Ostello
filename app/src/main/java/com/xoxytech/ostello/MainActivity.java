@@ -18,8 +18,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,7 @@ public MaterialSearchView materialSearchView;
     public ListView listView;
     public  String[] lst={"pune","nasik","jalgaon","latur","solapur","nanded","mumbai"};
     String[] lst1={"No match found..."};
+    String[] lstb={};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,7 @@ public MaterialSearchView materialSearchView;
         listView=(ListView)findViewById(R.id.lstview);
 //        ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,lst);
 //        listView.setAdapter(adapter);
+//        JSONArray jsonArray=
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Search Bar..");
         toolbar.setTitleTextColor(Color.WHITE);
@@ -48,39 +53,47 @@ public MaterialSearchView materialSearchView;
         materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
+
                 //Do some magic
+                Toast.makeText(getApplicationContext(),"am shown",Toast.LENGTH_SHORT);
+
             }
 
             @Override
             public void onSearchViewClosed() {
-                //Do some magic
+                Toast.makeText(getApplicationContext(),"am closed",Toast.LENGTH_SHORT);
             }
         });
         materialSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Do some magic
+                String[] lst1={query};
+                ArrayAdapter adapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,lst1);
+                listView.setAdapter(adapter);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 //Do some magic
+
                 if(newText!=null&& !newText.isEmpty())
                 {
                     List<String> listfound=new ArrayList<String>();
                     for(String item:lst)
                     {
-                        if(item.contains(newText))
+                        if(item.startsWith(newText))
                             listfound.add(item);
                     }
-                    if (listfound.size()==0)//bro if no match found
+                    if (listfound.isEmpty())//bro if no match found
                     {
                         ArrayAdapter adapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,lst1);
                         listView.setAdapter(adapter);
                     }
+                    else
+                    {
                     ArrayAdapter adapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,listfound);
-                    listView.setAdapter(adapter);
+                    listView.setAdapter(adapter);}
                 }
                 else
                 {
@@ -91,7 +104,7 @@ public MaterialSearchView materialSearchView;
             }
         });
 
-//i have to imaplement like just dial App
+//i have to implement like just dial App
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override

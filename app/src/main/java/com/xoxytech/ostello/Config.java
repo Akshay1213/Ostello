@@ -6,8 +6,8 @@ package com.xoxytech.ostello;
 
 public class Config {
     //URLs to register.php and confirm.php file
-    public static final String REGISTER_URL = "http://janaipackaging.com/register.php";
-    public static final String CONFIRM_URL = "http://janaipackaging.com/confirm.php";
+    public static final String REGISTER_URL = "http://janaipackaging.com/ostello/register.php";
+    public static final String CONFIRM_URL = "http://janaipackaging.com/ostello/confirm.php";
 
     //Keys to send username, password, phone and otp
     public static final String KEY_USERNAME = "username";

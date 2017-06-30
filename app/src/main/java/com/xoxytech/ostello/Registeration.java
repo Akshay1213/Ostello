@@ -108,12 +108,12 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                 final String otp = editTextConfirmOtp.getText().toString().trim();
 
                 //Creating an string request
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL,
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL+"?otp="+otp+"&username="+username,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 //if the server response is success
-                                if(response.equalsIgnoreCase("success")){
+                                if(response.contains("success")){
                                     //dismissing the progressbar
                                     loading.dismiss();
 
@@ -176,11 +176,13 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                         Log.d("Zakmarya", response.toString());
                         try {
                             Toast.makeText(Registeration.this, "atleast got response"+response, Toast.LENGTH_LONG).show();
+                            Log.d("wtf",response);
                             //Creating the json object from the response
-                            JSONObject jsonResponse = new JSONObject(response);
+//                            JSONObject jsonResponse = new JSONObject(response);
 
                             //If it is success
-                            if(jsonResponse.getString(Config.TAG_RESPONSE).equalsIgnoreCase("Success")){
+                            //if(jsonResponse.getString(Config.TAG_RESPONSE).equalsIgnoreCase("Success")){
+                            if(response.contains("1")){
                                 //Asking user to confirm otp
                                 Toast.makeText(Registeration.this, "awaiting for otp", Toast.LENGTH_LONG).show();
                                 confirmOtp();

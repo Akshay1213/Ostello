@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -43,7 +44,7 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
     private EditText editTextPassword;
     private EditText editTextPhone;
     private EditText editTextConfirmOtp;
-
+    private TextView login_me;
     private AppCompatButton buttonRegister;
     private AppCompatButton buttonConfirm;
 
@@ -61,7 +62,7 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
-
+        login_me=(TextView)findViewById(R.id.linkSignup);
         buttonRegister = (AppCompatButton) findViewById(R.id.buttonRegister);
 
         //Initializing the RequestQueue
@@ -69,6 +70,12 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
         //Adding a listener to button
         buttonRegister.setOnClickListener(this);
+    login_me.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(Registeration.this,Login.class));
+        }
+    });
     }
 
     //This method would confirm the otp

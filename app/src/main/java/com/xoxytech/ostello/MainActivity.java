@@ -35,14 +35,10 @@ public MaterialSearchView materialSearchView;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         listView=(ListView)findViewById(R.id.lstview);
-//        ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,lst);
-//        listView.setAdapter(adapter);
-//        JSONArray jsonArray=
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Search Bar..");
         toolbar.setTitleTextColor(Color.WHITE);
-//        materialSearchView.setVoiceSearch(true);
-//       materialSearchView.setVoiceSearch(true);
+
         materialSearchView= (MaterialSearchView)findViewById(R.id.search_view);
 
         materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -120,7 +116,7 @@ public MaterialSearchView materialSearchView;
     }
 
 
-    @Override ///To listen voice results
+/*     ///To listen voice results
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -134,7 +130,7 @@ public MaterialSearchView materialSearchView;
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
+    }*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -174,7 +170,8 @@ public MaterialSearchView materialSearchView;
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            startActivity(new Intent(this,Registeration.class));
+            startActivity(new Intent(this,Login .class));
+            //startActivity(new Intent(this,Registeration.class));
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

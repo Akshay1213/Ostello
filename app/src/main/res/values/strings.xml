@@ -21,4 +21,5 @@
     </string>
     <string name="NoAccount">No account yet? Create one</string>
     <string name="title_activity_autocompletesearch">Autocompletesearch</string>
+    <string name="title_activity_load_hostels">LoadHostels</string>
 </resources>

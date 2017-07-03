@@ -1,0 +1,134 @@
+[
+  {
+    "hostel_id": "1",
+    "id": "1",
+    "hostelname": "Sughandha_Hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "alandi",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "2",
+    "id": "2",
+    "hostelname": "balu_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "dehu",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "3",
+    "id": "3",
+    "hostelname": "Sankakp_Hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "pimpri",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "4",
+    "id": "4",
+    "hostelname": "vaibhav_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata Near Athiti Hotel",
+    "city": "digi",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "5",
+    "id": "5",
+    "hostelname": "matoshri_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "mumbai",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "6",
+    "id": "6",
+    "hostelname": "gurukrupa_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "kothrud",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "7",
+    "id": "7",
+    "hostelname": "vrushi_prasad",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "katraj",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "8",
+    "id": "8",
+    "hostelname": "om_sai",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "Nagpur",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "9",
+    "id": "9",
+    "hostelname": "kavilya_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "nashik",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "10",
+    "id": "10",
+    "hostelname": "vasanti_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "Nanded",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "11",
+    "id": "11",
+    "hostelname": "vaibhav_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "nigdi",
+    "type": "cot_basis"
+  },
+  {
+    "hostel_id": "12",
+    "id": "12",
+    "hostelname": "Vaishanav_hostel",
+    "category": "B",
+    "vacancy": "10",
+    "rate": "1500",
+    "address": "Dehuphata_Near_Athiti_Hotel",
+    "city": "ABC",
+    "type": "cot_basis"
+  }
+]

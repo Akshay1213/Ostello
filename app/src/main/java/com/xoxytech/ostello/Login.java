@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
             @Override
             public void onClick(View v) {
                startActivity(new Intent(Login.this,Registeration.class));
+                return;
             }
         });
 login_button.setOnClickListener(this);
@@ -88,6 +89,7 @@ login_button.setOnClickListener(this);
                             if(response.contains("success")){
                                 //Asking user to confirm otp
                                 startActivity(new Intent(Login.this,MainActivity.class));
+                                return;
 
                             }else{
                                 Snackbar.make(findViewById(R.id.myLoginLayout), "Invalid Login", Snackbar.LENGTH_LONG).setAction("Action", null).show();

@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -59,12 +62,20 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textType.setText("Category: " + current.catName);
         myHolder.textPrice.setText("Rs. " + current.price + "/person");
         myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
+        myHolder.hiddenid.setText(current.id);
 
         // load image into imageview using glide
         Glide.with(context).load(current.HostelImage)
                 .placeholder(R.drawable.ic_img_error)
                 .error(R.drawable.ic_img_error)
                 .into(myHolder.ivhostel);
+
+        TextSliderView textSliderView = new TextSliderView(context);
+        textSliderView
+
+                .image("https://images.unsplash.com/photo-1462496591979-5ba58a2ddec6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=7973ca2b89e7907cb01759f4966e5189");
+
+        myHolder.sliderShow.addSlider(textSliderView);
 
 
     }
@@ -83,6 +94,8 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         TextView textSize;
         TextView textType;
         TextView textPrice;
+        TextView hiddenid;
+        SliderLayout sliderShow;
 
         // create constructor to get widget reference
         public MyHolder(View itemView) {
@@ -92,6 +105,8 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             textSize = (TextView) itemView.findViewById(R.id.textSize);
             textType = (TextView) itemView.findViewById(R.id.textType);
             textPrice = (TextView) itemView.findViewById(R.id.textPrice);
+            sliderShow=(SliderLayout)itemView.findViewById(R.id.slider);
+            hiddenid=(TextView)itemView.findViewById(R.id.hiddenid);
         }
 
     }

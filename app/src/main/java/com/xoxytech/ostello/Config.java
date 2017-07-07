@@ -11,6 +11,8 @@ public class Config {
     public static final String LOGIN_URL = "http://janaipackaging.com/ostello/login_verification.php";
     public static final String AutoComplete_URL = "http://janaipackaging.com/ostello/fetchcities.php";
     public static final String SEARCHHOSTELS_URL = "http://janaipackaging.com/ostello/fetchhostels.php";
+    public static final String SEARCHSPECIFICHOSTEL_URL = "http://janaipackaging.com/ostello/fetchrequestedhostel.php";
+    public static final String FETCHONCLICKHOSTELS_URL = "http://janaipackaging.com/ostello/fetchhostelsonclick.php";
     //Keys to send username, password, phone and otp
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";

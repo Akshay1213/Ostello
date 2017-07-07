@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -29,6 +31,14 @@ public MaterialSearchView materialSearchView;
     public  String[] lst={"pune","nasik","jalgaon","latur","solapur","nanded","mumbai"};
     String[] lst1={"No match found..."};
     String[] lstb={};
+    // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
+    public static final int CONNECTION_TIMEOUT = 10000;
+    public static final int READ_TIMEOUT = 15000;
+    private SimpleCursorAdapter myAdapter;
+
+    SearchView searchView = null;
+    private String[] strArrData = {"No Suggestions"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +123,8 @@ public MaterialSearchView materialSearchView;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
 
@@ -188,4 +200,5 @@ public MaterialSearchView materialSearchView;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

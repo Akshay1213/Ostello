@@ -1,38 +1,41 @@
-package com.xoxytech.ostello;
 
-import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.provider.BaseColumns;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.CursorAdapter;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+        package com.xoxytech.ostello;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
+        import android.app.ProgressDialog;
+        import android.app.SearchManager;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.database.Cursor;
+        import android.database.MatrixCursor;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.provider.BaseColumns;
+        import android.support.design.widget.FloatingActionButton;
+        import android.support.design.widget.Snackbar;
+        import android.support.v4.widget.CursorAdapter;
+        import android.support.v4.widget.SimpleCursorAdapter;
+        import android.support.v7.app.AppCompatActivity;
+        import android.support.v7.widget.SearchView;
+        import android.support.v7.widget.Toolbar;
+        import android.util.Log;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Toast;
+
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
+
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStream;
+        import java.io.InputStreamReader;
+        import java.net.HttpURLConnection;
+        import java.net.MalformedURLException;
+        import java.net.URL;
+        import java.util.ArrayList;
 
 public class Autocompletesearch extends AppCompatActivity {
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
@@ -80,10 +83,25 @@ public class Autocompletesearch extends AppCompatActivity {
                 public boolean onSuggestionClick(int position) {
 
                     // Add clicked text to search box
+
                     CursorAdapter ca = searchView.getSuggestionsAdapter();
                     Cursor cursor = ca.getCursor();
                     cursor.moveToPosition(position);
                     searchView.setQuery(cursor.getString(cursor.getColumnIndex("city")),false);
+                  String city=cursor.getString(cursor.getColumnIndex("city")).trim();
+                    Intent i = new Intent(Autocompletesearch.this, Loadhostels.class);
+
+//Create the bundle
+                    Bundle bundle = new Bundle();
+
+//Add your data to bundle
+                    bundle.putString("city", city);
+
+//Add the bundle to the intent
+                    i.putExtras(bundle);
+
+//Fire that second activity
+                    startActivity(i);
                     return true;
                 }
 

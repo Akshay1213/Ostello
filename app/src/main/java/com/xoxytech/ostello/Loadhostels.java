@@ -1,14 +1,17 @@
 package com.xoxytech.ostello;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Loadhostels extends AppCompatActivity {
 
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
@@ -27,13 +31,22 @@ public class Loadhostels extends AppCompatActivity {
     public static final int READ_TIMEOUT = 25000;
     private RecyclerView mRVhostelList;
     private Adapterhostel mAdapter;
+    String city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loadhostels);
-        List<Datahostel> data=new ArrayList<>();
 
+
+
+        //getting id
+        Bundle bundle = getIntent().getExtras();
+
+//Extract the data…
+        city = bundle.getString("city");
+
+        List<Datahostel> data=new ArrayList<>();
 
             // Extract data from json and store into ArrayList as class objects
             for(int i=0;i<10;i++){
@@ -45,7 +58,6 @@ public class Loadhostels extends AppCompatActivity {
                 hostelData.price= 1500;
                 data.add(hostelData);
             }
-
             // Setup and Handover data to recyclerview
             mRVhostelList = (RecyclerView)findViewById(R.id.hostelList);
 //                LinearLayoutManager llm = new LinearLayoutManager(Loadhostels.this);
@@ -57,9 +69,33 @@ public class Loadhostels extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
 
 
+        mRVhostelList.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                TextView tv=(TextView)view.findViewById(R.id.hiddenid);
+
+                Toast.makeText(Loadhostels.this, "Card at " + position + " is clicked"+tv.getText(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(Loadhostels.this, HostelDetails.class);
+
+//Create the bundle
+                Bundle bundle = new Bundle();
+
+//Add your data to bundle
+                bundle.putString("id", tv.getText().toString());
+
+//Add the bundle to the intent
+                i.putExtras(bundle);
+
+//Fire that second activity
+                startActivity(i);
+            }
+        }));
+
+
         //Make call to AsyncTask
         new AsyncFetch().execute();
     }
+
 
     private class AsyncFetch extends AsyncTask<String, String, String> {
         ProgressDialog pdLoading = new ProgressDialog(Loadhostels.this);
@@ -83,7 +119,7 @@ public class Loadhostels extends AppCompatActivity {
 
                 // Enter URL address where your json file resides
                 // Even you can make call to php file which returns json data
-                url = new URL("http://janaipackaging.com/ostello/fetchhostels.php");
+                url = new URL(Config.FETCHONCLICKHOSTELS_URL+"?city="+city);
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -146,7 +182,7 @@ public class Loadhostels extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             //this method will be running on UI thread
-
+            Log.d("*******************",result);
             pdLoading.dismiss();
             List<Datahostel> data=new ArrayList<>();
             try {
@@ -162,6 +198,7 @@ public class Loadhostels extends AppCompatActivity {
                     hostelData.catName= json_data.getString("category");
                     hostelData.type= json_data.getString("type");
                     hostelData.price= json_data.getInt("rate");
+                    hostelData.id=json_data.getString("id");
                     data.add(hostelData);
                 }
 

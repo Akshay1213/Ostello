@@ -22,4 +22,5 @@
 
     <include layout="@layout/content_autocompletesearch" />
 
+    <!--android:paddingTop="10dp"-->
 </android.support.design.widget.CoordinatorLayout>

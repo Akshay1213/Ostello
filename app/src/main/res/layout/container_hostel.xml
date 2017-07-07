@@ -4,23 +4,52 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:orientation="horizontal"
+
     android:padding="10dp">
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        />
 
     <ImageView
-        android:layout_width="80dp"
+        android:layout_width="match_parent"
         android:scaleType="fitXY"
-        android:layout_height="80dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
         android:id="@+id/ivhostel"/>
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:background="@drawable/shadow1"
+        android:id="@+id/ivhosteltempback"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="hostel name"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/RvtextColor"
+        android:id="@+id/hiddenid"
+
+        />
+
+    <TextView
         android:id="@+id/texthostelName"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@id/ivhostel"
-        android:layout_toLeftOf="@+id/textPrice"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="hostel name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/RvtextColor" />
+
+
 
 
     <TextView
@@ -42,21 +71,19 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/textSize"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@id/texthostelName"
-        android:layout_toRightOf="@id/ivhostel"
-        android:layout_toEndOf="@id/ivhostel"
-        android:textColor="#666"/>
-
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/RvtextColor"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="sd"
         android:id="@+id/textType"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@id/textSize"
-        android:layout_toRightOf="@id/ivhostel"
-        android:textColor="#666"/>
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/textSize"
+        android:layout_toLeftOf="@+id/textPrice"
+        android:textColor="@color/RvtextColor"/>
 
 </RelativeLayout>

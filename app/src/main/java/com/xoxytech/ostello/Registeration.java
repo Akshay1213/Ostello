@@ -125,7 +125,7 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                                     loading.dismiss();
 
                                     //Starting a new activity
-                                    startActivity(new Intent(Registeration.this, Success.class));
+                                    startActivity(new Intent(Registeration.this, Autocompletesearch.class));
                                 }else{
                                     //Displaying a toast if the otp entered is wrong
                                     Toast.makeText(Registeration.this,"Wrong OTP Please Try Again",Toast.LENGTH_LONG).show();

@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,13 +55,13 @@ public class HostelDetails extends AppCompatActivity {
         id = bundle.getString("id");
 
         sliderShow = (SliderLayout) findViewById(R.id.slider);
-        TextSliderView textSliderView = new TextSliderView(this);
-        textSliderView
-                .description("Game of Thrones")
-                .image("http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+        for(int i=0;i<10;i++) {
+            TextSliderView textSliderView = new TextSliderView(this);
+            textSliderView.image("http://janaipackaging.com/ostello/images/"+i+".jpg");
 
-        sliderShow.addSlider(textSliderView);
-         textViewhostelName=(TextView)findViewById(R.id.textViewHostelname);
+            sliderShow.addSlider(textSliderView);
+        }
+        textViewhostelName=(TextView)findViewById(R.id.textViewHostelname);
         textViewcategory=(TextView)findViewById(R.id.textViewcategory);
         textViewType=(TextView)findViewById(R.id.textViewtype);
         textViewrate=(TextView)findViewById(R.id.textViewrate);
@@ -168,19 +170,28 @@ Log.d("*****************",result);
                 // Extract data from json and store into ArrayList as class objects
                 for(int i=0;i<jArray.length();i++) {
                     JSONObject json_data=jArray.getJSONObject(i);
-                    textViewhostelName.setText("hostelname : " + json_data.getString("hostelname"));
-                    textViewcategory.setText("category : " + json_data.getString("category"));
-                    textViewType.setText("Type : " + json_data.getString("type"));
-                    textViewrate.setText("Rate : " + json_data.getString("rate"));
-                    textViewaddress.setText("Address : " + json_data.getString("address"));
-                    textViewcity.setText("City : " + json_data.getString("city"));
-                    textViewvacancies.setText("Vacancy : " + json_data.getString("vacancy"));
+                    textViewhostelName.setText(json_data.getString("hostelname"));
+                    String hostelname[]=textViewhostelName.getText().toString().split("_|\\ ");
+                    StringBuilder tmpstr=new StringBuilder();
+                    for(i=1;i<hostelname.length;i++)
+                    {
+                        tmpstr.append(" "+hostelname[i]);
+                    }
+                    String text = "<font color='red'>"+hostelname[0]+" "+"</font>"+tmpstr;
+                    textViewhostelName.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE);
+
+                    textViewcategory.setText( json_data.getString("category"));
+                    textViewType.setText(json_data.getString("type"));
+                    textViewrate.setText(json_data.getString("rate"));
+                    textViewaddress.setText(json_data.getString("address"));
+                    textViewcity.setText(json_data.getString("city"));
+                    textViewvacancies.setText(json_data.getString("vacancy"));
 //                    hostelData.HostelImage= "https://upload.wikimedia.org/wikipedia/commons/e/e8/Hostel_Dormitory.jpg";
 
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(HostelDetails.this,"zumka gira re"+ e.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(HostelDetails.this,"Error"+ e.toString(), Toast.LENGTH_LONG).show();
             }
 
         }

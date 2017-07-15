@@ -2,11 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.xoxytech.ostello.Registeration">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/registerationbackground"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true">
@@ -20,19 +20,25 @@
             android:paddingRight="24dp">
 
             <ImageView
-                android:background="@drawable/ic_menu_manage"
+                android:id="@+id/imageView2"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_marginBottom="0sp"
+                android:layout_weight="0"
+                android:src="@drawable/ostalologo"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:gravity="center"
+                android:layout_marginBottom="0dp">
                 <EditText android:id="@+id/editTextUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="250sp"
+                    android:layout_height="50sp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
                     android:inputType="textEmailAddress"
                     android:hint="username" />
             </android.support.design.widget.TextInputLayout>
@@ -51,13 +57,16 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:layout_marginBottom="0dp">
 
                 <EditText
                     android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="250sp"
+                    android:layout_height="50sp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -72,33 +81,50 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:layout_marginBottom="0dp">
                 <EditText android:id="@+id/editTextPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="250sp"
+                    android:layout_height="50sp"
+                    android:background="@drawable/round"
+
+                    android:gravity="center"
                     android:inputType="textEmailAddress"
                     android:hint="Phone" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/buttonRegister"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
+                android:background="@drawable/login_button_round"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
                 android:padding="12dp"
                 android:text="Register"/>
 
             <TextView android:id="@+id/linkSignup"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Already have an account? Login here"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="0sp"
+                android:background="@drawable/noaccountround"
                 android:gravity="center"
-                android:textSize="16dip"/>
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:text="@string/alreadyhaveanAccount"
+                />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="15sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25sp"
+                android:layout_weight="0"
+                android:src="@drawable/poweredby"/>
+
 
 
         </LinearLayout>

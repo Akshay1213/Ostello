@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ostello</string>
+    <string name="app_name">Ostallo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,7 +19,16 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="NoAccount">No account yet? Create one</string>
+
+    <string name="NoAccount">  Create an account <font fgcolor="#fc0000">It\'s free and always will be\   </font></string>
+    <string name="alreadyhaveanAccount">  Already have an account? <font fgcolor="#fc0000">Login here\  </font></string>
+    <string name="poweredby">Powered by<font fgcolor="#fc0000">XOXYTECH</font></string>
+
     <string name="title_activity_autocompletesearch">Autocompletesearch</string>
     <string name="title_activity_load_hostels">LoadHostels</string>
+    <string name="title_activity_main2">MySearchBar</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

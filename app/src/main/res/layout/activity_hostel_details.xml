@@ -1,71 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xoxytech.ostello.HostelDetails">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.xoxytech.ostello.HostelDetails"
+    android:background="@color/Activityback"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         />
-    <TextView
+
+    <TableLayout
+        android:id="@+id/tablehosteldetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hostel Name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/slider"
-        android:id="@+id/textViewHostelname"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Category"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewHostelname"
-        android:id="@+id/textViewcategory"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Type"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewcategory"
-        android:id="@+id/textViewtype"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="rate"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewtype"
-        android:id="@+id/textViewrate"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Vacancies"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewrate"
-        android:id="@+id/textViewvacancy"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="address"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewvacancy"
-        android:id="@+id/textViewaddress"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="city"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/textViewaddress"
-        android:id="@+id/textViewcity"/>
+        android:divider="?android:dividerVertical"
+
+        android:paddingLeft="10dp"
+
+        android:paddingRight="10dp"
+        android:showDividers="beginning|middle|end">
+
         <TextView
+            android:id="@+id/textViewHostelname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description:Hostels provide budget-oriented, sociable accommodation where guests can rent a bed, usually a bunk bed, in a dormitory and share a bathroom, lounge and sometimes a kitchen. Rooms can be mixed or single-sex, and private rooms may also be available."
-            android:layout_below="@+id/textViewcity"
-            android:id="@+id/textViewDescription"/>
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="Hostel Name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textViewcategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewHostelname"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="Category"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="#5e867b7b">
+
+            <TextView
+                android:layout_marginLeft="1dp"
+                android:padding="5dp"
+                android:text="Hostel Details"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginLeft="1dp"
+                android:background="#5eafb1c1"
+                android:padding="5dp"
+                android:layout_weight="0.1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:text="Type" />
+
+            <TextView
+                android:layout_weight="0.9"
+                android:id="@+id/textViewtype"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewcategory"
+                android:background="#52b3b5bf"
+                android:text="Type" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_weight="0.1"
+                android:layout_marginLeft="1dp"
+                android:background="#5eafb1c1"
+                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:text="Rate" />
+
+            <TextView
+                android:layout_weight="0.9"
+                android:id="@+id/textViewrate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewtype"
+                android:text="rate" />
+        </TableRow>
 
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginLeft="1dp"
+                android:background="#5eafb1c1"
+                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:layout_weight="0.1"
+                android:text="Vacancy" />
+
+            <TextView
+                android:layout_weight="0.9"
+                android:id="@+id/textViewvacancy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewrate"
+
+                android:background="#52b3b5bf"
+                android:text="Vacancies" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_weight="0.1"
+                android:layout_marginLeft="1dp"
+                android:background="#5eafb1c1"
+                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:text="Address" />
+
+            <TextView
+                android:layout_weight="0.9"
+                android:id="@+id/textViewaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/textViewvacancy"
+                android:text="address" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_weight="0.1"
+                android:layout_marginLeft="1dp"
+                android:background="#5eafb1c1"
+                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:text="City" />
+
+            <TextView
+                android:id="@+id/textViewcity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewaddress"
+                android:layout_weight="0.9"
+                android:background="#52b3b5bf"
+                android:text="city" />
+
+        </TableRow>
+
+
+    </TableLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:padding="10dp"
+        android:text="Description:Hostels provide budget-oriented, sociable accommodation where guests can rent a bed, usually a bunk bed, in a dormitory and share a bathroom, lounge and sometimes a kitchen. Rooms can be mixed or single-sex, and private rooms may also be available."
+        android:layout_below="@+id/tablehosteldetails"
+        android:id="@+id/textViewDescription"/>
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:rating="3.5"
+        android:stepSize="0.5"
+        android:numStars="5"
+        android:paddingTop="10dp"
+        android:paddingLeft="0dp"
+        android:layout_below="@+id/textViewDescription" />
 
 </RelativeLayout>
+</ScrollView>

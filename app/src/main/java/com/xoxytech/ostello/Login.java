@@ -1,7 +1,9 @@
 package com.xoxytech.ostello;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -79,7 +81,7 @@ login_button.setOnClickListener(this);
                         loading.dismiss();
                         Log.d("Zakmarya", response.toString());
                         try {
-                            Toast.makeText(Login.this, "atleast got response"+response, Toast.LENGTH_LONG).show();
+//                            Toast.makeText(Login.this, "atleast got response"+response, Toast.LENGTH_LONG).show();
                             Log.d("wtf",response);
                             //Creating the json object from the response
 //                            JSONObject jsonResponse = new JSONObject(response);
@@ -88,7 +90,11 @@ login_button.setOnClickListener(this);
                             //if(jsonResponse.getString(Config.TAG_RESPONSE).equalsIgnoreCase("Success")){
                             if(response.contains("success")){
                                 //Asking user to confirm otp
-                                startActivity(new Intent(Login.this,MainActivity.class));
+                                SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sp.edit();
+                                editor.putString("USER_NAME", username); //username the user has entered
+                                editor.commit();
+                                startActivity(new Intent(Login.this,Autocompletesearch.class));
                                 return;
 
                             }else{

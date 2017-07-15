@@ -1,41 +1,43 @@
-
-
-        package com.xoxytech.ostello;
-
-        import android.app.ProgressDialog;
-        import android.app.SearchManager;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.database.Cursor;
-        import android.database.MatrixCursor;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.provider.BaseColumns;
-        import android.support.design.widget.FloatingActionButton;
-        import android.support.design.widget.Snackbar;
-        import android.support.v4.widget.CursorAdapter;
-        import android.support.v4.widget.SimpleCursorAdapter;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.SearchView;
-        import android.support.v7.widget.Toolbar;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.Toast;
-
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.InputStreamReader;
-        import java.net.HttpURLConnection;
-        import java.net.MalformedURLException;
-        import java.net.URL;
-        import java.util.ArrayList;
+package com.xoxytech.ostello;
+import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.provider.BaseColumns;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.TextAppearanceSpan;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class Autocompletesearch extends AppCompatActivity {
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
@@ -56,9 +58,10 @@ public class Autocompletesearch extends AppCompatActivity {
         final int[] to = new int[] {android.R.id.text1};
 
         // setup SimpleCursorAdapter
-        myAdapter = new SimpleCursorAdapter(Autocompletesearch.this, android.R.layout.simple_spinner_dropdown_item, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        myAdapter = new SimpleCursorAdapter(Autocompletesearch.this, R.layout.simple_spinner_dropdown_item, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
         // Fetch data from mysql table using AsyncTask
+
         new AsyncFetch().execute();
     }
     @Override
@@ -73,6 +76,7 @@ public class Autocompletesearch extends AppCompatActivity {
         if (searchItem != null) {
             searchView = (SearchView) searchItem.getActionView();
         }
+
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(Autocompletesearch.this.getComponentName()));
             searchView.setIconified(false);
@@ -90,6 +94,7 @@ public class Autocompletesearch extends AppCompatActivity {
                     searchView.setQuery(cursor.getString(cursor.getColumnIndex("city")),false);
                   String city=cursor.getString(cursor.getColumnIndex("city")).trim();
                     Intent i = new Intent(Autocompletesearch.this, Loadhostels.class);
+
 
 //Create the bundle
                     Bundle bundle = new Bundle();
@@ -123,8 +128,20 @@ public class Autocompletesearch extends AppCompatActivity {
                     // Filter data
                     final MatrixCursor mc = new MatrixCursor(new String[]{ BaseColumns._ID, "city" });
                     for (int i=0; i<strArrData.length; i++) {
-                        if (strArrData[i].toLowerCase().startsWith(s.toLowerCase()))
-                            mc.addRow(new Object[] {i, strArrData[i]});
+                        if (strArrData[i].toLowerCase().contains(s.toLowerCase())) {
+                            String filter = s;
+                            String itemValue =strArrData[i];
+
+                            int startPos = itemValue.toLowerCase().indexOf(s);
+                            int endPos = startPos + s.length();
+
+//                            if (startPos != -1) // This should always be true, just a sanity check
+//                            {
+//
+//                            }
+//                            else
+                            mc.addRow(new Object[]{i, strArrData[i]});
+                        }
                     }
                     myAdapter.changeCursor(mc);
                     return false;
@@ -137,7 +154,7 @@ public class Autocompletesearch extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(Autocompletesearch.this,item.getTitle(),Toast.LENGTH_SHORT);
+//        Toast.makeText(Autocompletesearch.this,item.getTitle(),Toast.LENGTH_SHORT);
         return super.onOptionsItemSelected(item);
     }
 
@@ -158,7 +175,7 @@ public class Autocompletesearch extends AppCompatActivity {
     }
 
     // Create class AsyncFetch
-    private class AsyncFetch extends AsyncTask<String, String, String> {
+    public class AsyncFetch extends AsyncTask<String, String, String> {
 
         ProgressDialog pdLoading = new ProgressDialog(Autocompletesearch.this);
         HttpURLConnection conn;
@@ -246,6 +263,7 @@ public class Autocompletesearch extends AppCompatActivity {
             //this method will be running on UI thread
             ArrayList<String> dataList = new ArrayList<String>();
             pdLoading.dismiss();
+
 
 
             if(result.equals("no rows")) {

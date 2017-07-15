@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#ff0004</color>
-    <color name="colorPrimary">#c9dde7</color>
-    <color name="colorAccent">#f7246c</color>
-    <color name="white">#FFFFFF</color>
+    <color name="colorPrimaryDark">#fc0000</color>
+    <color name="colorPrimary">#ff4aa5</color>
+    <color name="colorAccent">#f11212</color>
+    <color name="white">#fdfdfd</color>
+    <color name="Activityback">#e9fcfcfc</color>
     <color name="black">#ff000000</color>
-    <color name="RvtextColor">#ffff1a</color>
+    <color name="RvtextColor">#e3ecef</color>
+    <color name="bg">#b9424242</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="primary_dark_material_light">#757575</color>
+
 </resources>

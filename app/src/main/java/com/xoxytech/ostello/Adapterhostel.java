@@ -58,10 +58,10 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         MyHolder myHolder= (MyHolder) holder;
         Datahostel current=data.get(position);
         myHolder.texthostelName.setText(current.HostelName);
-        myHolder.textSize.setText("Type: " + current.type);
-        myHolder.textType.setText("Category: " + current.catName);
-        myHolder.textPrice.setText("Rs. " + current.price + "/person");
-        myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
+        myHolder.textSize.setText(current.type);
+        myHolder.textType.setText( current.catName);
+        myHolder.textPrice.setText("Rs. " + current.price+"/-");
+        myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
 
         // load image into imageview using glide
@@ -70,12 +70,12 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 .error(R.drawable.ic_img_error)
                 .into(myHolder.ivhostel);
 
-        TextSliderView textSliderView = new TextSliderView(context);
-        textSliderView
-
-                .image("https://images.unsplash.com/photo-1462496591979-5ba58a2ddec6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=7973ca2b89e7907cb01759f4966e5189");
-
-        myHolder.sliderShow.addSlider(textSliderView);
+//        TextSliderView textSliderView = new TextSliderView(context);
+//        textSliderView
+//
+//                .image("https://images.unsplash.com/photo-1462496591979-5ba58a2ddec6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=7973ca2b89e7907cb01759f4966e5189");
+//
+//        myHolder.sliderShow.addSlider(textSliderView);
 
 
     }

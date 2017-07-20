@@ -21,44 +21,76 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_autocompletesearch" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
-
-    <ImageView
-        android:id="@+id/imageView4"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="200dp"
-        android:layout_height="177sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/toolbar"
-        app:srcCompat="@drawable/ostalologo" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
+                android:layout_marginTop="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
 
-    <!--<pl.droidsonroids.gif.GifTextView-->
-        <!--android:id="@+id/gifTextView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="218dp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:layout_marginBottom="0dp"-->
-        <!--android:background="@drawable/autocompletegif"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_weight="0.63" />-->
+                />
+           <RelativeLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/view1"
+                   android:layout_width="150dp"
+                   android:layout_height="250dp"
+                   android:background="@drawable/offerimg1"
+                   android:textStyle="bold|italic"
+                   android:gravity="center_horizontal|center_vertical"
+                   android:singleLine="false"
+                   android:textSize="30dp"
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="15sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150sp"
-        android:layout_weight="0"
-        android:src="@drawable/poweredby"/>
+                   android:textColor="@color/white"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginTop="20dp">
 
+               </TextView>
+               <TextView
+                   android:id="@+id/view2"
+                   android:layout_width="150dp"
+                   android:layout_height="250dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_alignTop="@+id/view1"
+                   android:textStyle="bold|italic"
+                   android:background="@drawable/offerimg2"
+                   android:gravity="center_horizontal|center_vertical"
+                   android:singleLine="false"
+                   android:textSize="30dp"
+                   android:layout_alignParentEnd="true">
+               </TextView>
 
-</LinearLayout>
+           </RelativeLayout>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/toolbar"
+                app:srcCompat="@drawable/coupon2" />
 
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/toolbar"
+                app:srcCompat="@drawable/coupon1" />
+        </LinearLayout>
+    </ScrollView>
 
     <!--android:paddingTop="10dp"-->
 </RelativeLayout>

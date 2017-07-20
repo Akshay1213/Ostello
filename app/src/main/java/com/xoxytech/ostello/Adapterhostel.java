@@ -35,7 +35,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     Datahostel current;
     int currentPos=0;
 
-    // create constructor to innitilize context and data sent from MainActivity
+    // create constructor to innitilize context and data sent frm MainActivity
     public Adapterhostel(Context context, List<Datahostel> data){
         this.context=context;
         inflater= LayoutInflater.from(context);

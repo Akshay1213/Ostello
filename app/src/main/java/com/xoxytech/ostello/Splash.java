@@ -9,15 +9,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 2000;
+    private static int SPLASH_TIME_OUT = 3000;
     private ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         iv=(ImageView)findViewById(R.id.imageView4);
-        final Animation animation_3 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.abc_fade_out);
-        iv.startAnimation(animation_3);
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.move_up);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        iv.setAnimation(anim);
 
         new Handler().postDelayed(new Runnable() {
 

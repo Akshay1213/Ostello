@@ -26,7 +26,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +51,7 @@ public class Autocompletesearch extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
     private SimpleCursorAdapter myAdapter;
+    SliderLayout sliderShow;
 
     SearchView searchView = null;
     private String[] strArrData = {"No Suggestions"};
@@ -59,9 +67,14 @@ public class Autocompletesearch extends AppCompatActivity {
 
         // setup SimpleCursorAdapter
         myAdapter = new SimpleCursorAdapter(Autocompletesearch.this, R.layout.simple_spinner_dropdown_item, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        sliderShow = (SliderLayout) findViewById(R.id.slider);
+        for(int i=1;i<=4;i++) {
+            TextSliderView textSliderView = new TextSliderView(this);
+            textSliderView.image("http://janaipackaging.com/ostello/images1/"+i+".jpg");
 
+            sliderShow.addSlider(textSliderView);
+        }
         // Fetch data from mysql table using AsyncTask
-
         new AsyncFetch().execute();
     }
     @Override
@@ -295,4 +308,14 @@ public class Autocompletesearch extends AppCompatActivity {
         }
 
     }
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,5 +1,7 @@
 package com.xoxytech.ostello;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.AlertDialog;
@@ -123,9 +125,12 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                                 if(response.contains("success")){
                                     //dismissing the progressbar
                                     loading.dismiss();
-
+                                    SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sp.edit();
+                                    editor.putString("USER_NAME", username); //username the user has entered
+                                    editor.commit();
                                     //Starting a new activity
-                                    startActivity(new Intent(Registeration.this, Autocompletesearch.class));
+                                    startActivity(new Intent(Registeration.this, MainActivity.class));
                                 }else{
                                     //Displaying a toast if the otp entered is wrong
                                     Toast.makeText(Registeration.this,"Wrong OTP Please Try Again",Toast.LENGTH_LONG).show();

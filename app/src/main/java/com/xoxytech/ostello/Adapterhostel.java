@@ -61,7 +61,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textSize.setText(current.type);
         myHolder.textType.setText( current.catName);
         myHolder.textPrice.setText("Rs. " + current.price+"/-");
-        myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
+       // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
 
         // load image into imageview using glide

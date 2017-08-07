@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Activityback"
+    android:background="#c7c9ce"
     tools:context="com.xoxytech.ostello.Loadhostels">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -27,8 +27,8 @@
         android:id="@+id/hostelList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10dp"
-        android:layout_weight="1"
+        android:paddingTop="0dp"
+        android:layout_weight="0"
         />
     <!--<android.support.v7.widget.AppCompatButton-->
         <!--android:id="@+id/btn_login"-->

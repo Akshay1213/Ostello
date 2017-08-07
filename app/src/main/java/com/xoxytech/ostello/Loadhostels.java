@@ -315,12 +315,13 @@ public class Loadhostels extends AppCompatActivity {
                 for(int i=0;i<jArray.length();i++){
                     JSONObject json_data = jArray.getJSONObject(i);
                     Datahostel hostelData = new Datahostel();
-                    hostelData.HostelImage= "http://janaipackaging.com/ostello/images/"+json_data.getString("id")+".jpg";
+                    hostelData.HostelImage= "http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg";
+                    Log.d("******->","http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg");
                     hostelData.HostelName= json_data.getString("hostelname");
                     hostelData.catName= json_data.getString("category");
                     hostelData.type= json_data.getString("type");
                     hostelData.price= json_data.getInt("rate");
-                    hostelData.id=json_data.getString("id");
+                    hostelData.id=json_data.getString("hostel_id");
                     data.add(hostelData);
                 }
 

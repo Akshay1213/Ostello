@@ -4,7 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -22,6 +26,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
@@ -44,8 +50,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
-    private String mLastQuery,TAG;
+    private String mLastQuery="Search...",TAG;
     private View mDimSearchViewBackground;
+    private static long back_pressed;
+    private Toast toast;
     DrawerLayout drawer;
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
@@ -60,6 +68,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+        String username= sp.getString("USER_NAME",null);
+        Log.d("*********",username);
 
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
 
@@ -67,17 +78,22 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Contact Us", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         mSearchView.attachNavigationDrawerToMenuButton(drawer);
-
+        mSearchView.setDismissOnOutsideClick(true);
+        mSearchView.setDismissOnOutsideClick(true);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView =  navigationView.getHeaderView(0);
+        TextView userview=( TextView)hView.findViewById(R.id.Usernamenav);
+        userview.setText(username);
         navigationView.setNavigationItemSelectedListener(this);
 
         cities=new ArrayList<>();
@@ -99,11 +115,24 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onSearchTextChanged(String oldQuery, final String newQuery) {
                 mSearchView.showProgress();
+                List<CitySuggetions> filteredcities=new ArrayList<>();
+
+                for (CitySuggetions i:cities) {
+                    Log.d("**********",String.valueOf(i.getBody().contains(newQuery))+"******"+newQuery);
+                    if(i.getBody().toLowerCase().contains(newQuery.toLowerCase() )){
+                        filteredcities.add(i);
+                        Log.d("**********",i.getBody());
+                    }
+
+                }
+                mSearchView.swapSuggestions(filteredcities);
+
                 mSearchView.hideProgress();
             }
 
 
         });
+
         mSearchView.setOnSearchListener(new FloatingSearchView.OnSearchListener() {
             @Override
             public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
@@ -126,11 +155,11 @@ public class MainActivity extends AppCompatActivity
 //Add the bundle to the intent
                 i.putExtras(bundle);
 
+                ActivityOptions options=ActivityOptions.makeScaleUpAnimation(mSearchView.getRootView(),0,0,280,280);
 //Fire that second activity
-                startActivity(i);
-
-
+                startActivity(i,options.toBundle());
                 mSearchView.setSearchBarTitle(mLastQuery);
+                mSearchView.clearSearchFocus();
             }
 
             @Override
@@ -182,6 +211,7 @@ public class MainActivity extends AppCompatActivity
         mSearchView.setOnMenuItemClickListener(new FloatingSearchView.OnMenuItemClickListener() {
             @Override
             public void onActionMenuItemSelected(MenuItem item) {
+                Log.d("************",item.getTitle().toString());
 
             }
         });
@@ -192,8 +222,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-    void onAttachSearchViewToDrawer(FloatingSearchView searchView)
-    {
+    void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
         searchView.attachNavigationDrawerToMenuButton(drawer);
     }
     @Override
@@ -201,18 +230,37 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        }else if (!mSearchView.setSearchFocused(false)) {
+
         }
+        if (back_pressed + 2000 > System.currentTimeMillis())
+        {
+            // need to cancel the toast here
+            toast.cancel();
+            // code for exit
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
+        }
+        else
+        {
+            // ask user to press back button one more time to close app
+            toast=  Toast.makeText(getBaseContext(), "Press once again to exit!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        back_pressed = System.currentTimeMillis();
+
+
     }
+
     public boolean onActivityBackPress() {
         //if mSearchView.setSearchFocused(false) causes the focused search
         //to close, then we don't want to close the activity. if mSearchView.setSearchFocused(false)
         //returns false, we know that the search was already closed so the call didn't change the focus
         //state and it makes sense to call supper onBackPressed() and close the activity
-        if (!mSearchView.setSearchFocused(false)) {
-            return false;
-        }
+
         return true;
     }
     @Override
@@ -228,6 +276,8 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        mSearchView.setSearchBarTitle(cities.get(id).getBody());
+        mSearchView.clearSearchFocus();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -360,7 +410,7 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(String result) {
 
             //this method will be running on UI thread
-            List<CitySuggetions> cities=new ArrayList<>();
+            cities=new ArrayList<>();
             if(result.equals("no rows")) {
 
                 // Do some action if no data from database

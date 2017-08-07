@@ -29,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +46,30 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+
+        try
+        {
+            File f = new File(
+                    "/data/data/com.xoxytech.ostello/shared_prefs/YourSharedPreference.xml");
+            if (f.exists()) {
+                Log.d("TAG", "SharedPreferences Name_of_your_preference : exist");
+                SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                String username= sp.getString("USER_NAME",null);
+                Toast.makeText(Login.this,"Logged in using "+username,Toast.LENGTH_LONG);
+                if(username!=null)
+                    startActivity(new Intent(Login.this, MainActivity.class));
+            }
+            else
+                Log.d("TAG", "Setup default preferences");
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+
+
         textView_NotRegistered=(TextView)findViewById(R.id.link_signup);
         editTextUsername=(EditText)findViewById(R.id.input_username);
         editTextPassword=(EditText)findViewById(R.id.input_password);
@@ -58,7 +83,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
             }
         });
 login_button.setOnClickListener(this);
-
+        }
     }
 
     void verify()
@@ -94,7 +119,7 @@ login_button.setOnClickListener(this);
                                 SharedPreferences.Editor editor = sp.edit();
                                 editor.putString("USER_NAME", username); //username the user has entered
                                 editor.commit();
-                                startActivity(new Intent(Login.this,Autocompletesearch.class));
+                                startActivity(new Intent(Login.this, MainActivity.class));
                                 return;
 
                             }else{

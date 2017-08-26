@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
 
+
         try
         {
             File f = new File(
@@ -85,6 +86,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 login_button.setOnClickListener(this);
         }
     }
+
 
     void verify()
     {
@@ -137,7 +139,7 @@ login_button.setOnClickListener(this);
                         if(error==null|| error.networkResponse == null)
                             return;
 
-                        Toast.makeText(Login.this, error.getMessage(),Toast.LENGTH_LONG).show();
+//                        Toast.makeText(Login.this, error.getMessage(),Toast.LENGTH_LONG).show();
                         String body;
                         //get status code here
                         final String statusCode = String.valueOf(error.networkResponse.statusCode);
@@ -159,13 +161,7 @@ login_button.setOnClickListener(this);
                         } else if (error instanceof ParseError) {
                             Log.e("Volley", "ParseError");
                         }
-                        try {
 
-                            body = new String(error.networkResponse.data,"UTF-8");
-                            Toast.makeText(Login.this, body,Toast.LENGTH_LONG).show();
-                        } catch (UnsupportedEncodingException e) {
-                            // exception
-                        }
                     }
                 }) {
             @Override

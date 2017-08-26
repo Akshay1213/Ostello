@@ -31,10 +31,11 @@ dependencies {
 
     //for splash
     //for ripple effect
-    compile 'com.miguelcatalan:materialsearchview:1.4.0'
     //for Floating search bar
     //for fonts
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    //FOR SEEKBAR
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
@@ -56,6 +57,7 @@ dependencies {
     compile 'com.github.arimorty:floatingsearchview:2.1.1'
     compile 'com.vstechlab.easyfonts:easyfonts:1.0.0'
     compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.crystal:crystalrangeseekbar:1.1.1'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

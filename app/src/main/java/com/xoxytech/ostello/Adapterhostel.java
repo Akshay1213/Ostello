@@ -5,12 +5,15 @@ package com.xoxytech.ostello;
  */
 
 
+import android.app.Application;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
@@ -24,11 +27,12 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private Context context;
     private LayoutInflater inflater;
-
+    private int prevpos;
     @Override
     public void onClick(View v) {
 
     }
+
 
     List<Datahostel> data= Collections.emptyList();
 
@@ -40,6 +44,18 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.data=data;
+    }
+
+    @Override
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+       int position= holder.getPosition();
+        if(position>=prevpos) {
+            AnimationUtil.animate(holder,true);
+        }
+        else {
+            AnimationUtil.animate(holder,false);
+        }
     }
 
     // Inflate the layout when viewholder created
@@ -63,11 +79,11 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textPrice.setText("Rs. " + current.price+"/-");
        // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
-
+        Log.d("imageurl",current.HostelImage);
         // load image into imageview using glide
         Glide.with(context).load(current.HostelImage)
-                .placeholder(R.drawable.ic_img_error)
-                .error(R.drawable.ic_img_error)
+                .placeholder(R.drawable.sorryimagenotavailable)
+                .error(R.drawable.sorryimagenotavailable)
                 .into(myHolder.ivhostel);
 
 //        TextSliderView textSliderView = new TextSliderView(context);
@@ -77,7 +93,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 //
 //        myHolder.sliderShow.addSlider(textSliderView);
 
-
+prevpos=position;
     }
 
     // return total item from List

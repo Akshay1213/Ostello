@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#c7c9ce"
+    android:focusableInTouchMode="true"
     tools:context="com.xoxytech.ostello.Loadhostels">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

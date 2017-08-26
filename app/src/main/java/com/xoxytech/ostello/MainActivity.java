@@ -1,5 +1,6 @@
 package com.xoxytech.ostello;
 
+// TODO: 22/8/17
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -7,6 +8,7 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -14,9 +16,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +30,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,25 +54,29 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FloatingSearchView mSearchView;
+    private static final int SELECT_PICTURE = 1;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
     private View mDimSearchViewBackground;
     private static long back_pressed;
+    private ImageView profile;
     private Toast toast;
+    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
     DrawerLayout drawer;
-    public static final int CONNECTION_TIMEOUT = 10000;
-    public static final int READ_TIMEOUT = 15000;
+        public static final int CONNECTION_TIMEOUT = 10000;
+        public static final int READ_TIMEOUT = 15000;
 
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
     private static final long ANIM_DURATION = 350;
 
-    private List<CitySuggetions> cities;
+    public static List<CitySuggetions> cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(MainActivity.this," Welcome to ostallo",Toast.LENGTH_SHORT);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
         String username= sp.getString("USER_NAME",null);
         Log.d("*********",username);
@@ -78,8 +87,11 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Contact Us", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                ActivityOptions options=ActivityOptions.makeCustomAnimation(MainActivity.this,R.anim.filteropenanim,R.anim.filteropenanim);
+                startActivity(new Intent(MainActivity.this,Contactus.class),options.toBundle());
+
+//                Snackbar.make(view, "Contact Us", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 
@@ -94,6 +106,7 @@ public class MainActivity extends AppCompatActivity
         View hView =  navigationView.getHeaderView(0);
         TextView userview=( TextView)hView.findViewById(R.id.Usernamenav);
         userview.setText(username);
+        LoadprofileImage(hView);
         navigationView.setNavigationItemSelectedListener(this);
 
         cities=new ArrayList<>();
@@ -143,7 +156,7 @@ public class MainActivity extends AppCompatActivity
                 mLastQuery = searchSuggestion.getBody();
                 /////////////////Broooooooooooo here we can launch new activity///////////////////////////////
 
-                Intent i = new Intent(MainActivity.this, Loadhostels.class);
+                Intent i = new Intent(MainActivity.this, NewMenu.class);
 
 
 //Create the bundle
@@ -157,9 +170,12 @@ public class MainActivity extends AppCompatActivity
 
                 ActivityOptions options=ActivityOptions.makeScaleUpAnimation(mSearchView.getRootView(),0,0,280,280);
 //Fire that second activity
-                startActivity(i,options.toBundle());
-                mSearchView.setSearchBarTitle(mLastQuery);
-                mSearchView.clearSearchFocus();
+                if(!mLastQuery.contains("No result found")) {
+                    startActivity(i, options.toBundle());
+                    mSearchView.setSearchBarTitle(mLastQuery);
+                    mSearchView.clearSearchFocus();
+                }
+
             }
 
             @Override
@@ -168,9 +184,12 @@ public class MainActivity extends AppCompatActivity
                 for (CitySuggetions i:cities) {
                     if(i.getBody().contains(currentQuery)){
                         filteredcities.add(i);
+
                     }
 
                 }
+                if(filteredcities.size()<1)
+                    filteredcities.add(new CitySuggetions("No result found"));
                 mSearchView.swapSuggestions(filteredcities);
             }
         });
@@ -212,6 +231,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onActionMenuItemSelected(MenuItem item) {
                 Log.d("************",item.getTitle().toString());
+                //// TODO: 21/8/17  can implement location menu item
+
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                        "Search for place or area");
+                startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+
 
             }
         });
@@ -222,6 +250,10 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+
+
+    //////////////////////////////////
     void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
         searchView.attachNavigationDrawerToMenuButton(drawer);
     }
@@ -263,6 +295,17 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
+            ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            mSearchView.setSearchBarTitle(matches.get(0).toString());
+
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -295,7 +338,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("USER_NAME", null); //username the user has entered
+            editor.commit();
+            startActivity(new Intent(MainActivity.this,Login.class));
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -303,8 +350,19 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Hey check out my app at: https://play.google.com/store/apps/details?id=com.raunak.motivation365&hl=en");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
 
         } else if (id == R.id.nav_send) {
+
+//            ActivityOptions options=ActivityOptions.makeScaleUpAnimation(getWindow().getDecorView().getRootView(),0,0,100,100);
+            startActivity(new Intent(MainActivity.this,Aboutus.class));
+
+
 
         }
 
@@ -438,5 +496,9 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+    }
+    protected void LoadprofileImage(View View)
+    {
+        
     }
 }

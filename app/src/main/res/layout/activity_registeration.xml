@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
+    android:id="@+id/registerlayout"
     android:layout_height="fill_parent"
+    android:focusableInTouchMode="true"
     tools:context="com.xoxytech.ostello.Registeration">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:background="@drawable/registerationbackground"
@@ -88,9 +90,8 @@
                     android:layout_width="250sp"
                     android:layout_height="50sp"
                     android:background="@drawable/round"
-
                     android:gravity="center"
-                    android:inputType="textEmailAddress"
+                    android:inputType="phone"
                     android:hint="Phone" />
             </android.support.design.widget.TextInputLayout>
 
@@ -98,12 +99,15 @@
                 android:id="@+id/buttonRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/login_button_round"
+                android:background="@drawable/regiterround"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp"
-                android:padding="12dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
                 android:text="Register"/>
 
             <TextView android:id="@+id/linkSignup"

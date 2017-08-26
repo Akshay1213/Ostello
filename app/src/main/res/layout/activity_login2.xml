@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/myLoginLayout"
-    android:background="@drawable/registerationbackground"
+    android:background="@drawable/login_background"
+    android:focusableInTouchMode="true"
     android:scaleType = "centerCrop"
     tools:context="com.xoxytech.ostello.Login">
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -69,15 +71,8 @@
                     android:inputType="textPassword"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </android.support.design.widget.TextInputLayout>
-<!--for ripple-->
-             <com.andexert.library.RippleView
-                android:id="@+id/more"
-                rv_centered="true"
-                android:layout_width="200dp"
-                android:layout_gravity="center"
-                android:layout_height="40dp"
-                android:layout_marginBottom="24sp"
-                android:layout_marginTop="24sp">
+
+
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_login"
@@ -88,8 +83,10 @@
                     android:background="@drawable/login_button_round"
                     android:gravity="center"
                     android:text="Login"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:textColor="@color/white" />
-            </com.andexert.library.RippleView>
+
 
             <TextView android:id="@+id/link_signup"
                 android:layout_width="match_parent"

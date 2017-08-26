@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xoxytech.ostello.Aboutus">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="203dp"
+            android:foregroundGravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/aboutusback"
+            android:src="@drawable/ostalologo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/version"
+            />
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="@string/loremipsum"
+                android:layout_margin="15dp"
+                android:textSize="15dp"
+                />
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp">
+
+        </android.support.v7.widget.CardView>
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="15sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25sp"
+            android:layout_weight="0"
+            android:src="@drawable/poweredby"/>
+
+    </LinearLayout>
+
+</ScrollView>

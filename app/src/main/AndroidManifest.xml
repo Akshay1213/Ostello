@@ -148,8 +148,13 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".Aboutus" android:theme="@style/AppThemeforaboutus">
-
+        <activity
+            android:name=".Aboutus"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".Registerhostel">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
     </application>
 

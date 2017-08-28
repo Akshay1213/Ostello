@@ -5,45 +5,39 @@ package com.xoxytech.ostello;
  */
 
 
-import android.app.Application;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 import java.util.Collections;
 import java.util.List;
 
 public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener{
 
+    List<Datahostel> data= Collections.emptyList();
+    Datahostel current;
+    int currentPos=0;
     private Context context;
     private LayoutInflater inflater;
     private int prevpos;
-    @Override
-    public void onClick(View v) {
-
-    }
-
-
-    List<Datahostel> data= Collections.emptyList();
-
-    Datahostel current;
-    int currentPos=0;
-
     // create constructor to innitilize context and data sent frm MainActivity
     public Adapterhostel(Context context, List<Datahostel> data){
         this.context=context;
         inflater= LayoutInflater.from(context);
         this.data=data;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     @Override
@@ -79,6 +73,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textPrice.setText("Rs. " + current.price+"/-");
        // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
+        myHolder.hiddenfacility.setText(current.facility);
         Log.d("imageurl",current.HostelImage);
         // load image into imageview using glide
         Glide.with(context).load(current.HostelImage)
@@ -110,7 +105,7 @@ prevpos=position;
         TextView textSize;
         TextView textType;
         TextView textPrice;
-        TextView hiddenid;
+        TextView hiddenid, hiddenfacility;
         SliderLayout sliderShow;
 
         // create constructor to get widget reference
@@ -123,6 +118,7 @@ prevpos=position;
             textPrice = (TextView) itemView.findViewById(R.id.textPrice);
             sliderShow=(SliderLayout)itemView.findViewById(R.id.slider);
             hiddenid=(TextView)itemView.findViewById(R.id.hiddenid);
+            hiddenfacility = (TextView) itemView.findViewById(R.id.hiddenfacility);
         }
 
     }

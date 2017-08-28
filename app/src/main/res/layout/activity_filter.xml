@@ -1,61 +1,506 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context="com.xoxytech.ostello.Filter">
-    <android.support.v7.widget.CardView
-        android:id="@+id/filterhosteltype"
+    <!--<android.support.v7.widget.CardView-->
+    <!--android:id="@+id/filterhosteltype"-->
+    <!--android:layout_width="match_parent"-->
+    <!--app:cardElevation="20dp"-->
+    <!--android:elevation="10dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_height="50dp">-->
+    <!--</android.support.v7.widget.CardView>-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        app:cardElevation="20dp"
-        android:elevation="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="50dp">
-        <LinearLayout
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/layouttitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/txttilte"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="Filter"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/layouttype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layouttitle"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:text="Gender"
+                    android:textSize="20dp" />
             <ToggleButton
                 android:id="@+id/toggleboys"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/filter"
-                android:background="@drawable/toggleboys"
-                android:text="BOYS"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/boy"
                 android:textOff=""
-                android:textOn="" />
-            <ToggleButton
+                android:textOn=""
+
+                />
+
+                <TextView
+                    android:id="@+id/txtBoys"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleboys"
+                    android:layout_below="@+id/toggleboys"
+                    android:text="Boys"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <ToggleButton
                 android:id="@+id/togglegirls"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/filter"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_toRightOf="@+id/toggleboys"
+                    android:background="@drawable/girl"
+                    android:textOff=""
+                    android:textOn=""
 
-                android:background="@drawable/togglegirls"
-                android:text="wifi"
+                    />
+
+                <TextView
+
+                    android:id="@+id/txtGirls"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/togglegirls"
+                    android:layout_below="@+id/togglegirls"
+                    android:text="Girls"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/togglecoed"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_toRightOf="@+id/togglegirls"
+                    android:background="@drawable/coed"
                 android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtCoed"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/togglecoed"
+                    android:layout_below="@+id/togglecoed"
+                    android:text="Co-ed"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/layoutfacility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/layouttype"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:text="Facility"
+                    android:textSize="20dp" />
+
+
+                <ToggleButton
+                    android:id="@+id/toggleElevator"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/togglelift"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtElevator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/toggleElevator"
+                    android:layout_below="@+id/toggleElevator"
+                    android:text="Elevator"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/toggleDrinkingwater"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignTop="@+id/toggleElevator"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/toggleElevator"
+                    android:background="@drawable/drinking_water"
+                    android:textOff=""
                 android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtDrinkingwater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/toggleDrinkingwater"
+                    android:layout_below="@+id/toggleDrinkingwater"
+                    android:text="Drinking Water"
+                    android:textAlignment="center">
+
+                </TextView>
             <ToggleButton
-                android:id="@+id/togglecoed"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/filter"
-                android:background="@drawable/togglecoed"
-                android:text="wifi"
+                android:id="@+id/toggleCot"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/toggleDrinkingwater"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/cot"
                 android:textOff=""
                 android:textOn="" />
-        </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtCot"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleCot"
+                    android:layout_below="@+id/toggleCot"
+                    android:layout_marginRight="30dp"
+                    android:text="Cot"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/togglecctv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleElevator"
+                    android:layout_below="@+id/toggleElevator"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/cctv"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtcctv"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/togglecctv"
+                    android:layout_below="@+id/togglecctv"
+                    android:text="CCTV">
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/toggleAc"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleDrinkingwater"
+                    android:layout_alignTop="@+id/togglecctv"
+                    android:background="@drawable/ac"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtAc"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleAc"
+                    android:layout_below="@+id/toggleAc"
+                    android:text="AC"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/toggleElectricity"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleCot"
+                    android:layout_alignTop="@+id/toggleAc"
+                    android:background="@drawable/electricity"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtElectricity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleElectricity"
+                    android:layout_below="@+id/toggleElectricity"
+                    android:text="Electricity"
+                    android:textAlignment="center" />
+
+                <ToggleButton
+                    android:id="@+id/toggleGym"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/togglecctv"
+                    android:layout_below="@+id/togglecctv"
+                    android:layout_marginTop="37dp"
+                    android:background="@drawable/gym"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtGym"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleGym"
+                    android:layout_below="@+id/toggleGym"
+                    android:text="Gym"
+                    android:textAlignment="center" />
 
 
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+                <ToggleButton
+                    android:id="@+id/toggleHotwater"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleAc"
+                    android:layout_alignTop="@+id/toggleGym"
+                    android:background="@drawable/hot_water"
+                    android:textOff=""
+                    android:textOn="" />
+                />
+
+                <TextView
+                    android:id="@+id/txtHotwater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleHotwater"
+                    android:layout_below="@+id/toggleHotwater"
+                    android:text="Hot Water"
+                    android:textAlignment="center" />
+
+                <ToggleButton
+                    android:id="@+id/toggleTV"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignBottom="@+id/toggleHotwater"
+                    android:layout_alignStart="@+id/toggleElectricity"
+                    android:background="@drawable/tv"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtTV"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleTV"
+                    android:layout_below="@+id/toggleTV"
+                    android:text="TV"
+                    android:textAlignment="center" />
+
+                <ToggleButton
+                    android:id="@+id/toggleCleaning"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleGym"
+                    android:layout_below="@+id/toggleGym"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/cleaning"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtCleaning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleCleaning"
+                    android:layout_below="@+id/toggleCleaning"
+                    android:text="Cleaning"
+                    android:textAlignment="center" />
+
+                <ToggleButton
+                    android:id="@+id/toggleParking"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignTop="@+id/toggleCleaning"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/toggleCleaning"
+                    android:background="@drawable/parking"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/txtparking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleParking"
+                    android:layout_below="@+id/toggleParking"
+                    android:text="Parking"
+                    android:textAlignment="center"
+
+                    />
+
+                <ToggleButton
+                    android:id="@+id/toggleWashingmachine"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignEnd="@+id/toggleTV"
+                    android:layout_alignStart="@+id/toggleTV"
+                    android:layout_alignTop="@+id/toggleParking"
+                    android:background="@drawable/washingmachine"
+                    android:textOff=""
+                    android:textOn="" />
+
+
+                <TextView
+                    android:id="@+id/txtWashingmachine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/toggleTV"
+                    android:layout_below="@+id/toggleWashingmachine"
+                    android:layout_marginRight="35dp"
+                    android:text="Washing Machine"
+                    android:textAlignment="center" />
+
+                <ToggleButton
+                    android:id="@+id/toggleMess"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleCleaning"
+                    android:layout_below="@+id/toggleCleaning"
+                    android:layout_marginTop="48dp"
+                    android:background="@drawable/mess"
+                    android:textOff=""
+                    android:textOn="">
+
+                </ToggleButton>
+
+                <TextView
+                    android:id="@+id/txtMess"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignStart="@+id/toggleMess"
+                    android:layout_below="@+id/toggleMess"
+                    android:text="Mess"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/layoutseekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/layoutfacility"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    android:id="@+id/rangeSeekbar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="80dp"
+                    app:bar_color="#797979"
+                    app:bar_highlight_color="#bcfc0000"
+                    app:corner_radius="10"
+                    app:data_type="_integer"
+                    app:left_thumb_color="#bcfc0000"
+                    app:left_thumb_color_pressed="#bcfc0000"
+                    app:max_value="20000"
+                    app:min_value="0"
+                    app:right_thumb_color="#bcfc0000"
+                    app:right_thumb_color_pressed="#bcfc0000"
+                    app:steps="500" />
+
+                <TextView
+                    android:id="@+id/txtmin"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBaseline="@+id/txtmax"
+                    android:layout_alignBottom="@+id/txtmax"
+                    android:layout_alignStart="@+id/rangeSeekbar3"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/txtmax"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@+id/rangeSeekbar3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginTop="100dp"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:paddingLeft="25dp"
+                    android:text="Price"
+                    android:textAlignment="center"
+                    android:textSize="25dp" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutseekbar"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Apply Filter"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,34 +1,21 @@
 package com.xoxytech.ostello;
+
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.MatrixCursor;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.BaseColumns;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.TextAppearanceSpan;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -37,6 +24,7 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,10 +38,9 @@ public class Autocompletesearch extends AppCompatActivity {
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
-    private SimpleCursorAdapter myAdapter;
     SliderLayout sliderShow;
-
     SearchView searchView = null;
+    private SimpleCursorAdapter myAdapter;
     private String[] strArrData = {"No Suggestions"};
 
     @Override
@@ -70,7 +57,7 @@ public class Autocompletesearch extends AppCompatActivity {
         sliderShow = (SliderLayout) findViewById(R.id.slider);
         for(int i=1;i<=4;i++) {
             TextSliderView textSliderView = new TextSliderView(this);
-            textSliderView.image("http://janaipackaging.com/ostello/images1/"+i+".jpg");
+            textSliderView.image("http://ostallo.com/ostello/images1/" + i + ".jpg");
 
             sliderShow.addSlider(textSliderView);
         }

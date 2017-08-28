@@ -140,7 +140,7 @@
         </activity>
         <activity
             android:name=".Filter"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MAIN" />

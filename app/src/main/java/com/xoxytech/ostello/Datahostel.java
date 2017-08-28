@@ -13,5 +13,6 @@ public class Datahostel {
         public String type;
         public int price;
         public String id;
+        public String facility;
     
 }

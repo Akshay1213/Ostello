@@ -1,17 +1,17 @@
 package com.xoxytech.ostello;
 
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,9 +23,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,12 +44,12 @@ public class Loadhostels extends AppCompatActivity {
     // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
     public static final int CONNECTION_TIMEOUT = 50000;
     public static final int READ_TIMEOUT = 25000;
+    SearchView searchView = null;
+    String city;
     private RecyclerView mRVhostelList;
     private SimpleCursorAdapter myAdapter;
     private Adapterhostel mAdapter;
-    SearchView searchView = null;
     private String[] strArrData = {"No Suggestions"};
-    String city;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -315,6 +317,12 @@ public class Loadhostels extends AppCompatActivity {
                 for(int i=0;i<jArray.length();i++){
                     JSONObject json_data = jArray.getJSONObject(i);
                     Datahostel hostelData = new Datahostel();
+
+                    if (json_data.getInt("verified") == 0) {
+                        Log.d("******", "Bro seriosly i havent adedd");
+                        continue;
+                    }
+                    Log.d("******", "Bro seriosly i have adedd");
                     hostelData.HostelImage= "http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg";
                     Log.d("******->","http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg");
                     hostelData.HostelName= json_data.getString("hostelname");

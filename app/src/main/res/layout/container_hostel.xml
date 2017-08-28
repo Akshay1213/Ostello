@@ -3,30 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:orientation="horizontal"
-    android:elevation="1dp"
-    android:divider="@android:color/transparent"
-    android:dividerHeight="2.0px"
-    android:clipToPadding="false"
-    android:clipChildren="false"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardElevation="10dp"
-    android:layout_marginTop="0dp"
+    android:layout_marginBottom="10dp"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
+    android:layout_marginTop="0dp"
+    android:clickable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="2.0px"
+    android:elevation="1dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingTop="0dp"
     app:cardCornerRadius="5dp"
-    android:layout_marginBottom="10dp"
-    app:cardPreventCornerOverlap="true"
-    android:paddingTop="0dp">
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="true">
 
         <ImageView
             android:id="@+id/ivhostel"
             android:layout_width="match_parent"
             android:layout_height="230dp"
+            android:layout_below="@+id/texthostelName"
             android:layout_marginTop="0dp"
             android:scaleType="fitXY"
-            android:layout_below="@+id/texthostelName"
             android:visibility="visible" />
         <!--<ImageView-->
             <!--android:layout_width="match_parent"-->
@@ -37,15 +37,28 @@
             <!--android:layout_marginTop="10dp"-->
             <!--android:id="@+id/ivhosteltempback"/>-->
         <TextView
+            android:id="@+id/hiddenid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="hostel name"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:visibility="invisible"
+            android:text="hostel name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/RvtextColor"
-            android:id="@+id/hiddenid"
+            android:visibility="invisible"
+
+            />
+        <!--android:id="@+id/ivhosteltempback"/>-->
+        <TextView
+            android:id="@+id/hiddenfacility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="hostel name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/RvtextColor"
+            android:visibility="invisible"
 
             />
 
@@ -59,53 +72,53 @@
             android:id="@+id/texthostelName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:text="Hostel Name"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="5dp"
             android:layout_alignParentLeft="false"
-            android:textColor="@color/txtcolor" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Hostel Name"
+            android:textColor="@color/txtcolor"
+            android:textSize="20dp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/rating"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:textSize="15dp"
-            android:gravity="center"
             android:layout_alignParentRight="true"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"
-            android:text="3.5"
-            android:padding="5dp"
-            android:drawableRight="@drawable/star15"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/roundprice"
+            android:drawableRight="@drawable/star15"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="3.5"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/txtcolor" />
+            android:textColor="@color/txtcolor"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="230dp"
             android:layout_marginBottom="0dp"
+            android:layout_marginTop="230dp"
             >
                 <TextView
+                    android:id="@+id/textPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="price"
-                    android:id="@+id/textPrice"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp"
                     android:layout_centerHorizontal="true"
-                    android:padding="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
+                    android:padding="5dp"
+                    android:text="price"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/grey"
                     />
 
@@ -113,26 +126,26 @@
                     android:id="@+id/textType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Boys"
-                    android:padding="5dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/grey"
-                    android:layout_marginTop="5dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Boys"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/grey"
                     />
 
                 <TextView
                     android:id="@+id/textSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category"
-                    android:padding="5dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="Category"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/grey"
-                    android:layout_marginLeft="10dp"
                     />
         </RelativeLayout>
 </android.support.v7.widget.CardView>

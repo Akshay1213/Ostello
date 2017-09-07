@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myLoginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/myLoginLayout"
     android:background="@drawable/login_background"
     android:focusableInTouchMode="true"
-    android:scaleType = "centerCrop"
+    android:scaleType="centerCrop"
     tools:context="com.xoxytech.ostello.Login">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,12 +15,12 @@
         android:fitsSystemWindows="true">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20sp"
+            android:orientation="vertical"
             android:paddingLeft="24sp"
             android:paddingRight="24sp"
+            android:paddingTop="20sp"
             android:weightSum="1">
 
             <ImageView
@@ -37,28 +36,30 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8sp"
                 android:layout_marginTop="8sp"
-                android:gravity="center"
-                android:layout_marginBottom="8sp">
-                <EditText android:id="@+id/input_username"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/input_usernumber"
                     android:layout_width="250sp"
                     android:layout_height="50sp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:inputType="text"
                     android:background="@drawable/round"
-                    android:gravity="center"
                     android:drawablePadding="2sp"
+                    android:gravity="center"
+                    android:hint="Phone number"
+                    android:inputType="number"
 
-                    android:hint="Username" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
             </android.support.design.widget.TextInputLayout>
 
             <!-- Password Label -->
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8sp"
                 android:layout_marginTop="8sp"
-                android:gravity="center"
-                android:layout_marginBottom="8sp">
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/input_password"
@@ -80,11 +81,11 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/login_button_round"
                     android:gravity="center"
                     android:text="Login"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
                     android:textColor="@color/white" />
 
 
@@ -93,8 +94,8 @@
                 android:layout_height="30sp"
                 android:layout_marginBottom="10sp"
                 android:background="@drawable/noaccountround"
-                android:text="@string/NoAccount"
                 android:gravity="center"
+                android:text="@string/NoAccount"
                 android:textSize="15sp"/>
             <ImageView
                 android:id="@+id/imageView3"

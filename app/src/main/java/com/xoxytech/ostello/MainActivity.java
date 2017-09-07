@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toast.makeText(MainActivity.this," Welcome to ostallo",Toast.LENGTH_SHORT);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
-        String username= sp.getString("USER_NAME",null);
+        String username = sp.getString("USER_PHONE", null);
         Log.d("*********",username);
 
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);

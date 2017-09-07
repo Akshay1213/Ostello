@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,18 +27,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity implements  View.OnClickListener{
     private TextView textView_NotRegistered;
     private EditText editTextPassword;
-    private EditText editTextUsername;
-    private String username;
+    private EditText editTextUserphone;
+    private String phone;
     private String password;
     private RequestQueue requestQueue;
     private Button login_button;
@@ -72,7 +69,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
 
         textView_NotRegistered=(TextView)findViewById(R.id.link_signup);
-        editTextUsername=(EditText)findViewById(R.id.input_username);
+            editTextUserphone = (EditText) findViewById(R.id.input_usernumber);
         editTextPassword=(EditText)findViewById(R.id.input_password);
         login_button=(Button)findViewById(R.id.btn_login);
         requestQueue = Volley.newRequestQueue(this);
@@ -96,17 +93,18 @@ login_button.setOnClickListener(this);
 
 
         //Getting user data
-        username = editTextUsername.getText().toString().trim();
+        phone = editTextUserphone.getText().toString().trim();
         password = editTextPassword.getText().toString();
+        Log.d("******->", Config.LOGIN_URL + "?phone=" + phone + "&password=" + password);
 
-        Log.d("harami sala",username+password);
+
         //Again creating the string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LOGIN_URL+"?username="+username+"&password="+password,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LOGIN_URL + "?phone=" + phone + "&password=" + password,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         loading.dismiss();
-                        Log.d("Zakmarya", response.toString());
+                        Log.d("*******", response.toString());
                         try {
 //                            Toast.makeText(Login.this, "atleast got response"+response, Toast.LENGTH_LONG).show();
                             Log.d("wtf",response);
@@ -115,11 +113,11 @@ login_button.setOnClickListener(this);
 
                             //If it is success
                             //if(jsonResponse.getString(Config.TAG_RESPONSE).equalsIgnoreCase("Success")){
-                            if(response.contains("success")){
+                            if (!response.contains("Invalid phone number or password")) {
                                 //Asking user to confirm otp
                                 SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("USER_NAME", username); //username the user has entered
+                                editor.putString("USER_PHONE", phone); //username the user has entered
                                 editor.commit();
                                 startActivity(new Intent(Login.this, MainActivity.class));
                                 return;
@@ -167,7 +165,7 @@ login_button.setOnClickListener(this);
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("username", username);
+                params.put("phone", phone);
                 params.put("password", password);
 
                 return super.getParams();

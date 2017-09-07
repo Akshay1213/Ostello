@@ -1,11 +1,19 @@
 package com.xoxytech.ostello;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +25,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.vstechlab.easyfonts.EasyFonts;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,13 +42,16 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
     public static final int READ_TIMEOUT = 25000;
     SliderLayout sliderShow;
     TextView textViewhostelName;
+    Button btnEnquiry;
     TextView textViewcategory;
     TextView textViewType;
     TextView textViewrate;
     TextView textViewaddress;
     TextView textViewcity;
+    TextView textViewtandc;
     TextView textViewvacancies;
     String id;
+    CardView cardSliderlayout, cardDetailslayout, cardFeatures, cardMaps, cardDesc;
     private GoogleMap mMap;
 
 
@@ -62,8 +72,8 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         sliderShow = (SliderLayout) findViewById(R.id.slider);
         for(int i=1;i<=5;i++) {
             TextSliderView textSliderView = new TextSliderView(this);
-            textSliderView.image("http://ostallo.com/ostello/images/" + id + "/" + i + ".jpg");
-            Log.d("*******", "http://ostallo.com/ostello/images/" + id + "/" + i + ".jpg");
+            textSliderView.image("http://janaipackaging.com/ostello/images/" + id + "/" + i + ".jpg");
+            Log.d("*******", "http://janaipackaging.com/ostello/images/" + id + "/" + i + ".jpg");
 
             sliderShow.addSlider(textSliderView);
         }
@@ -74,7 +84,39 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         textViewaddress=(TextView)findViewById(R.id.textViewaddress);
         textViewcity=(TextView)findViewById(R.id.textViewcity);
         textViewvacancies=(TextView)findViewById(R.id.textViewvacancy);
-new AsyncFetch().execute();
+        textViewtandc = (TextView) findViewById(R.id.textViewtandc);
+        textViewtandc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 7/9/17 add dialogue box of conditions
+                LayoutInflater li = LayoutInflater.from(HostelDetails.this);
+                //Creating a view to get the dialog box
+                View confirmDialog = li.inflate(R.layout.dialog_confirm, null);
+
+                //Creating an alertdialog builder
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(HostelDetails.this);
+                //Adding our dialog box to the view of alert dialog
+                alert.setView(confirmDialog);
+
+                //Creating an alert dialog
+                final AlertDialog alertDialog = alert.create();
+
+                //Displaying the alert dialog
+                alertDialog.show();
+
+            }
+        });
+
+
+        cardSliderlayout = (CardView) findViewById(R.id.sliderlayout);
+        cardDetailslayout = (CardView) findViewById(R.id.detailslayout);
+        cardFeatures = (CardView) findViewById(R.id.featurescard);
+        cardMaps = (CardView) findViewById(R.id.mapscard);
+        cardDesc = (CardView) findViewById(R.id.cardDesc);
+        btnEnquiry = (Button) findViewById(R.id.btnenquirenow);
+
+        new AsyncFetch().execute();
     }
     @Override
     protected void onStop() {
@@ -188,7 +230,7 @@ Log.d("*****************",result);
                 for(int i=0;i<jArray.length();i++) {
                     JSONObject json_data=jArray.getJSONObject(i);
                     textViewhostelName.setText(json_data.getString("hostelname"));
-                    textViewhostelName.setTypeface(EasyFonts.captureIt(HostelDetails.this));
+//                    textViewhostelName.setTypeface(EasyFonts.caviarDreamsBold(HostelDetails.this));
                     String hostelname[]=textViewhostelName.getText().toString().split("_|\\ ");
                     StringBuilder tmpstr=new StringBuilder();
                     for(i=1;i<hostelname.length;i++)
@@ -210,6 +252,36 @@ Log.d("*****************",result);
                     mMap.addMarker(new MarkerOptions().position(hostelmarker).title("Marker "+json_data.getString("address")));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(hostelmarker));
 //                    hostelData.HostelImage= "https://upload.wikimedia.org/wikipedia/commons/e/e8/Hostel_Dormitory.jpg";
+                    RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layouthostelcontainer);
+                    relativeLayout.setVisibility(View.VISIBLE);
+                    Animation animation = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    int x = 300;
+                    animation.setStartOffset(x);
+                    // animation.setDuration(500);
+                    Animation animation1 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation1.setStartOffset(x + 200);
+                    // animation1.setDuration(500);
+                    Animation animation2 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation2.setStartOffset(x + 400);
+                    //  animation2.setDuration(500);
+                    Animation animation3 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation3.setStartOffset(x + 600);
+                    // animation3.setDuration(500);
+                    Animation animation4 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation4.setStartOffset(x + 900);
+                    Animation animation5 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation5.setStartOffset(x + 1100);
+                    Animation animation6 = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                    animation6.setStartOffset(x + 1300);
+                    // animation4.setDuration(500);
+
+                    textViewhostelName.setAnimation(animation);
+                    cardSliderlayout.startAnimation(animation1);
+                    cardDetailslayout.startAnimation(animation2);
+                    cardFeatures.startAnimation(animation3);
+                    cardMaps.startAnimation(animation4);
+                    cardDesc.startAnimation(animation5);
+                    btnEnquiry.startAnimation(animation6);
 
                 }
             } catch (Exception e) {

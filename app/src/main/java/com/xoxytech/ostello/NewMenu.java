@@ -8,10 +8,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -52,6 +52,7 @@ public class NewMenu extends Activity {
     private String mLastQuery="Search...",TAG;
     private RecyclerView mRVhostelList;
     private SimpleCursorAdapter myAdapter;
+    private AppBarLayout mAppBar;
     private Adapterhostel mAdapter;
     private String[] strArrData = {"No Suggestions"};
     private Toast toast;
@@ -61,6 +62,13 @@ public class NewMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_menu);
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
+        mAppBar = (AppBarLayout) findViewById(R.id.appbar);
+        mAppBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                mSearchView.setTranslationY(verticalOffset);
+            }
+        });
 
         mSearchView.setDismissOnOutsideClick(true);
         mSearchView.setDismissOnOutsideClick(true);
@@ -107,11 +115,10 @@ public class NewMenu extends Activity {
         mRVhostelList.setAdapter(mAdapter);
         LinearLayoutManager llm=new LinearLayoutManager(NewMenu.this);
         mRVhostelList.setLayoutManager(llm);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRVhostelList.getContext(),
-                llm.getOrientation());
-        mRVhostelList.addItemDecoration(dividerItemDecoration);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRVhostelList.getContext(),
+//                llm.getOrientation());
+//        mRVhostelList.addItemDecoration(dividerItemDecoration);
         mAdapter.notifyDataSetChanged();
-
 
 
         mRVhostelList.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {

@@ -5,40 +5,32 @@ package com.xoxytech.ostello;
  */
 
 
-import android.app.Application;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationSet;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 import java.util.Collections;
 import java.util.List;
 
 public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener{
 
+    List<Datahostel> data= Collections.emptyList();
+    Datahostel current;
+    int currentPos=0;
     private Context context;
     private LayoutInflater inflater;
     private int prevpos;
-    @Override
-    public void onClick(View v) {
-
-    }
-
-
-    List<Datahostel> data= Collections.emptyList();
-
-    Datahostel current;
-    int currentPos=0;
-
     // create constructor to innitilize context and data sent frm MainActivity
     public Adapterhostel(Context context, List<Datahostel> data){
         this.context=context;
@@ -47,15 +39,25 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-       int position= holder.getPosition();
-        if(position>=prevpos) {
-            AnimationUtil.animate(holder,true);
-        }
-        else {
-            AnimationUtil.animate(holder,false);
-        }
+//
+        MyHolder myHolder = (MyHolder) holder;
+        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        int i = holder.getPosition();
+        i = i % 2;
+        i += 1;
+        if (i % 2 == 0)
+            animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        else
+            animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_right);
+        animation.setDuration(300 * i);
+        myHolder.cardView.setAnimation(animation);
     }
 
     // Inflate the layout when viewholder created
@@ -109,6 +111,7 @@ prevpos=position;
         ImageView ivhostel;
         TextView textSize;
         TextView textType;
+        CardView cardView;
         TextView textPrice;
         TextView hiddenid;
         SliderLayout sliderShow;
@@ -123,6 +126,7 @@ prevpos=position;
             textPrice = (TextView) itemView.findViewById(R.id.textPrice);
             sliderShow=(SliderLayout)itemView.findViewById(R.id.slider);
             hiddenid=(TextView)itemView.findViewById(R.id.hiddenid);
+            cardView = (CardView) itemView.findViewById(R.id.layoutcardview);
         }
 
     }

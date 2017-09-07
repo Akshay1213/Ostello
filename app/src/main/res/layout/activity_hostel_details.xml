@@ -10,10 +10,11 @@
     tools:context="com.xoxytech.ostello.HostelDetails"
     >
 <RelativeLayout
+    android:id="@+id/layouthostelcontainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp">
-    <!--android:background="@drawable/shadoweffectforlayout"-->
+
 
     <TextView
         android:id="@+id/textViewHostelname"
@@ -26,7 +27,8 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text="Hostel Name"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 
     <android.support.v7.widget.CardView
@@ -54,8 +56,59 @@
         android:layout_marginTop="0dp" />
     </android.support.v7.widget.CardView>
 
+    <TextView
+        android:id="@+id/textViewcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sliderlayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="17dp"
+        android:background="@drawable/roundprice"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Category"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
+    <TextView
 
+        android:id="@+id/textViewtype"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/textViewcategory"
+        android:layout_alignBottom="@+id/textViewcategory"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/roundprice"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Type"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textViewrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewtype"
+        android:layout_alignBottom="@+id/textViewtype"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/roundprice"
+        android:gravity="center"
+        android:padding="5dp"
+        android:paddingTop="10dp"
+        android:text="rate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
 
     <android.support.v7.widget.CardView
@@ -167,93 +220,346 @@
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/textViewfacilities"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Facilities"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-            <CheckBox
-                android:id="@+id/checkBoxcot"
+            android:id="@+id/togglerelative"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="110dp"
-                android:checked="true"
-                android:clickable="false"
-                android:text="Cot" />
-            <CheckBox
-                android:id="@+id/checkBoxmattress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="40dp"
-                android:checked="true"
-                android:clickable="false"
-                android:text="mattress" />
-            <CheckBox
-                android:id="@+id/checkBoxstudytable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="110dp"
-                android:checked="true"
-                android:clickable="false"
-                android:text="Study table" />
-            <CheckBox
-                android:id="@+id/checkBoxelectricity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="140dp"
-                android:clickable="false"
-                android:text="24 hour electricity" />
-            <CheckBox
-                android:id="@+id/checkBoxwatersupply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="80dp"
-                android:checked="true"
-                android:clickable="false"
-                android:text="Water supply" />
-            <CheckBox
-                android:id="@+id/checkBoxhotwater"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
-                android:clickable="false"
-                android:text="Hot water Supply" />
-            <CheckBox
-                android:id="@+id/checkBoxdrinkingwater"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
-                android:checked="true"
-                android:clickable="false"
-                android:text="Drinking water" />
-            <CheckBox
-                android:id="@+id/checkBoxmess"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="140dp"
-                android:clickable="false"
-                android:text="Mess Facility" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/type"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp">
 
+            <TextView
+                android:id="@+id/txthostelfacilities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="5dp"
+                android:text="Hostel Facilities"
+
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleElevator"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/togglelift"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleElevator"
+                android:layout_below="@+id/toggleElevator"
+                android:text="Elevator"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ToggleButton
+                android:id="@+id/toggleDrinkingwater"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/toggleElevator"
+                android:layout_marginStart="50dp"
+                android:layout_toEndOf="@+id/toggleElevator"
+                android:background="@drawable/drinking_water"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleDrinkingwater"
+                android:layout_below="@+id/toggleDrinkingwater"
+                android:text="Drinking Water"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ToggleButton
+                android:id="@+id/toggleCot"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/toggleDrinkingwater"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/cot"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleCot"
+                android:layout_below="@+id/toggleCot"
+                android:text="Cot"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ToggleButton
+                android:id="@+id/togglecctv"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleElevator"
+                android:layout_below="@+id/toggleElevator"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/cctv"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/togglecctv"
+                android:layout_below="@+id/togglecctv"
+                android:text="CCTV"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ToggleButton
+                android:id="@+id/toggleAc"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleDrinkingwater"
+                android:layout_alignTop="@+id/togglecctv"
+                android:background="@drawable/ac"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleAc"
+                android:layout_below="@+id/toggleAc"
+                android:text="AC"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ToggleButton
+                android:id="@+id/toggleElectricity"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleCot"
+                android:layout_alignTop="@+id/toggleAc"
+                android:background="@drawable/electricity"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleElectricity"
+                android:layout_below="@+id/toggleElectricity"
+                android:text="Electricity"
+                android:textAlignment="center"
+
+
+                />
+
+            <ToggleButton
+                android:id="@+id/toggleGym"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/togglecctv"
+                android:layout_below="@+id/togglecctv"
+                android:layout_marginTop="37dp"
+                android:background="@drawable/gym"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleGym"
+                android:layout_below="@+id/toggleGym"
+                android:text="Gym"
+                android:textAlignment="center"
+
+
+                />
+
+
+            <ToggleButton
+                android:id="@+id/toggleHotwater"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleAc"
+                android:layout_alignTop="@+id/toggleGym"
+                android:background="@drawable/hot_water"
+                android:textOff=""
+                android:textOn="" />
+            />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleHotwater"
+                android:layout_below="@+id/toggleHotwater"
+                android:text="Hot Water"
+                android:textAlignment="center"
+
+
+                />
+
+            <ToggleButton
+                android:id="@+id/toggleTV"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/toggleHotwater"
+                android:layout_alignStart="@+id/toggleElectricity"
+                android:background="@drawable/tv"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleTV"
+                android:layout_below="@+id/toggleTV"
+                android:text="TV"
+                android:textAlignment="center"
+
+
+                />
+
+            <ToggleButton
+                android:id="@+id/toggleCleaning"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleGym"
+                android:layout_below="@+id/toggleGym"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/cleaning"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleCleaning"
+                android:layout_below="@+id/toggleCleaning"
+                android:text="Cleaning"
+                android:textAlignment="center"
+
+
+                />
+
+            <ToggleButton
+                android:id="@+id/toggleParking"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/toggleCleaning"
+                android:layout_marginStart="50dp"
+                android:layout_toEndOf="@+id/toggleCleaning"
+                android:background="@drawable/parking"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleParking"
+                android:layout_below="@+id/toggleParking"
+                android:text="Parking"
+                android:textAlignment="center"
+
+                />
+
+            <ToggleButton
+                android:id="@+id/toggleWashingmachine"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/toggleTV"
+                android:layout_alignTop="@+id/toggleParking"
+                android:background="@drawable/washingmachine"
+                android:textOff=""
+                android:textOn="" />
+
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleWashingmachine"
+                android:layout_below="@+id/toggleWashingmachine"
+                android:layout_marginRight="35dp"
+                android:text="Washing Machine"
+                android:textAlignment="center" />
+
+            <ToggleButton
+                android:id="@+id/toggleMess"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/toggleCleaning"
+                android:layout_below="@+id/toggleCleaning"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/mess"
+                android:textOff=""
+                android:textOn="" />
+
+
+            <TextView
+                android:id="@+id/txtmess"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleMess"
+                android:layout_below="@+id/toggleMess"
+                android:text="Mess"
+                android:textAlignment="center" />
+
+            <ToggleButton
+                android:id="@+id/toggleStudytable"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignBaseline="@+id/toggleMess"
+                android:layout_alignBottom="@+id/toggleMess"
+                android:layout_alignStart="@+id/txt1"
+                android:background="@drawable/studytable"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:id="@+id/txtstudytable"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleStudytable"
+                android:layout_below="@+id/toggleStudytable"
+                android:text="Study table"
+                android:textAlignment="center" />
+
+            <ToggleButton
+                android:id="@+id/toggleWifi"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignBaseline="@+id/toggleStudytable"
+                android:layout_alignBottom="@+id/toggleStudytable"
+                android:layout_marginLeft="255dp"
+                android:background="@drawable/wifi"
+                android:textOff=""
+                android:textOn="" />
+
+            <TextView
+                android:id="@+id/txtwifi"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/toggleWifi"
+                android:layout_below="@+id/toggleWifi"
+                android:text="Wifi"
+                android:textAlignment="center" />
 
         </RelativeLayout>
+
+
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
         android:id="@+id/mapscard"
@@ -302,6 +608,7 @@
         android:layout_marginBottom="50dp"
         >
         <android.support.v7.widget.CardView
+            android:id="@+id/cardDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

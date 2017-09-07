@@ -2,20 +2,13 @@ package com.xoxytech.ostello;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,10 +29,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HostelDetails extends AppCompatActivity implements OnMapReadyCallback {
+    public static final int CONNECTION_TIMEOUT = 50000;
+    public static final int READ_TIMEOUT = 25000;
     SliderLayout sliderShow;
     TextView textViewhostelName;
     TextView textViewcategory;
@@ -49,8 +42,6 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
     TextView textViewcity;
     TextView textViewvacancies;
     String id;
-    public static final int CONNECTION_TIMEOUT = 50000;
-    public static final int READ_TIMEOUT = 25000;
     private GoogleMap mMap;
 
 
@@ -71,8 +62,8 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         sliderShow = (SliderLayout) findViewById(R.id.slider);
         for(int i=1;i<=5;i++) {
             TextSliderView textSliderView = new TextSliderView(this);
-            textSliderView.image("http://janaipackaging.com/ostello/images/"+id+"/"+i+".jpg");
-            Log.d("*******","http://janaipackaging.com/ostello/images/"+id+"/"+i+".jpg");
+            textSliderView.image("http://ostallo.com/ostello/images/" + id + "/" + i + ".jpg");
+            Log.d("*******", "http://ostallo.com/ostello/images/" + id + "/" + i + ".jpg");
 
             sliderShow.addSlider(textSliderView);
         }
@@ -90,6 +81,17 @@ new AsyncFetch().execute();
         sliderShow.stopAutoCycle();
         super.onStop();
     }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(18.6728856, 73.8880155);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
     private class AsyncFetch extends AsyncTask<String, String, String> {
         ProgressDialog pdLoading = new ProgressDialog(HostelDetails.this);
         HttpURLConnection conn;
@@ -217,14 +219,5 @@ Log.d("*****************",result);
 
         }
 
-    }
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(18.6728856,73.8880155);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

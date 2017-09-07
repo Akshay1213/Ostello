@@ -1,34 +1,21 @@
 package com.xoxytech.ostello;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,23 +40,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewMenu extends Activity {
+    public static final int CONNECTION_TIMEOUT = 50000;
+    public static final int READ_TIMEOUT = 25000;
+    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
+    public static List<CitySuggetions> cities;
+    private static long back_pressed;
+    SearchView searchView = null;
+    String city;
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
-    public static final int CONNECTION_TIMEOUT = 50000;
-    public static final int READ_TIMEOUT = 25000;
     private RecyclerView mRVhostelList;
     private SimpleCursorAdapter myAdapter;
     private Adapterhostel mAdapter;
-    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
-    SearchView searchView = null;
     private String[] strArrData = {"No Suggestions"};
-    String city;
-    private static long back_pressed;
     private Toast toast;
-    public static List<CitySuggetions> cities;
     
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -315,7 +301,7 @@ public class NewMenu extends Activity {
             try {
 
                 // Enter URL address where your php file resides or your JSON file address
-                url = new URL("http://janaipackaging.com/ostello/fetchcities.php");
+                url = new URL("http://ostallo.com/ostello/fetchcities.php");
 
             } catch (MalformedURLException e) {
 

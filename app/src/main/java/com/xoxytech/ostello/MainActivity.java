@@ -1,14 +1,13 @@
 package com.xoxytech.ostello;
 
 // TODO: 22/8/17
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -18,18 +17,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,24 +48,21 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private FloatingSearchView mSearchView;
+    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
+    public static final int CONNECTION_TIMEOUT = 10000;
+    public static final int READ_TIMEOUT = 15000;
+    public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
     private static final int SELECT_PICTURE = 1;
+    private static final long ANIM_DURATION = 350;
+    public static List<CitySuggetions> cities;
+    private static long back_pressed;
+    DrawerLayout drawer;
+    private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
     private View mDimSearchViewBackground;
-    private static long back_pressed;
     private ImageView profile;
     private Toast toast;
-    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
-    DrawerLayout drawer;
-        public static final int CONNECTION_TIMEOUT = 10000;
-        public static final int READ_TIMEOUT = 15000;
-
-    public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
-
-    private static final long ANIM_DURATION = 350;
-
-    public static List<CitySuggetions> cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -386,6 +378,11 @@ public class MainActivity extends AppCompatActivity
         anim.setDuration(ANIM_DURATION);
         anim.start();
     }
+
+    protected void LoadprofileImage(View View) {
+
+    }
+
     public class AsyncFetch extends AsyncTask<String, String, String> {
 
         HttpURLConnection conn;
@@ -405,7 +402,7 @@ public class MainActivity extends AppCompatActivity
             try {
 
                 // Enter URL address where your php file resides or your JSON file address
-                url = new URL("http://janaipackaging.com/ostello/fetchcities.php");
+                url = new URL("http://ostallo.com/ostello/fetchcities.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -496,9 +493,5 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-    }
-    protected void LoadprofileImage(View View)
-    {
-        
     }
 }

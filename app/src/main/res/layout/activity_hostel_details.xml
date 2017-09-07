@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.xoxytech.ostello.HostelDetails"
-    android:scrollbarStyle="insideOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#dcdddf"
+    android:scrollbarStyle="insideOverlay"
+    tools:context="com.xoxytech.ostello.HostelDetails"
     >
 <RelativeLayout
     android:layout_width="match_parent"
@@ -19,203 +19,69 @@
         android:id="@+id/textViewHostelname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:text="Hostel Name"
         android:background="@drawable/whiteround"
         android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="Hostel Name"
         android:textSize="30dp" />
 
 
     <android.support.v7.widget.CardView
+        android:id="@+id/sliderlayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:id="@+id/sliderlayout"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewHostelname"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="0.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
         app:cardElevation="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardPreventCornerOverlap="false"
-        android:layout_below="@+id/textViewHostelname"
-        android:layout_alignParentStart="true">
+        app:cardPreventCornerOverlap="false">
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="0dp" />
     </android.support.v7.widget.CardView>
-
-    <TextView
-        android:id="@+id/textViewcategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:padding="5dp"
-        android:gravity="center"
-        android:text="Category"
-        android:textStyle="bold"
-        android:background="@drawable/roundprice"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="16dp"
-        android:layout_alignBottom="@+id/sliderlayout"
-        android:layout_alignParentStart="true" />
-    <TextView
-
-        android:id="@+id/textViewtype"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@drawable/roundprice"
-        android:text="Type"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:padding="5dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_alignBaseline="@+id/textViewcategory"
-        android:layout_alignBottom="@+id/textViewcategory"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:id="@+id/textViewrate"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="rate"
-        android:paddingTop="10dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:padding="5dp"
-        android:background="@drawable/roundprice"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginEnd="18dp"
-        android:layout_alignBaseline="@+id/textViewtype"
-        android:layout_alignBottom="@+id/textViewtype"
-        android:layout_alignParentEnd="true" />
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/detailslayout"-->
-        <!--android:background="@drawable/shadow_forhosteldetails"-->
-        <!--android:layout_below="@+id/sliderlayout"-->
-        <!--android:layout_alignParentStart="true">-->
-        <!--<TextView-->
-            <!--android:id="@+id/textView2"-->
-            <!--android:layout_marginLeft="0dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:gravity="center"-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:text="Hostel Details"-->
-            <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-        <!--<TextView-->
-            <!--android:text="City         : "-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:id="@+id/city1"-->
-            <!--android:layout_marginStart="12dp"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_below="@+id/textView4"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_marginTop="15dp" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/textViewcity"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:text="city"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_alignBaseline="@+id/city1"-->
-            <!--android:layout_alignBottom="@+id/city1"-->
-            <!--android:layout_alignStart="@+id/textViewaddress" />-->
-        <!--<TextView-->
-            <!--android:singleLine="true"-->
-            <!--android:text="Address : "-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/textView4"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_alignBaseline="@+id/textViewaddress"-->
-            <!--android:layout_alignBottom="@+id/textViewaddress"-->
-            <!--android:layout_alignStart="@+id/city1" />-->
-        <!--<TextView-->
-            <!--android:id="@+id/textViewaddress"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Address : "-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_marginStart="11dp"-->
-            <!--android:layout_marginRight="0dp"-->
-            <!--android:singleLine="false"-->
-            <!--android:layout_below="@+id/textView2"-->
-            <!--android:layout_toEndOf="@+id/textView4" />-->
-        <!--<TextView-->
-            <!--android:text="Vacancy : "-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:id="@+id/textView3"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:layout_alignBaseline="@+id/textViewcity"-->
-            <!--android:layout_alignBottom="@+id/textViewcity"-->
-            <!--android:layout_toStartOf="@+id/textViewvacancy" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/textViewvacancy"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Vacancies"-->
-            <!--android:textSize="15dp"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:layout_alignBaseline="@+id/textView3"-->
-            <!--android:layout_alignBottom="@+id/textView3"-->
-            <!--android:layout_alignParentEnd="true"-->
-            <!--android:layout_marginEnd="11dp" />-->
-
-
-    <!--</RelativeLayout>-->
-
-
 
 
 
 
 
     <android.support.v7.widget.CardView
+        android:id="@+id/detailslayout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:id="@+id/detailslayout"
-        android:elevation="8dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        app:cardElevation="8dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:cardPreventCornerOverlap="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sliderlayout"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_below="@+id/sliderlayout"
-        android:layout_alignParentStart="true">
+        android:background="?android:attr/selectableItemBackground"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0.0px"
+        android:elevation="8dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="false">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:gravity="left"
 
             android:text="Hostel Details"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -224,30 +90,30 @@
             android:id="@+id/textViewcity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="city"
-            android:textSize="15dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="100dp"
-            android:layout_marginLeft="80dp"/>
+            android:text="city"
+            android:textSize="15dp" />
         <TextView
-            android:singleLine="true"
-            android:text="Address : "
+            android:id="@+id/textViewaddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewaddress"
-            android:textSize="15dp"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="50dp"
+            android:singleLine="true"
+            android:text="Address : "
+            android:textSize="15dp"
              />
 
         <TextView
             android:id="@+id/textViewvacancy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vacancies"
-            android:textSize="15dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="75dp"
-            android:layout_marginLeft="80dp"
+            android:text="Vacancies"
+            android:textSize="15dp"
              />
 
         <TextView
@@ -255,8 +121,8 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
             android:text="Address : "
             android:textSize="15dp" />
 
@@ -264,10 +130,10 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="Vacancy : "
-            android:layout_marginTop="75dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="75dp"
+            android:text="Vacancy : "
 
             android:textSize="15dp" />
 
@@ -277,27 +143,27 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView4"
+            android:layout_marginLeft="10dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="100dp"
             android:text="City         : "
-            android:layout_marginLeft="10dp"
             android:textSize="15dp" />
 
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
+        android:id="@+id/featurescard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/featurescard"
-        android:elevation="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/detailslayout"
+        android:layout_marginTop="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="0.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
+        android:elevation="8dp"
         app:cardElevation="8dp"
-        app:cardPreventCornerOverlap="false"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/detailslayout"
-        android:layout_alignParentStart="true">
+        app:cardPreventCornerOverlap="false">
 
 
         <RelativeLayout
@@ -305,66 +171,66 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/textViewfacilities"
-                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                android:gravity="left"
                 android:text="Facilities"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
             <CheckBox
                 android:id="@+id/checkBoxcot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:layout_marginTop="110dp"
                 android:layout_marginLeft="230dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="110dp"
+                android:checked="true"
                 android:clickable="false"
                 android:text="Cot" />
             <CheckBox
                 android:id="@+id/checkBoxmattress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
                 android:layout_marginLeft="230dp"
                 android:layout_marginRight="10dp"
-                android:clickable="false"
+                android:layout_marginTop="40dp"
                 android:checked="true"
+                android:clickable="false"
                 android:text="mattress" />
             <CheckBox
                 android:id="@+id/checkBoxstudytable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="110dp"
                 android:layout_marginLeft="10dp"
-                android:clickable="false"
+                android:layout_marginTop="110dp"
                 android:checked="true"
+                android:clickable="false"
                 android:text="Study table" />
             <CheckBox
                 android:id="@+id/checkBoxelectricity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="140dp"
                 android:clickable="false"
                 android:text="24 hour electricity" />
             <CheckBox
                 android:id="@+id/checkBoxwatersupply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
                 android:layout_marginLeft="230dp"
-                android:checked="true"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="80dp"
+                android:checked="true"
                 android:clickable="false"
                 android:text="Water supply" />
             <CheckBox
                 android:id="@+id/checkBoxhotwater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="80dp"
                 android:clickable="false"
                 android:text="Hot water Supply" />
             <CheckBox
@@ -373,16 +239,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="40dp"
-                android:clickable="false"
                 android:checked="true"
+                android:clickable="false"
                 android:text="Drinking water" />
             <CheckBox
                 android:id="@+id/checkBoxmess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
                 android:layout_marginLeft="230dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="140dp"
                 android:clickable="false"
                 android:text="Mess Facility" />
 
@@ -393,19 +259,19 @@
         android:id="@+id/mapscard"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:elevation="8dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/featurescard"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        app:cardElevation="8dp"
-        app:cardPreventCornerOverlap="false"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_alignParentStart="true">
+        android:layout_marginTop="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0.0px"
+        android:elevation="8dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="false">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:map="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -423,8 +289,8 @@
             map:uiTiltGestures="true"
             map:uiZoomControls="true"
             map:uiZoomGestures="true"
-            tools:ignore="MissingPrefix"
-            tools:context="com.xoxytech.ostello.MapsActivity" />
+            tools:context="com.xoxytech.ostello.MapsActivity"
+            tools:ignore="MissingPrefix" />
 
 
 
@@ -438,39 +304,39 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="8dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0.0px"
-            android:clipToPadding="false"
-            android:clipChildren="false"
-            app:cardElevation="8dp"
-            app:cardPreventCornerOverlap="false"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
-            android:layout_alignParentStart="true">
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            android:elevation="8dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
            <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent">
                <TextView
+                   android:id="@+id/textViewDescription"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:paddingTop="10dp"
-                   android:textStyle="italic"
                    android:padding="15dp"
+                   android:paddingTop="10dp"
                    android:text="Description:Hostels provide budget-oriented, sociable accommodation where guests can rent a bed, usually a bunk bed, in a dormitory and share a bathroom, lounge and sometimes a kitchen. Rooms can be mixed or single-sex, and private rooms may also be available."
-                   android:id="@+id/textViewDescription"/>
+                   android:textStyle="italic" />
                <TextView
+                   android:id="@+id/textViewtandc"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:paddingTop="10dp"
-                   android:textStyle="italic"
-                   android:padding="15dp"
-                   android:textColor="@android:color/holo_blue_dark"
-                   android:text="Terms And Conditions"
                    android:layout_below="@+id/textViewDescription"
-                   android:id="@+id/textViewtandc"/>
+                   android:padding="15dp"
+                   android:paddingTop="10dp"
+                   android:text="Terms And Conditions"
+                   android:textColor="@android:color/holo_blue_dark"
+                   android:textStyle="italic" />
            </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -483,12 +349,12 @@
         android:id="@+id/btnenquirenow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enquire Now"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
         android:background="@color/colorPrimaryDark"
+        android:text="Enquire Now"
+        android:textColor="@color/white"
         />
 
 

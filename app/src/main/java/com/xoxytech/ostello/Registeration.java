@@ -1,16 +1,13 @@
 package com.xoxytech.ostello;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
@@ -22,7 +19,6 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -31,12 +27,10 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -182,19 +176,20 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
                 //Getting the user entered otp from edittext
                 final String otp = editTextConfirmOtp.getText().toString().trim();
-
+                Log.e("nonsense", Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + username + "&password=" + password + "&phone=" + phone);
                 //Creating an string request
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL+"?otp="+otp+"&username="+username,
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + username + "&password=" + password + "&phone=" + phone,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 //if the server response is success
-                                if(response.contains("success")){
+                                if (response.contains("Registered Successfully")) {
                                     //dismissing the progressbar
                                     loading.dismiss();
                                     SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sp.edit();
                                     editor.putString("USER_NAME", username); //username the user has entered
+                                    editor.putString("USER_PHONE", phone);
                                     editor.commit();
                                     //Starting a new activity
                                     Toast.makeText(Registeration.this,"Congratulations Welcome to ostallo",Toast.LENGTH_SHORT);
@@ -256,21 +251,21 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
             Log.d("harami sala", username + password + phone);
             //Again creating the string request
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.REGISTER_URL + "?username=" + username + "&password=" + password + "&phone=" + phone,
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.REGISTER_URL + "?phone=" + phone,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             loading.dismiss();
                             Log.d("Zakmarya", response.toString());
                             try {
-                            Toast.makeText(Registeration.this, "atleast got response"+response, Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registeration.this, response, Toast.LENGTH_LONG).show();
                                 Log.d("wtf", response);
                                 //Creating the json object from the response
 //                            JSONObject jsonResponse = new JSONObject(response);
 
                                 //If it is success
                                 //if(jsonResponse.getString(Config.TAG_RESPONSE).equalsIgnoreCase("Success")){
-                                if (response.contains("1")) {
+                                if (response.contains("otp sent")) {
                                     //Asking user to confirm otp
                                     Toast.makeText(Registeration.this, "awaiting for otp", Toast.LENGTH_LONG).show();
                                     confirmOtp();

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/search_main.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/search_main.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/activity_main_drawer.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/menu_search_view.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/menu_search_view.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/loadhoastelsmenu.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/loadhoastelsmenu.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/activity_loadhoastelsmenu_drawer.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/activity_loadhoastelsmenu_drawer.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/home/akshay/.android/build-cache/a094330b769fd7cee40a7cdd1acacfa297817400/output/res/menu/menu_main.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/menu/main.xml"
+    }
+]

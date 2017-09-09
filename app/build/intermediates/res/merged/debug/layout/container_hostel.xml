@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutcardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:layout_marginTop="0dp"
+    android:clickable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="2.0px"
+    android:elevation="1dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingTop="0dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="true">
+
+        <ImageView
+            android:id="@+id/ivhostel"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_below="@+id/texthostelName"
+            android:layout_marginTop="0dp"
+            android:scaleType="fitXY"
+            android:visibility="visible" />
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:layout_height="220dp"-->
+            <!--android:src="@drawable/shadow1"-->
+            <!--android:layout_below="@+id/texthostelName"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:id="@+id/ivhosteltempback"/>-->
+        <TextView
+            android:id="@+id/hiddenid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="hostel name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/RvtextColor"
+            android:visibility="invisible"
+
+            />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/fadedraw"
+    android:text=""
+        >
+        <TextView
+            android:id="@+id/texthostelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Hostel Name"
+            android:textColor="@color/txtcolor"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundprice"
+            android:drawableRight="@drawable/star15"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="3.5"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/txtcolor"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+</RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="230dp"
+            >
+                <TextView
+                    android:id="@+id/textPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="price"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/grey"
+                    />
+
+                <TextView
+                    android:id="@+id/textType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Boys"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/grey"
+                    />
+
+                <TextView
+                    android:id="@+id/textSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="Category"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/grey"
+                    />
+        </RelativeLayout>
+</android.support.v7.widget.CardView>

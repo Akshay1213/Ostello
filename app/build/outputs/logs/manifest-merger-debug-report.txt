@@ -1,0 +1,414 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-136:12
+	package
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:3:5-35
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.daimajia.slider:library:1.1.5] /home/akshay/.android/build-cache/49185ec37e3263730fbe529f4ff4886844d12876/output/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:7:22-78
+uses-permission#android.permission.LOCATION_HARDWARE
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:8:5-76
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:8:22-73
+uses-permission#android.permission.BIND_VOICE_INTERACTION
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:10:5-81
+MERGED from [com.daimajia.slider:library:1.1.5] /home/akshay/.android/build-cache/49185ec37e3263730fbe529f4ff4886844d12876/output/AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:10:22-78
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:13:22-68
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:16:5-71
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:16:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:17:5-71
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:17:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:18:5-72
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:18:22-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:19:5-80
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:19:22-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:21:5-79
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:19:5-78
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:21:22-76
+application
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:23:5-134:19
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:11:5-20
+MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/akshay/.android/build-cache/25ccc06437b91ad5dac5600d0ab69182f7a26aa4/output/AndroidManifest.xml:19:5-20:19
+MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/akshay/.android/build-cache/877693f06ee1e96761322d8eef317133ae1704a1/output/AndroidManifest.xml:5:5-19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/akshay/.android/build-cache/eaabc3604de75b2056e50b64068315b043f67e02/output/AndroidManifest.xml:9:5-20
+MERGED from [com.github.ozodrukh:CircularReveal:1.1.1] /home/akshay/.android/build-cache/dda6c8d9d629200d9ec639975ff7ef0c72e19eaa/output/AndroidManifest.xml:10:5-20
+MERGED from [com.github.jorgecastilloprz:fillableloaders:1.02] /home/akshay/.android/build-cache/48ba5b46fb694cbb2a33f4e9e9f6e07709ec4402/output/AndroidManifest.xml:9:5-10:19
+MERGED from [com.github.traex.rippleeffect:library:1.3] /home/akshay/.android/build-cache/16973a9e7d5931b53361ef4a7b336dab5450ed00/output/AndroidManifest.xml:12:5-20
+MERGED from [com.github.arimorty:floatingsearchview:2.1.1] /home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/AndroidManifest.xml:12:5-20
+MERGED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:transition:25.3.1] /home/akshay/.android/build-cache/de72c6278ea5d5308ce499cbacc5dab95765c447/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/akshay/.android/build-cache/b8cf291479470b330a424a723f0b74f0e8aa0d3f/output/AndroidManifest.xml:26:5-20
+MERGED from [com.vstechlab.easyfonts:easyfonts:1.0.0] /home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/AndroidManifest.xml:11:5-14:19
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:18:5-20:19
+MERGED from [com.crystal:crystalrangeseekbar:1.1.1] /home/akshay/.android/build-cache/62943aefe35bacf61f87475a9078610e5a496232/output/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/akshay/.android/build-cache/547c8cf73667adc8375341e3836426e5f63d32af/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/akshay/.android/build-cache/37faabc870a28fc387a8c2e7c0d43d262eb386d7/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-core:10.0.1] /home/akshay/.android/build-cache/1d88dfffecc62717a9a09968be554689b946ec14/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/akshay/.android/build-cache/c7f64e882deddc151280ece0adbb263c5d4a0422/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/akshay/.android/build-cache/335eacd081d4388baaa9138e2a608ce38cdbae5f/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.3.1] /home/akshay/.android/build-cache/c9b372a70ee3df7b109526db242b79afba9fdda2/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /home/akshay/.android/build-cache/86026a3f553d0c6d1b9fbce54c9b017c6c5da64c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/akshay/.android/build-cache/289996c146c3489d849f55827d89cacb7984b281/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/akshay/.android/build-cache/e0f49dc4618733bef41cfd85ea849ee7b66c42f1/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/akshay/.android/build-cache/13b180b2f89d8375e4b3820a9ed3428dfaa9aa3b/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /home/akshay/.android/build-cache/3a8a24a9ca00c3ef863d131f66dc9b594f8fb372/output/AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:27:9-41
+	android:supportsRtl
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:29:9-35
+	android:roundIcon
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:28:9-48
+	android:allowBackup
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:24:9-35
+	android:icon
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:26:9-43
+	android:banner
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:25:9-45
+	android:theme
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:30:9-40
+activity#com.xoxytech.ostello.Registeration
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:31:9-38:20
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:31:19-48
+intent-filter#android.intent.action.MAIN+android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:32:13-37:29
+action#android.intent.action.MAIN
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:33:25-66
+action#android.intent.action.SEARCH
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:35:17-71
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:35:25-68
+action#android.intent.action.VIEW
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:36:25-66
+activity#com.xoxytech.ostello.Success
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:39:9-45
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:39:19-42
+activity#com.xoxytech.ostello.Login
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:40:9-43
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:40:19-40
+meta-data#android.app.default_searchable
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:42:9-44:51
+	android:value
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:44:13-48
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:43:13-58
+activity#com.xoxytech.ostello.HostelDetails
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:62:9-69:20
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:62:19-48
+intent-filter#android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:63:13-68:29
+activity#com.xoxytech.ostello.Splash
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:70:9-79:20
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:70:19-41
+intent-filter#android.intent.action.MAIN+android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW+android.intent.category.LAUNCHER
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:71:13-78:29
+category#android.intent.category.LAUNCHER
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:77:17-77
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:77:27-74
+activity#com.xoxytech.ostello.MainActivity
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:80:9-90:20
+	android:label
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:82:13-56
+	android:theme
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:83:13-44
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:81:13-41
+activity#com.xoxytech.ostello.Contactus
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:91:9-47
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:91:19-44
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:100:9-102:55
+	android:value
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:102:13-52
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:101:13-58
+activity#com.xoxytech.ostello.MapsActivity
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:104:9-111:20
+	android:label
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:106:13-56
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:105:13-41
+intent-filter#android.intent.action.MAIN
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:107:13-110:29
+activity#com.xoxytech.ostello.NewMenu
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:112:9-117:20
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:112:19-42
+activity#com.xoxytech.ostello.Filter
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:118:9-127:20
+	android:theme
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:120:13-53
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:119:13-35
+activity#com.xoxytech.ostello.Aboutus
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:128:9-130:47
+	android:theme
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:130:13-44
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:129:13-36
+activity#com.xoxytech.ostello.Forgotpassword
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:131:9-52
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:131:19-49
+activity#com.xoxytech.ostello.Hostel_Registeration
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:132:9-58
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:132:19-55
+activity#com.xoxytech.ostello.Temp
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:9-51
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:19-39
+uses-sdk
+INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-database:10.0.1] /home/akshay/.android/build-cache/5520229d84e5c6fa6473a9e4dcba34e9503af4bf/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.firebase:firebase-database-connection:10.0.1] /home/akshay/.android/build-cache/3d2b5452900b4605ad7195db4562705af30c9484/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/akshay/.android/build-cache/25ccc06437b91ad5dac5600d0ab69182f7a26aa4/output/AndroidManifest.xml:17:5-42
+MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/akshay/.android/build-cache/877693f06ee1e96761322d8eef317133ae1704a1/output/AndroidManifest.xml:3:5-72
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/akshay/.android/build-cache/eaabc3604de75b2056e50b64068315b043f67e02/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.daimajia.slider:library:1.1.5] /home/akshay/.android/build-cache/49185ec37e3263730fbe529f4ff4886844d12876/output/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.1.7] /home/akshay/.android/build-cache/14c2b25c571ac8c3cfceaa8608723b1f9cf91b6f/output/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.ViksaaSkool:AwesomeSplash:v1.0.0] /home/akshay/.android/build-cache/a094330b769fd7cee40a7cdd1acacfa297817400/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.daimajia.androidanimations:library:1.1.3] /home/akshay/.android/build-cache/f68530805e436a583906bcd3fcc9939cc6f6c489/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.ozodrukh:CircularReveal:1.1.1] /home/akshay/.android/build-cache/dda6c8d9d629200d9ec639975ff7ef0c72e19eaa/output/AndroidManifest.xml:6:5-8:41
+MERGED from [com.daimajia.easing:library:1.0.1] /home/akshay/.android/build-cache/d023a1f9bb4039a630e262722088fe0313c864a6/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.jorgecastilloprz:fillableloaders:1.02] /home/akshay/.android/build-cache/48ba5b46fb694cbb2a33f4e9e9f6e07709ec4402/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.traex.rippleeffect:library:1.3] /home/akshay/.android/build-cache/16973a9e7d5931b53361ef4a7b336dab5450ed00/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.arimorty:floatingsearchview:2.1.1] /home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/akshay/.android/build-cache/61f1953c5c623685d2a1d2a6005fa8229198ab3e/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /home/akshay/.android/build-cache/de72c6278ea5d5308ce499cbacc5dab95765c447/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/akshay/.android/build-cache/b8cf291479470b330a424a723f0b74f0e8aa0d3f/output/AndroidManifest.xml:20:5-43
+MERGED from [com.bartoszlipinski:viewpropertyobjectanimator:1.2.0] /home/akshay/.android/build-cache/b23bbc6ae012792441e2632a6455b89a604d7a09/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.vstechlab.easyfonts:easyfonts:1.0.0] /home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:17:5-42
+MERGED from [com.crystal:crystalrangeseekbar:1.1.1] /home/akshay/.android/build-cache/62943aefe35bacf61f87475a9078610e5a496232/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/akshay/.android/build-cache/547c8cf73667adc8375341e3836426e5f63d32af/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/akshay/.android/build-cache/37faabc870a28fc387a8c2e7c0d43d262eb386d7/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-core:10.0.1] /home/akshay/.android/build-cache/1d88dfffecc62717a9a09968be554689b946ec14/output/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/akshay/.android/build-cache/c7f64e882deddc151280ece0adbb263c5d4a0422/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/akshay/.android/build-cache/335eacd081d4388baaa9138e2a608ce38cdbae5f/output/AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:25.3.1] /home/akshay/.android/build-cache/c9b372a70ee3df7b109526db242b79afba9fdda2/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /home/akshay/.android/build-cache/86026a3f553d0c6d1b9fbce54c9b017c6c5da64c/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/akshay/.android/build-cache/289996c146c3489d849f55827d89cacb7984b281/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/akshay/.android/build-cache/e0f49dc4618733bef41cfd85ea849ee7b66c42f1/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/akshay/.android/build-cache/13b180b2f89d8375e4b3820a9ed3428dfaa9aa3b/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /home/akshay/.android/build-cache/3a8a24a9ca00c3ef863d131f66dc9b594f8fb372/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/akshay/.android/build-cache/61f1953c5c623685d2a1d2a6005fa8229198ab3e/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /home/akshay/.android/build-cache/de72c6278ea5d5308ce499cbacc5dab95765c447/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/akshay/.android/build-cache/b8cf291479470b330a424a723f0b74f0e8aa0d3f/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/akshay/.android/build-cache/547c8cf73667adc8375341e3836426e5f63d32af/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/akshay/.android/build-cache/37faabc870a28fc387a8c2e7c0d43d262eb386d7/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /home/akshay/.android/build-cache/c9b372a70ee3df7b109526db242b79afba9fdda2/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /home/akshay/.android/build-cache/86026a3f553d0c6d1b9fbce54c9b017c6c5da64c/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/akshay/.android/build-cache/289996c146c3489d849f55827d89cacb7984b281/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/akshay/.android/build-cache/e0f49dc4618733bef41cfd85ea849ee7b66c42f1/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/akshay/.android/build-cache/13b180b2f89d8375e4b3820a9ed3428dfaa9aa3b/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /home/akshay/.android/build-cache/3a8a24a9ca00c3ef863d131f66dc9b594f8fb372/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] /home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/AndroidManifest.xml:26:9-47
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:19:19-85
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:22:22-65
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:27:162-184
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:32:16-87
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:22:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:24:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:26:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:30:9-36:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:31:13-35:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:32:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:32:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:33:17-85
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:33:25-83
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:34:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:40:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:40:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:40:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:44:9-48:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:44:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:44:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:45:13-47:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:45:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:46:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/build-cache/a807de7d1b58446f2182fa829484550635746add/output/AndroidManifest.xml:46:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:10.0.1] /home/akshay/.android/build-cache/20058ad31ba21efd77c9dde7154dde8ee70156d7/output/AndroidManifest.xml:6:79-143
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/akshay/.android/build-cache/335eacd081d4388baaa9138e2a608ce38cdbae5f/output/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/akshay/.android/build-cache/335eacd081d4388baaa9138e2a608ce38cdbae5f/output/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/akshay/.android/build-cache/335eacd081d4388baaa9138e2a608ce38cdbae5f/output/AndroidManifest.xml:20:20-65

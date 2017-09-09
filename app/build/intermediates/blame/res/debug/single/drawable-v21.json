@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_slideshow.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_gallery.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_gallery.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/suggestion_item_background.xml",
+        "source": "/home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/res/drawable-v21/suggestion_item_background.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/button_rect_list_normal.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/button_rect_list_normal.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/button_rect_list_secondary.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/button_rect_list_secondary.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/rect_btn_selector.xml",
+        "source": "/home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/res/drawable-v21/rect_btn_selector.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_send.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_send.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/oval_btn_selector.xml",
+        "source": "/home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/res/drawable-v21/oval_btn_selector.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_share.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_share.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_camera.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_camera.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-v21/ic_menu_manage.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable-v21/ic_menu_manage.xml"
+    }
+]

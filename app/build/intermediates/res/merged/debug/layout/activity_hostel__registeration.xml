@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xoxytech.ostello.Hostel_Registeration">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+
+        >
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="1.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:id="@+id/cardviewregisterhostel"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            tools:context="com.example.user.registeration.MainActivity"
+            app:cardCornerRadius="2dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtregisterhostel"
+                android:text="Register your hostel"
+                android:textSize="25dp"
+                android:layout_marginLeft="85dp"
+                android:paddingTop="5dp"
+                android:textColor="#ffffff"/>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:id="@+id/layoutpersonalinfo"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            tools:context="com.example.user.registeration.MainActivity"
+            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp"
+            android:layout_below="@+id/cardviewregisterhostel">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtusername"
+                    android:layout_width="60dp"
+                    android:focusableInTouchMode="true"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="5dp"
+                    android:text="Name *"
+                    android:textSize="15dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_below="@+id/txtpersonneldetail"
+                    android:layout_alignParentStart="true" />
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextusername"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:text="John"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/txtpersonneldetail"
+                    android:layout_toEndOf="@+id/txtmobilenumber1"
+                    android:layout_marginStart="12dp"
+                    android:paddingLeft="5dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile number1 *"
+                    android:textSize="15dp"
+                    android:id="@+id/txtmobilenumber1"
+                    android:layout_below="@+id/txtusername"
+                    android:layout_alignStart="@+id/txtusername"
+                    android:layout_marginTop="12dp"/>
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextmobile1"
+                    android:focusable="true"
+                    android:text="9764200290"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/editTextusername"
+                    android:layout_toEndOf="@+id/txtmobilenumber1"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile number2 *"
+                    android:textSize="15dp"
+                    android:id="@+id/txtmobilenumber2"
+                    android:layout_below="@+id/txtmobilenumber1"
+                    android:layout_marginTop="25dp"
+                    android:layout_alignStart="@+id/txtmobilenumber1" />
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextmobile2"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="phone"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:maxLength="10"
+                    android:layout_below="@+id/editTextmobile1"
+                    android:layout_toEndOf="@+id/txtmobilenumber1"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtpersonneldetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/txtusername"
+                    android:focusableInTouchMode="true"
+                    android:text="Personnel Details"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:id="@+id/layouthostelinfo"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:layout_below="@id/layoutpersonalinfo"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hostel Details"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:id="@+id/txthosteldetails"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"/>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:text="Hostel name *"
+                    android:id="@+id/txthostelname"
+                    android:textSize="15dp"
+                    android:layout_alignBaseline="@+id/editTexthostelname"
+                    android:layout_alignBottom="@+id/editTexthostelname"
+                    android:layout_marginStart="5dp"
+                    />
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTexthostelname"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="text"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/txthosteldetails"
+                    android:layout_marginStart="135dp"
+                    android:paddingLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtaddress"
+                    android:text="Address *"
+                    android:textSize="15dp"
+                    android:layout_above="@+id/price"
+                    android:layout_below="@+id/editTexthostelname"
+                    android:layout_alignStart="@+id/txthostelname"
+                    android:layout_marginTop="15dp"/>
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextaddress"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="text"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/editTexthostelname"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"/>
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price *"
+                    android:id="@+id/txtprice"
+                    android:layout_below="@+id/editTextaddress"
+                    android:layout_alignStart="@+id/txtaddress"
+                    android:layout_marginTop="15dp"/>
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextprice"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="number"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/editTextaddress"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vacancy *"
+                    android:id="@+id/textvacancy"
+                    android:layout_below="@+id/editTextprice"
+                    android:layout_alignEnd="@+id/txtaddress"
+                    android:layout_alignStart="@+id/txtaddress"
+                    android:layout_marginTop="15dp"/>
+                <EditText
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/editTextvacancy"
+                    android:focusable="true"
+                    android:textColor="#bcbcbc"
+                    android:focusableInTouchMode="true"
+                    android:inputType="number"
+                    android:editable="false"
+                    android:background="@drawable/style"
+                    android:layout_below="@+id/editTextprice"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"/>
+
+
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/txttype"
+                    android:text="Type *"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/textvacancy"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <Spinner
+                    android:layout_width="140dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:id="@+id/spinner"
+                    android:layout_marginStart="5dp"
+                    android:layout_above="@+id/txtgender"
+                    android:layout_alignStart="@+id/editTextvacancy" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/txtgender"
+                    android:text="Gender *"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/txttype"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/radioGroup"
+                    android:layout_alignTop="@+id/txtgender"
+                    android:layout_alignStart="@+id/editTextvacancy">
+
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="female"
+                        android:inputType="textAutoComplete"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="male"
+                        android:id="@+id/male"
+                        android:inputType="textAutoComplete"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Co-ed"
+                        android:id="@+id/coed"
+                        android:inputType="textAutoComplete"/>
+                </RadioGroup>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:elevation="1dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="2.0px"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/layouttoggle"
+            android:layout_below="@id/layouthostelinfo"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:paddingTop="0dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/type"
+                android:layout_alignParentStart="true"
+                android:id="@+id/togglerelative">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hostel Facilities"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/txthostelfacilities"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"/>
+                <ToggleButton
+                    android:id="@+id/toggleElevator"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/togglelift"
+                    />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleElevator"
+                    android:layout_alignStart="@+id/toggleElevator"
+                    android:text="Elevator"
+                    android:textAlignment="center"
+                    >
+
+                </TextView>
+
+                <ToggleButton
+                    android:id="@+id/toggleDrinkingwater"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:layout_toEndOf="@+id/toggleElevator"
+                    android:background="@drawable/drinking_water"
+                    android:layout_alignTop="@+id/toggleElevator" />
+
+                <TextView
+                    android:id="@+id/txt2"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleDrinkingwater"
+                    android:layout_alignStart="@+id/toggleDrinkingwater"
+                    android:text="Drinking Water"
+                    android:textAlignment="center"
+                    >
+
+                </TextView>
+                <ToggleButton
+                    android:id="@+id/toggleCot"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/toggleDrinkingwater"
+                    android:layout_marginEnd="35dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/cot"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleCot"
+                    android:layout_alignStart="@+id/toggleCot"
+                    android:text="Cot"
+                    android:textAlignment="center">
+
+                </TextView>
+                <ToggleButton
+                    android:id="@+id/togglecctv"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleElevator"
+                    android:layout_below="@+id/toggleElevator"
+                    android:layout_marginTop="50dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:background="@drawable/cctv"
+                    />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/togglecctv"
+                    android:layout_alignStart="@+id/togglecctv"
+                    android:text="CCTV"
+                    android:textAlignment="center">
+
+                </TextView>
+                <ToggleButton
+                    android:id="@+id/toggleAc"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleDrinkingwater"
+                    android:layout_alignTop="@+id/togglecctv"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/ac"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleAc"
+                    android:layout_alignStart="@+id/toggleAc"
+                    android:text="AC"
+                    android:textAlignment="center"
+                    >
+
+                </TextView>
+                <ToggleButton
+                    android:id="@+id/toggleElectricity"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleCot"
+                    android:layout_alignTop="@+id/toggleAc"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/electricity" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleElectricity"
+                    android:layout_alignStart="@+id/toggleElectricity"
+                    android:text="Electricity"
+                    android:textAlignment="center"
+
+
+                    />
+                <ToggleButton
+                    android:id="@+id/toggleGym"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/togglecctv"
+                    android:layout_below="@+id/togglecctv"
+                    android:layout_marginTop="37dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/gym"
+                    />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleGym"
+                    android:layout_alignStart="@+id/toggleGym"
+                    android:text="Gym"
+                    android:textAlignment="center"
+
+
+                    />
+
+
+                <ToggleButton
+                    android:id="@+id/toggleHotwater"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleAc"
+                    android:layout_alignTop="@+id/toggleGym"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/hot_water" />
+                />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleHotwater"
+                    android:layout_alignStart="@+id/toggleHotwater"
+                    android:text="Hot Water"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <ToggleButton
+                    android:id="@+id/toggleTV"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignBottom="@+id/toggleHotwater"
+                    android:layout_alignStart="@+id/toggleElectricity"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/tv"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleTV"
+                    android:layout_alignStart="@+id/toggleTV"
+                    android:text="TV"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <ToggleButton
+                    android:id="@+id/toggleCleaning"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/toggleGym"
+                    android:layout_below="@+id/toggleGym"
+                    android:layout_marginTop="35dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/cleaning" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleCleaning"
+                    android:layout_alignStart="@+id/toggleCleaning"
+                    android:text="Cleaning"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <ToggleButton
+                    android:id="@+id/toggleParking"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignTop="@+id/toggleCleaning"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/toggleCleaning"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/parking"/>
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleParking"
+                    android:layout_alignStart="@+id/toggleParking"
+                    android:text="Parking"
+                    android:textAlignment="center"
+
+                    />
+                <ToggleButton
+                    android:id="@+id/toggleWashingmachine"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignEnd="@+id/toggleTV"
+                    android:layout_alignTop="@+id/toggleParking"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/washingmachine" />
+
+
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="Washing Machine"
+                    android:layout_below="@+id/toggleWashingmachine"
+                    android:layout_alignStart="@+id/toggleWashingmachine"
+                    android:textAlignment="center"
+                    android:layout_marginRight="35dp"
+                    android:id="@+id/textView7" />
+
+                <ToggleButton
+                    android:id="@+id/toggleMess"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="48dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/mess"
+                    android:layout_below="@+id/toggleCleaning"
+                    android:layout_alignStart="@+id/toggleCleaning"/>
+
+
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleMess"
+                    android:layout_alignStart="@+id/toggleMess"
+                    android:text="Mess"
+                    android:textAlignment="center"
+                    android:id="@+id/txtmess"
+                    />
+
+                <ToggleButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/toggleStudytable"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/studytable"
+                    android:layout_alignBaseline="@+id/toggleMess"
+                    android:layout_alignBottom="@+id/toggleMess"
+                    android:layout_alignStart="@+id/txt1" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleStudytable"
+                    android:layout_alignStart="@+id/toggleStudytable"
+                    android:text="Study table"
+                    android:textAlignment="center"
+                    android:id="@+id/txtstudytable" />
+
+                <ToggleButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/toggleWifi"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/wifi"
+                    android:layout_alignBaseline="@+id/toggleStudytable"
+                    android:layout_alignBottom="@+id/toggleStudytable"
+                    android:layout_marginLeft="255dp"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/toggleWifi"
+                    android:layout_alignStart="@+id/toggleWifi"
+                    android:text="Wifi"
+                    android:textAlignment="center"
+                    android:id="@+id/txtwifi" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/txtmess"
+                    android:id="@+id/linearLayout">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/image1"
+                        android:src="@drawable/addimage"
+                        android:layout_marginStart="20dp"
+                        />
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/image2"
+                        android:src="@drawable/addimage"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/image3"
+                        android:src="@drawable/addimage"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/image4"
+                        android:src="@drawable/addimage"
+                        android:layout_marginLeft="10dp"/>
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/image5"
+                        android:src="@drawable/addimage"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:text="Submit"
+            android:id="@+id/button1"
+            android:layout_below="@+id/layouttoggle"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</ScrollView>

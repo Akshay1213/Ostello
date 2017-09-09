@@ -1,0 +1,86 @@
+[
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/filteropenanim.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/anim/filteropenanim.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/slide_in_left.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/anim/slide_in_left.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/move_up.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/anim/move_up.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/slide_in_right.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/anim/slide_in_right.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_fab_in.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/filtercloseanim.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/anim/filtercloseanim.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim/design_fab_out.xml"
+    }
+]

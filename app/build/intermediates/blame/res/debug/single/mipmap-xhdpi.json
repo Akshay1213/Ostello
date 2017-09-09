@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_aboutus.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/mipmap-xhdpi/ic_aboutus.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    }
+]

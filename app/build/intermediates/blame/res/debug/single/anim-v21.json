@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    }
+]

@@ -127,12 +127,10 @@
         </activity>
         <activity
             android:name=".Aboutus"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Registerhostel">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Forgotpassword" />
+        <activity android:name=".Hostel_Registeration" />
+        <activity android:name=".Temp"></activity>
     </application>
 
 </manifest>

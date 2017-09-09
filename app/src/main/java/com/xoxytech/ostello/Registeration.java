@@ -73,7 +73,9 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
     login_me.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            startActivity(new Intent(Registeration.this,Login.class));
+//            startActivity(new Intent(Registeration.this,Login.class));
+            onBackPressed();
+
         }
     });
     }
@@ -338,6 +340,11 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
         loading.dismiss();
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     @Override
     public void onClick(View v) {

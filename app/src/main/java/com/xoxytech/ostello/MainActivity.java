@@ -335,8 +335,8 @@ public class MainActivity extends AppCompatActivity
             editor.putString("USER_NAME", null); //username the user has entered
             editor.commit();
             startActivity(new Intent(MainActivity.this,Login.class));
-        } else if (id == R.id.nav_gallery) {
-
+        } else if (id == R.id.nav_addhostel) {
+            startActivity(new Intent(MainActivity.this, Hostel_Registeration.class));
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
             if (f.exists()) {
                 Log.d("TAG", "SharedPreferences Name_of_your_preference : exist");
                 SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
-                String username= sp.getString("USER_NAME",null);
+                String username = sp.getString("USER_PHONE", null);
                 Toast.makeText(Login.this,"Logged in using "+username,Toast.LENGTH_LONG);
                 if(username!=null)
                     startActivity(new Intent(Login.this, MainActivity.class));

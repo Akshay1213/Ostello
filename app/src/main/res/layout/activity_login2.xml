@@ -18,17 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="24sp"
-            android:paddingRight="24sp"
-            android:paddingTop="20sp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="20dp"
             android:weightSum="1">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="200sp"
-                android:layout_height="200sp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="0sp"
+                android:layout_marginBottom="0dp"
                 android:layout_weight="0"
                 android:src="@drawable/ostalologo"/>
 
@@ -36,16 +36,16 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginTop="8sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center">
 
                 <EditText
                     android:id="@+id/input_usernumber"
-                    android:layout_width="250sp"
-                    android:layout_height="50sp"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/round"
-                    android:drawablePadding="2sp"
+                    android:drawablePadding="2dp"
                     android:gravity="center"
                     android:hint="Phone number"
                     android:inputType="number"
@@ -57,14 +57,14 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginTop="8sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center">
 
                 <EditText
                     android:id="@+id/input_password"
-                    android:layout_width="250sp"
-                    android:layout_height="50sp"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/round"
 
                     android:gravity="center"
@@ -91,18 +91,18 @@
 
             <TextView android:id="@+id/link_signup"
                 android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:layout_marginBottom="10sp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/noaccountround"
                 android:gravity="center"
                 android:text="@string/NoAccount"
-                android:textSize="15sp"/>
+                android:textSize="15dp" />
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
-                android:layout_height="15sp"
+                android:layout_height="15dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25sp"
+                android:layout_marginTop="25dp"
                 android:layout_weight="0"
                 android:src="@drawable/poweredby"/>
 

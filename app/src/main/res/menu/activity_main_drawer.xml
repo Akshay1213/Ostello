@@ -4,37 +4,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_lock_open_black_24dp"
             android:background="?android:attr/selectableItemBackground"
+            android:icon="@drawable/ic_lock_open_black_24dp"
             android:title="Logout" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_addhostel"
             android:background="?android:attr/selectableItemBackground"
-            android:title="Gallery" />
+            android:icon="@drawable/ic_add_circle_black_24dp"
+            android:title="List My Hostel" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
             android:background="?android:attr/selectableItemBackground"
+            android:icon="@drawable/ic_menu_slideshow"
             android:title="Slideshow" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
             android:background="?android:attr/selectableItemBackground"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:id="@+id/nav_aboutus"
                 android:background="?android:attr/selectableItemBackground"
-                android:title="Share" />
+                android:icon="@drawable/ic_people_black_24dp"
+                android:title="About Us" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
                 android:background="?android:attr/selectableItemBackground"
+                android:icon="@drawable/ic_menu_send"
                 android:title="Send" />
         </menu>
     </item>

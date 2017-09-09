@@ -56,7 +56,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         else
             animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_right);
-        animation.setDuration(300 * i);
+        animation.setDuration(300);
         myHolder.cardView.setAnimation(animation);
     }
 

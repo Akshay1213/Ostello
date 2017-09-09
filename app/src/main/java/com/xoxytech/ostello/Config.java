@@ -8,6 +8,8 @@ public class Config {
     //URLs to register.php and confirm.php file
     public static final String REGISTER_URL = "http://ostallo.com/ostello/register.php";
     public static final String CONFIRM_URL = "http://ostallo.com/ostello/confirm.php";
+    public static final String RESETPASSWORD_URL = "http://ostallo.com/ostello/resetpassword.php";
+    public static final String FORGOTPASSWORD_URL = "http://ostallo.com/ostello/forgotpassword.php";
     public static final String LOGIN_URL = "http://ostallo.com/ostello/login_verification.php";
     public static final String AutoComplete_URL = "http://ostallo.com/ostello/fetchcities.php";
     public static final String SEARCHHOSTELS_URL = "http://ostallo.com/ostello/fetchhostels.php";

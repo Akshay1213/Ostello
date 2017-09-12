@@ -28,15 +28,25 @@
             android:layout_below="@+id/texthostelName"
             android:layout_marginTop="0dp"
             android:scaleType="fitXY"
-            android:visibility="visible" />
+            android:visibility="visible" />]
+        ]
+        <!--   <view
+               android:layout_width="100dp"
+               android:layout_height="35dp"
+               android:layout_gravity="bottom|right"
+               android:layout_marginBottom="45dp"
+               android:text="price"
+               android:background="#2ed91b"
+               />-->
         <!--<ImageView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:scaleType="fitXY"-->
-            <!--android:layout_height="220dp"-->
-            <!--android:src="@drawable/shadow1"-->
-            <!--android:layout_below="@+id/texthostelName"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:id="@+id/ivhosteltempback"/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:layout_height="220dp"-->
+        <!--android:src="@drawable/shadow1"-->
+        <!--android:layout_below="@+id/texthostelName"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:id="@+id/ivhosteltempback"/>-->
+
         <TextView
             android:id="@+id/hiddenid"
             android:layout_width="match_parent"
@@ -50,44 +60,44 @@
 
             />
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="55dp"
-    android:background="@drawable/fadedraw"
-    android:text=""
-        >
-        <TextView
-            android:id="@+id/texthostelName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="left"
-            android:padding="5dp"
-            android:text="Hostel Name"
-            android:textColor="@color/txtcolor"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/roundprice"
-            android:drawableRight="@drawable/star15"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="3.5"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/txtcolor"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/fadedraw"
+            android:text=""
+            >
+                <TextView
+                    android:id="@+id/texthostelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="Hostel Name"
+                    android:textColor="@color/txtcolor"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/roundprice"
+                    android:drawableRight="@drawable/star15"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="3.5"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/txtcolor"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -95,34 +105,8 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="230dp"
             >
-                <TextView
-                    android:id="@+id/textPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="price"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/grey"
-                    />
 
-                <TextView
-                    android:id="@+id/textType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Boys"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/grey"
-                    />
+
 
                 <TextView
                     android:id="@+id/textSize"
@@ -130,10 +114,49 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
+                    android:layout_alignParentTop="true"
                     android:padding="5dp"
                     android:text="Category"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/grey"
                     />
         </RelativeLayout>
+        <!--
+                <ImageView
+                    android:id="@+id/imagePrice"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="140dp"
+                    android:background="#606b6363"
+                    android:visibility="visible" />-->
+        <TextView
+            android:id="@+id/textType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="62dp"
+            android:layout_marginBottom="140dp"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:text="Boys"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/rightround"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="140dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/leftround"
+            android:textColor="@color/white"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 </android.support.v7.widget.CardView>

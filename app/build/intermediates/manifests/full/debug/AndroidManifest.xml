@@ -154,6 +154,7 @@
         <activity android:name="com.xoxytech.ostello.Forgotpassword" />
         <activity android:name="com.xoxytech.ostello.Hostel_Registeration" />
         <activity android:name="com.xoxytech.ostello.Temp" />
+        <activity android:name="com.xoxytech.ostello.FilterNew" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

@@ -130,7 +130,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Forgotpassword" />
         <activity android:name=".Hostel_Registeration" />
-        <activity android:name=".Temp"></activity>
+        <activity android:name=".Temp" />
+        <activity android:name=".FilterNew"></activity>
     </application>
 
 </manifest>

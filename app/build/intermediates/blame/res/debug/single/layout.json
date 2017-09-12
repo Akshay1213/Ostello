@@ -232,6 +232,10 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_filter_new.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_filter_new.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_registeration.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_registeration.xml"
     },

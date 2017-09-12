@@ -2,87 +2,104 @@
 <instant-run
     abi="armeabi-v7a,armeabi"
     api-level="23"
-    build-mode="HOT_WARM"
+    build-mode="FULL"
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1504941815682"
+    timestamp="1505201009931"
     token="205348184465890333"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="283" />
+        duration="912" />
     <task
         name="instant-run-dex"
-        duration="67" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="106" />
+        duration="53" />
     <task
         name="verifier"
-        duration="5" />
+        duration="7" />
 
     <artifact
-        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/outputs/apk/app-debug.apk"
+        type="SPLIT_MAIN" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1504941582775"
+        timestamp="1505201009931"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
-        <artifact
             location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/home/akshay/AndroidStudioProjects/Ostello/app/build/outputs/apk/app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1504941781350"
-        verifier="MANIFEST_FILE_CHANGE" >
         <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/outputs/apk/app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1504941815682"
-        verifier="COMPATIBLE" >
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
         <artifact
-            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

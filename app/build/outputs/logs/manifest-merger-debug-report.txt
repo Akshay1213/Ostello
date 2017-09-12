@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-136:12
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-137:12
 	package
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:3:5-35
 		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
@@ -72,7 +72,7 @@ MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/buil
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:21:22-76
 application
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:23:5-134:19
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:23:5-135:19
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/akshay/.android/build-cache/25ccc06437b91ad5dac5600d0ab69182f7a26aa4/output/AndroidManifest.xml:19:5-20:19
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/akshay/.android/build-cache/877693f06ee1e96761322d8eef317133ae1704a1/output/AndroidManifest.xml:5:5-19
@@ -217,9 +217,13 @@ ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:132:19-55
 activity#com.xoxytech.ostello.Temp
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:9-51
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:9-42
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:19-39
+activity#com.xoxytech.ostello.FilterNew
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:134:9-56
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:134:19-44
 uses-sdk
 INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:7:5-9:41

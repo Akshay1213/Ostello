@@ -43,6 +43,7 @@ public class NewMenu extends Activity {
     public static final int CONNECTION_TIMEOUT = 50000;
     public static final int READ_TIMEOUT = 25000;
     public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
+    private static final int FILTER_REQUEST_CODE = 1;
     public static List<CitySuggetions> cities;
     private static long back_pressed;
     SearchView searchView = null;
@@ -80,7 +81,11 @@ public class NewMenu extends Activity {
             @Override
             public void onClick(View view) {
                 ActivityOptions options=ActivityOptions.makeCustomAnimation(NewMenu.this,R.anim.filteropenanim,R.anim.filteropenanim);
-                startActivity(new Intent(NewMenu.this,Filter.class ),options.toBundle());
+                Intent i = new Intent(NewMenu.this, FilterNew.class);
+
+                startActivityForResult(i, FILTER_REQUEST_CODE, options.toBundle());
+
+
                 Snackbar.make(view, "Filter Applied successfully ", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
 
@@ -263,6 +268,14 @@ public class NewMenu extends Activity {
         if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
             ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             mSearchView.setSearchBarTitle(matches.get(0).toString());
+        }
+
+        if (requestCode == FILTER_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                String str = data.getStringExtra("data");
+                //Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
+                // TODO: 12/9/17  str contains filter data filter funn to be appended here to refresh RV
+            }
         }
     }
     @Override

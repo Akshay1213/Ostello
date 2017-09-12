@@ -58,6 +58,13 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_right);
         animation.setDuration(300);
         myHolder.cardView.setAnimation(animation);
+
+        animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_right);
+        animation.setStartOffset(800);
+        ((MyHolder) holder).textPrice.setAnimation(animation);
+        animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        animation.setStartOffset(800);
+        ((MyHolder) holder).textType.setAnimation(animation);
     }
 
     // Inflate the layout when viewholder created

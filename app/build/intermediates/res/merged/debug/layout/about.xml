@@ -1,8 +1,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -13,46 +12,46 @@
         android:layout_width="match_parent"
 
         android:layout_height="203dp"
-        android:foregroundGravity="center"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
         android:background="@drawable/aboutusback"
+        android:foregroundGravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
         android:src="@drawable/ostalologo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
-        android:textColor="@android:color/darker_gray"
         android:text="@string/version"
+        android:textColor="@android:color/darker_gray"
         />
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:elevation="1dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="2.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardElevation="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2.0px"
+        android:elevation="1dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingTop="0dp"
         app:cardCornerRadius="5dp"
-        android:layout_marginBottom="10dp"
-        app:cardPreventCornerOverlap="true"
-        android:paddingTop="0dp">
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/darker_gray"
-        android:text="@string/loremipsum"
         android:layout_margin="15dp"
+        android:text="@string/loremipsum"
+        android:textColor="@android:color/darker_gray"
         android:textSize="15dp"
         />
 
@@ -61,22 +60,22 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:elevation="1dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="2.0px"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardElevation="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2.0px"
+        android:elevation="1dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingTop="0dp"
         app:cardCornerRadius="5dp"
-        android:layout_marginBottom="10dp"
-        app:cardPreventCornerOverlap="true"
-        android:paddingTop="0dp">
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true">
 
         </android.support.v7.widget.CardView>
     <ImageView

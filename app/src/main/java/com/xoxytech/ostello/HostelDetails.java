@@ -2,8 +2,12 @@ package com.xoxytech.ostello;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.text.Html;
@@ -16,6 +20,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
@@ -91,7 +96,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                 // TODO: 7/9/17 add dialogue box of conditions
                 LayoutInflater li = LayoutInflater.from(HostelDetails.this);
                 //Creating a view to get the dialog box
-                View confirmDialog = li.inflate(R.layout.dialog_confirm, null);
+                View confirmDialog = li.inflate(R.layout.dialog_tandc, null);
 
                 //Creating an alertdialog builder
 
@@ -116,6 +121,26 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         cardDesc = (CardView) findViewById(R.id.cardDesc);
         btnEnquiry = (Button) findViewById(R.id.btnenquirenow);
 
+        btnEnquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HostelDetails.this, "athegb", Toast.LENGTH_SHORT);
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:9764200290"));
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                startActivity(callIntent);
+            }
+        });
+
         new AsyncFetch().execute();
     }
     @Override
@@ -132,6 +157,37 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         LatLng sydney = new LatLng(18.6728856, 73.8880155);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    private void inittoggle_facilities(String facilities) {
+        int i = 0;
+        ToggleButton[] tb = new ToggleButton[15];
+        tb[0] = (ToggleButton) findViewById(R.id.toggleElevator);
+        tb[1] = (ToggleButton) findViewById(R.id.toggleDrinkingwater);
+        tb[2] = (ToggleButton) findViewById(R.id.toggleCot);
+        tb[3] = (ToggleButton) findViewById(R.id.togglecctv);
+        tb[4] = (ToggleButton) findViewById(R.id.toggleAc);
+        tb[5] = (ToggleButton) findViewById(R.id.toggleElectricity);
+        tb[6] = (ToggleButton) findViewById(R.id.toggleGym);
+        tb[7] = (ToggleButton) findViewById(R.id.toggleHotwater);
+        tb[8] = (ToggleButton) findViewById(R.id.toggleTV);
+        tb[9] = (ToggleButton) findViewById(R.id.toggleCleaning);
+        tb[10] = (ToggleButton) findViewById(R.id.toggleParking);
+        tb[11] = (ToggleButton) findViewById(R.id.toggleWashingmachine);
+        tb[12] = (ToggleButton) findViewById(R.id.toggleMess);
+        tb[13] = (ToggleButton) findViewById(R.id.toggleStudytable);
+        tb[14] = (ToggleButton) findViewById(R.id.toggleWifi);
+
+        while (i < 15) {
+            if (facilities.charAt(i) == '1') {
+                tb[i].setChecked(true);
+                Log.d("********", "" + i + ") " + facilities.charAt(i));
+
+            }
+            i++;
+        }
+
+
     }
 
     private class AsyncFetch extends AsyncTask<String, String, String> {
@@ -246,6 +302,7 @@ Log.d("*****************",result);
                     textViewaddress.setText(json_data.getString("address"));
                     textViewcity.setText(json_data.getString("city"));
                     textViewvacancies.setText(json_data.getString("vacancy"));
+                    inittoggle_facilities(json_data.getString("facilities"));
                     String s[]=json_data.getString("location").split(",");
                     LatLng hostelmarker = new LatLng(Double.parseDouble(s[0]),Double.parseDouble(s[1]));
                     mMap.addMarker(new MarkerOptions().position(hostelmarker).title(textViewhostelName.getText().toString()));

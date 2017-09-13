@@ -1,4 +1,4 @@
-#Tue Sep 12 12:53:36 IST 2017
+#Tue Sep 12 18:59:18 IST 2017
 base.0=/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_db34b35fd0458ff9d216e480149e8a3022e9100f
 renamed.1=classes.dex
 renamed.0=classes2.dex

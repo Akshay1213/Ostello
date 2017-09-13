@@ -327,10 +327,12 @@ public class Hostel_Registeration extends AppCompatActivity {
                     });
                     queue.add(postrequest);
                     new FileUpload().execute();
+
                 }
             }
 
         });
+
 
 
     }
@@ -374,7 +376,7 @@ public class Hostel_Registeration extends AppCompatActivity {
 
             imageView1.setImageBitmap(yourSelectedImage);
             name1 = s.substring(s.lastIndexOf("/") + 1);
-            Toast.makeText(getApplicationContext(), "" + name, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "" + name1, Toast.LENGTH_LONG).show();
             //uploadFile(s);
 
             // Log.d("46551","Url:"+yourSelectedImage);
@@ -421,6 +423,7 @@ public class Hostel_Registeration extends AppCompatActivity {
             File sourceFile = new File(s);
 
             if (!sourceFile.isFile()) {
+
 
 
                 Log.e("uploadFile", "Source File not exist :"
@@ -551,6 +554,7 @@ public class Hostel_Registeration extends AppCompatActivity {
         }
     }
 }
+
 
 
 

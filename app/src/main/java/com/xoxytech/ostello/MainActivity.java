@@ -333,6 +333,7 @@ public class MainActivity extends AppCompatActivity
             SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("USER_NAME", null); //username the user has entered
+            editor.putString("USER_PHONE", null); //username the user has entered
             editor.commit();
             startActivity(new Intent(MainActivity.this,Login.class));
         } else if (id == R.id.nav_addhostel) {

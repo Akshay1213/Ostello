@@ -119,16 +119,8 @@
                     android:textColor="@color/grey"
                     />
         </RelativeLayout>
-        <!--
-                <ImageView
-                    android:id="@+id/imagePrice"
-                    android:layout_width="100dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="140dp"
-                    android:background="#606b6363"
-                    android:visibility="visible" />-->
-        <TextView
+
+    <TextView
             android:id="@+id/textType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

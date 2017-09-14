@@ -59,10 +59,23 @@
             android:visibility="invisible"
 
             />
+    <TextView
+        android:id="@+id/hiddenfacilities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="facilities"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/RvtextColor"
+        android:visibility="invisible"
 
-        <RelativeLayout
+        />
+
+
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/fadedraw"
             android:text=""
             >
@@ -71,15 +84,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="left"
                     android:padding="5dp"
                     android:text="Hostel Name"
                     android:textColor="@color/txtcolor"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/textViewHostelname"
+                android:layout_marginTop="25dp"
+                android:padding="5dp"
+                android:text="Category"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                />
                 <TextView
                     android:id="@+id/rating"
                     android:layout_width="50dp"
@@ -106,29 +131,10 @@
             android:layout_marginTop="230dp">
 
 
-                <TextView
-                    android:id="@+id/textSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:padding="5dp"
-                    android:text="Category"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/grey"
-                    />
+
         </RelativeLayout>
-        <!--
-                <ImageView
-                    android:id="@+id/imagePrice"
-                    android:layout_width="100dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="140dp"
-                    android:background="#606b6363"
-                    android:visibility="visible" />-->
-        <TextView
+
+    <TextView
             android:id="@+id/textType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

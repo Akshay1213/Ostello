@@ -42,6 +42,12 @@
                 android:paddingTop="0dp"
                 android:layout_weight="0"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="oops..No Result Found..."
+                android:visibility="invisible"
+                android:id="@+id/textviewnoresultfound"/>
 
         </RelativeLayout>
 

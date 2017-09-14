@@ -1,20 +1,14 @@
 package com.xoxytech.ostello;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,57 +17,97 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class Contactus extends AppCompatActivity {
-    private EditText e1;
-    Button b1;
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
+    Button b1;
+    int flag = 0;
     String msg;
+    private EditText e1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactus);
-       b1=(Button)findViewById(R.id.btnSubmit);
+        b1 = (Button) findViewById(R.id.btnSubmit);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 msg="";
                 e1=(EditText)findViewById(R.id.name);
-                msg+=e1.getText()+"\n";
+                String name = e1.getText().toString();
+                if (name.length() == 0) {
+                    e1.setError("Please enter name");
+                    flag = 1;
+                } else {
+                    msg += e1.getText() + "\n";
+                }
                 e1=(EditText)findViewById(R.id.email);
-                msg+=e1.getText()+"\n";
+                String mail = e1.getText().toString();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                if (!mail.matches(emailPattern)) {
+                    e1.setError("Invalid email");
+                    flag = 1;
+                } else {
+                    msg += e1.getText() + "\n";
+                }
+
                 e1=(EditText)findViewById(R.id.phone);
-                msg+=e1.getText()+"\n";
+
+                String number = e1.getText().toString();
+                if (number.length() < 10 || number.length() == 0) {
+                    e1.setError("Invalid number");
+                    flag = 1;
+                } else {
+                    msg += e1.getText() + "\n";
+                }
+
                 e1=(EditText)findViewById(R.id.description);
-                msg+=e1.getText()+"\n";
+                String comment = e1.getText().toString();
+                if (comment.length() == 0) {
+                    e1.setError("Please enter comment");
+                    flag = 1;
+                } else {
+                    msg += e1.getText() + "\n";
+                }
+                if (flag == 0) {
+
+                    String[] to = {"ostallohostels@gmail.com"};
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/html");
+                    intent.putExtra(Intent.EXTRA_EMAIL, to);
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Contact Us");
+                    intent.putExtra(Intent.EXTRA_TEXT, msg);
+
+                    try {
+                        startActivity(Intent.createChooser(intent, "Send Email"));
+                        // Snackbar.make(findViewById(R.id.drawer_layout), "Mail sent", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        Log.d("******", "Finished sending email...");
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(Contactus.this, "Mail not sent", Toast.LENGTH_SHORT).show();
+                    }
+                   /* finally {
+                        finish();
+                    }*/
+                }
+                flag = 0;
+
 
             }
         });
     }
-    protected void sendEmail() {
-        Log.i("Send email", "");
-//        String[] TO = {"ostallohostels@gmail.com"};
-        String[] TO = {"akshaysaindane10@gmail.com"};
-        String[] CC = {"akshaysaindane10@gmail.com"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+  /*  public void sendMail()
+    {
+    }*/
 
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "ostallo Contact");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, msg);
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-            Log.i("******","Finished sending email...");
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(Contactus.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.filtercloseanim, R.anim.filtercloseanim);
     }
+
     public class AsyncFetch extends AsyncTask<String, String, String> {
 
         HttpURLConnection conn;
@@ -107,7 +141,6 @@ public class Contactus extends AppCompatActivity {
                 conn.setReadTimeout(READ_TIMEOUT);
                 conn.setConnectTimeout(CONNECTION_TIMEOUT);
                 conn.setRequestMethod("POST");
-
                 // setDoOutput to true as we receive data
                 conn.setDoOutput(true);
                 conn.connect();
@@ -155,14 +188,8 @@ public class Contactus extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
-        Toast.makeText(Contactus.this,"Message Sent successfully "+result,Toast.LENGTH_SHORT);
+            Toast.makeText(Contactus.this, "Message Sent successfully " + result, Toast.LENGTH_SHORT);
         }
 
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.filtercloseanim,R.anim.filtercloseanim);
     }
 }

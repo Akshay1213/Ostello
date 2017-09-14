@@ -85,7 +85,8 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.texthostelName.setText(current.HostelName);
         myHolder.textSize.setText(current.type);
         myHolder.textType.setText( current.catName);
-        myHolder.textPrice.setText("Rs. " + current.price+"/-");
+        myHolder.textPrice.setText("Rs. " + current.price + "/mo.");
+        myHolder.hiddenfacilities.setText(current.facilities);
        // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
         Log.d("imageurl",current.HostelImage);
@@ -120,7 +121,7 @@ prevpos=position;
         TextView textType;
         CardView cardView;
         TextView textPrice;
-        TextView hiddenid;
+        TextView hiddenid, hiddenfacilities;
         SliderLayout sliderShow;
 
         // create constructor to get widget reference
@@ -133,6 +134,7 @@ prevpos=position;
             textPrice = (TextView) itemView.findViewById(R.id.textPrice);
             sliderShow=(SliderLayout)itemView.findViewById(R.id.slider);
             hiddenid=(TextView)itemView.findViewById(R.id.hiddenid);
+            hiddenfacilities = (TextView) itemView.findViewById(R.id.hiddenfacilities);
             cardView = (CardView) itemView.findViewById(R.id.layoutcardview);
         }
 

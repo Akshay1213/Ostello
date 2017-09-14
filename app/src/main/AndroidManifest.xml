@@ -133,7 +133,8 @@
         <activity android:name=".Forgotpassword" />
         <activity android:name=".Hostel_Registeration" />
         <activity android:name=".Temp" />
-        <activity android:name=".FilterNew"></activity>
+        <activity android:name=".FilterNew" />
+        <activity android:name=".Uploadhostelimages"></activity>
     </application>
 
 </manifest>

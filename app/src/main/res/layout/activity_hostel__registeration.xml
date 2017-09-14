@@ -44,7 +44,8 @@
                 android:id="@+id/txtregisterhostel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="5dp"
                 android:text="Register your hostel"
                 android:textColor="#ffffff"
@@ -90,7 +91,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/txtpersonneldetail"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="15dp"
                     android:focusableInTouchMode="true"
                     android:text="Name *"
                     android:textSize="15dp" />
@@ -108,7 +109,9 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="none"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:text="John"
                     android:textColor="#bcbcbc" />
 
@@ -118,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/txtusername"
                     android:layout_below="@+id/txtusername"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="20dp"
                     android:text="Mobile number1 *"
                     android:textSize="15dp" />
                 <EditText
@@ -135,7 +138,9 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="none"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:text="9764200290"
                     android:textColor="#bcbcbc" />
                 <TextView
@@ -144,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/txtmobilenumber1"
                     android:layout_below="@+id/txtmobilenumber1"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="20dp"
                     android:text="Mobile number2 *"
                     android:textSize="15dp" />
                 <EditText
@@ -162,7 +167,9 @@
                     android:focusableInTouchMode="true"
                     android:inputType="phone"
                     android:maxLength="10"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
 
                 <TextView
@@ -237,16 +244,18 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="text"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
                 <TextView
                     android:id="@+id/txtaddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/price"
+                    android:layout_above="@+id/txtprice"
                     android:layout_alignStart="@+id/txthostelname"
                     android:layout_below="@+id/editTexthostelname"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Address *"
                     android:textSize="15dp" />
                 <EditText
@@ -262,7 +271,9 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="text"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
                 />
                 <TextView
@@ -271,7 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/txtaddress"
                     android:layout_below="@+id/editTextaddress"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Price *" />
                 <EditText
                     android:id="@+id/editTextprice"
@@ -286,7 +297,9 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="number"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
                 <TextView
                     android:id="@+id/textvacancy"
@@ -295,7 +308,7 @@
                     android:layout_alignEnd="@+id/txtaddress"
                     android:layout_alignStart="@+id/txtaddress"
                     android:layout_below="@+id/editTextprice"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:text="Vacancy *" />
                 <EditText
                     android:id="@+id/editTextvacancy"
@@ -310,7 +323,9 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="number"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
 
 
@@ -321,7 +336,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textvacancy"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:text="Type *"
                     android:textSize="15dp" />
                 <Spinner
@@ -331,7 +346,7 @@
                     android:layout_below="@+id/textvacancy"
                     android:layout_marginLeft="135dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="15dp" />
 
                 <TextView
                     android:id="@+id/txtgender"
@@ -339,7 +354,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txttype"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
+                    android:paddingTop="5dp"
                     android:text="Gender *"
                     android:textSize="15dp" />
                 <RadioGroup
@@ -358,14 +374,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="textAutoComplete"
-                        android:text="Female" />
+                        android:text="Girls" />
                     <RadioButton
                         android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="textAutoComplete"
-                        android:text="Male" />
+                        android:text="Boys" />
                     <RadioButton
                         android:id="@+id/coed"
                         android:layout_width="wrap_content"
@@ -385,7 +401,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layouthostelinfo"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
@@ -659,6 +675,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
                             android:layout_toRightOf="@+id/toggleGym"
                             android:background="@drawable/hot_water"
                             android:textOff=""
@@ -671,6 +688,7 @@
                             android:layout_alignStart="@+id/toggleHotwater"
                             android:layout_below="@+id/toggleHotwater"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
                             android:paddingLeft="5dp"
                             android:text="Hot Water" />
                     </LinearLayout>
@@ -790,7 +808,7 @@
                             android:layout_alignStart="@+id/toggleWashingmachine"
                             android:layout_below="@+id/toggleWashingmachine"
                             android:layout_gravity="center"
-                            android:paddingLeft="15dp"
+                            android:paddingLeft="20dp"
                             android:text="Washing Machine" />
                     </LinearLayout>
                 </LinearLayout>
@@ -887,52 +905,7 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/relativetoggle5"
-                    android:orientation="horizontal"
-                    android:weightSum="5">
-                    <ImageView
-                        android:id="@+id/image1"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/addimage" />
-                    <ImageView
-                        android:id="@+id/image2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/addimage" />
 
-                    <ImageView
-                        android:id="@+id/image3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/addimage" />
-
-                    <ImageView
-                        android:id="@+id/image4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/addimage" />
-                    <ImageView
-                        android:id="@+id/image5"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/addimage" />
-
-                </LinearLayout>
 
 
             </RelativeLayout>
@@ -946,7 +919,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Submit"
+            android:text="next"
             android:textColor="#ffffff"
             android:textSize="20dp" />
     </RelativeLayout>

@@ -10,8 +10,9 @@ public class Datahostel {
         public String HostelImage;
         public String HostelName;
         public String catName;
-        public String type;
+    public String type, facilities;
         public int price;
-        public String id;
+
+    public String id;
     
 }

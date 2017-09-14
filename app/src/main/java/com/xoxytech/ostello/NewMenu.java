@@ -48,9 +48,11 @@ public class NewMenu extends Activity {
     private static long back_pressed;
     SearchView searchView = null;
     String city;
+    List<Datahostel> data;
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
+    private TextView errortext;
     private RecyclerView mRVhostelList;
     private SimpleCursorAdapter myAdapter;
     private AppBarLayout mAppBar;
@@ -62,6 +64,8 @@ public class NewMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_menu);
+        errortext = (TextView) findViewById(R.id.textviewnoresultfound);
+        errortext.setVisibility(View.INVISIBLE);
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
         mAppBar = (AppBarLayout) findViewById(R.id.appbar);
         mAppBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -263,18 +267,53 @@ public class NewMenu extends Activity {
 //    }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data1) {
+        super.onActivityResult(requestCode, resultCode, data1);
         if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
-            ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            ArrayList matches = data1.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             mSearchView.setSearchBarTitle(matches.get(0).toString());
         }
 
         if (requestCode == FILTER_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                String str = data.getStringExtra("data");
-                //Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
-                // TODO: 12/9/17  str contains filter data filter funn to be appended here to refresh RV
+                String str = data1.getStringExtra("data");
+
+                List<Datahostel> filter = new ArrayList<>();
+                String[] arr = str.split(",");
+                Log.d("*****am in for", arr.length + "");
+
+                for (Datahostel i :
+                        data) {
+                    int min, max;
+                    min = Integer.parseInt(arr[2]);
+                    max = Integer.parseInt(arr[3]);
+                    if ((arr[1].equalsIgnoreCase("none") || i.type.equalsIgnoreCase(arr[1])) && min <= i.price && i.price <= max && arr[4].equalsIgnoreCase(i.catName)) {
+                        int f = 0;
+                        for (int j = 0; j < 15; j++) {
+                            if ((arr[0].charAt(j) == '1' && i.facilities.charAt(j) == '1')) {
+                                continue;
+                            } else if (arr[0].charAt(j) == '1') {
+                                f = 1;
+                                break;
+                            }
+                        }
+                        if (f == 0) {
+                            filter.add(i);
+                            Log.d("*****str", i.HostelName);
+                        }
+                    }
+
+                }
+                if (filter.size() == 0)
+                    errortext.setVisibility(View.VISIBLE);
+                else
+                    errortext.setVisibility(View.INVISIBLE);
+                mAdapter = new Adapterhostel(NewMenu.this, filter);
+                mRVhostelList.setAdapter(mAdapter);
+                mRVhostelList.setLayoutManager(new LinearLayoutManager(NewMenu.this));
+                mAdapter.notifyDataSetChanged();
+
+
             }
         }
     }
@@ -500,7 +539,7 @@ public class NewMenu extends Activity {
             //this method will be running on UI thread
             Log.d("*******************",result);
             pdLoading.dismiss();
-            List<Datahostel> data=new ArrayList<>();
+            data = new ArrayList<>();
             try {
 
                 JSONArray jArray = new JSONArray(result);
@@ -509,13 +548,14 @@ public class NewMenu extends Activity {
                 for(int i=0;i<jArray.length();i++){
                     JSONObject json_data = jArray.getJSONObject(i);
                     Datahostel hostelData = new Datahostel();
-                    hostelData.HostelImage= "http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg";
-                    Log.d("******->","http://janaipackaging.com/ostello/images/"+json_data.getString("hostel_id")+"/home.jpg");
+                    hostelData.HostelImage = "http://ostallo.com/ostello/images/" + json_data.getString("hostel_id") + "/home.jpg";
+                    Log.d("******->", "http://ostallo.com/ostello/images/" + json_data.getString("hostel_id") + "/home.jpg");
                     hostelData.HostelName= json_data.getString("hostelname");
                     hostelData.catName= json_data.getString("category");
                     hostelData.type= json_data.getString("type");
                     hostelData.price= json_data.getInt("rate");
                     hostelData.id=json_data.getString("hostel_id");
+                    hostelData.facilities = json_data.getString("facilities");
                     data.add(hostelData);
                 }
 
@@ -525,6 +565,9 @@ public class NewMenu extends Activity {
 //                llm.setOrientation(LinearLayoutManager.VERTICAL);
 
                 mAdapter = new Adapterhostel(NewMenu.this, data);
+                if (data.size() == 0)
+                    errortext.setVisibility(View.VISIBLE);
+
                 mRVhostelList.setAdapter(mAdapter);
                 mRVhostelList.setLayoutManager(new LinearLayoutManager(NewMenu.this));
                 mAdapter.notifyDataSetChanged();

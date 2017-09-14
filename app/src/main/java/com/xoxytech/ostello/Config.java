@@ -14,6 +14,8 @@ public class Config {
     public static final String AutoComplete_URL = "http://ostallo.com/ostello/fetchcities.php";
     public static final String SEARCHHOSTELS_URL = "http://ostallo.com/ostello/fetchhostels.php";
     public static final String SEARCHSPECIFICHOSTEL_URL = "http://ostallo.com/ostello/fetchrequestedhostel.php";
+    public static final String ENQUIRY_URL = "http://ostallo.com/ostello/fetchownerdeatils.php";
+
     public static final String FETCHONCLICKHOSTELS_URL = "http://ostallo.com/ostello/fetchhostelsonclick.php";
     public static final String CONTACTUS_URL = "http://ostallo.com/ostello/sendmail.php";
     //Keys to send username, password, phone and otp

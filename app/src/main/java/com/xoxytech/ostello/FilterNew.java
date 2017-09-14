@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -18,6 +22,7 @@ public class FilterNew extends AppCompatActivity {
     CrystalRangeSeekbar rangeSeekbar;
     TextView txt3;
     Button submit;
+    Spinner type;
     String togglestatus = "", gender = "", price = "";
     TextView tvMin, tvMax;
 
@@ -26,6 +31,10 @@ public class FilterNew extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_new);
         togglebuttonboys = (ToggleButton) findViewById(R.id.toggleboys);
+        type = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type.setAdapter(adapter);
 
         togglebuttongirls = (ToggleButton) findViewById(R.id.togglegirls);
         togglebuttoncoed = (ToggleButton) findViewById(R.id.togglecoed);
@@ -52,12 +61,13 @@ public class FilterNew extends AppCompatActivity {
         //  b1 = (Button)findViewById(R.id.button);
 
 
+
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
 
-                tvMin.setText(String.valueOf(minValue) + " Rs.");
-                tvMax.setText(String.valueOf(maxValue) + " Rs.");
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
 
 
             }
@@ -76,9 +86,46 @@ public class FilterNew extends AppCompatActivity {
 
             }
         };
+        View.OnClickListener bounce = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.bounce);
+                view.startAnimation(animation1);
+            }
+        };
+
+
+        ///////////////////////////////////////////////
+
+
+        toggleelevator.setOnClickListener(bounce);
+        toggledrinkingwater.setOnClickListener(bounce);
+        togglecot.setOnClickListener(bounce);
+        togglecctv.setOnClickListener(bounce);
+        toggleac.setOnClickListener(bounce);
+        toggleelectricity.setOnClickListener(bounce);
+        togglegym.setOnClickListener(bounce);
+        togglehotwater.setOnClickListener(bounce);
+        toggletv.setOnClickListener(bounce);
+        togglecleaning.setOnClickListener(bounce);
+        toggleparking.setOnClickListener(bounce);
+        togglewashingmachine.setOnClickListener(bounce);
+        togglemess.setOnClickListener(bounce);
+        togglestudytable.setOnClickListener(bounce);
+        togglewifi.setOnClickListener(bounce);
+
+
+        ///////////////////////////////////////////////////
+
+
+
         View.OnClickListener toggleListner = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.bounce);
+                view.startAnimation(animation1);
                 if (view == togglebuttonboys) {
                     togglebuttongirls.setChecked(false);
                     togglebuttoncoed.setChecked(false);
@@ -109,11 +156,13 @@ public class FilterNew extends AppCompatActivity {
                 if (togglebuttonboys.isChecked())
                     gender = "Boys";
 
-                if (togglebuttongirls.isChecked())
+                else if (togglebuttongirls.isChecked())
                     gender = "Girls";
 
-                if (togglebuttoncoed.isChecked())
+                else if (togglebuttoncoed.isChecked())
                     gender = "CO-ed";
+                else
+                    gender = "none";
 
                 if (toggleelevator.isChecked())
                     togglestatus += "1";
@@ -189,8 +238,8 @@ public class FilterNew extends AppCompatActivity {
                 else
                     togglestatus += "0";
 
-                price += "Min price=" + tvMin.getText().toString() + " ";
-                price += "Max price=" + tvMax.getText().toString() + " ";
+                price += tvMin.getText().toString() + ",";
+                price += tvMax.getText().toString();
 
                 //Toast.makeText(FilterNew.this,togglestatus+gender+price,Toast.LENGTH_LONG).show();
 
@@ -199,7 +248,7 @@ public class FilterNew extends AppCompatActivity {
                 //price="";
 
                 Intent intent = new Intent();
-                intent.putExtra("data", togglestatus + gender + price);
+                intent.putExtra("data", togglestatus + "," + gender + "," + price + "," + type.getSelectedItem().toString().trim());
                 setResult(RESULT_OK, intent);
                 finish();
 

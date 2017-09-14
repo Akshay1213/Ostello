@@ -13,11 +13,23 @@
         android:layout_height="match_parent"
         tools:context="com.example.user.facility.MainActivity">
 
+        <TextView
+            android:id="@+id/headerfilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Filter"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
         <android.support.v7.widget.CardView
             android:id="@+id/layouttype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/headerfilter"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:clipChildren="false"
@@ -654,11 +666,45 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/layoutcategory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/layoutfacility"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
+
+            <TextView
+                android:id="@+id/txtcatgory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:text="Category"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textvacancy"
+                android:layout_marginLeft="135dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:id="@+id/relativeSeekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/layoutfacility"
+            android:layout_below="@+id/layoutcategory"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:clipChildren="false"
@@ -674,21 +720,21 @@
                 android:layout_height="match_parent">
 
 
-                <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                <com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar
                     android:id="@+id/rangeSeekbar3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="80dp"
-                    app:bar_color="#f46269"
+                    android:layout_marginTop="50dp"
+                    app:bar_color="#bcbcbc"
                     app:bar_highlight_color="#ec1414"
                     app:corner_radius="10"
                     app:data_type="_integer"
                     app:left_thumb_color="#f70612"
                     app:left_thumb_color_pressed="#f95265"
-                    app:max_value="20000"
-                    app:min_value="0"
+                    app:max_value="30000"
+                    app:min_value="500"
                     app:right_thumb_color="#f70612"
                     app:right_thumb_color_pressed="#fd465b"
                     app:steps="500" />
@@ -697,9 +743,10 @@
                     android:id="@+id/txtmin"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="140dp"
+                    android:layout_alignStart="@+id/rangeSeekbar3"
+                    android:layout_below="@+id/rangeSeekbar3"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginStart="0dp"
                     android:textAlignment="center"
                     android:textSize="20dp" />
 
@@ -708,20 +755,21 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="50dp"
-                    android:layout_marginTop="140dp"
+                    android:layout_below="@+id/rangeSeekbar3"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginStart="0dp"
                     android:textAlignment="center"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
-                    android:paddingLeft="25dp"
+                    android:id="@+id/txtprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"
                     android:text="Price"
-                    android:textAlignment="center"
-                    android:textSize="25dp" />
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
@@ -732,7 +780,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/relativeSeekbar"
             android:layout_marginTop="10dp"
-            android:text="Apply Filter" />
+            android:background="@color/colorPrimaryDark"
+            android:text="Apply Filter"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 

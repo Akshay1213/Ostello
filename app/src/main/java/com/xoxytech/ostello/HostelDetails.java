@@ -17,11 +17,20 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,6 +41,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -41,6 +51,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HostelDetails extends AppCompatActivity implements OnMapReadyCallback {
     public static final int CONNECTION_TIMEOUT = 50000;
@@ -56,6 +68,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
     TextView textViewtandc;
     TextView textViewvacancies;
     String id;
+    RequestQueue requestQueue;
     CardView cardSliderlayout, cardDetailslayout, cardFeatures, cardMaps, cardDesc;
     private GoogleMap mMap;
 
@@ -67,6 +80,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         //getting id
         Bundle bundle = getIntent().getExtras();
@@ -124,21 +138,104 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         btnEnquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HostelDetails.this, "athegb", Toast.LENGTH_SHORT);
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:9764200290"));
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                startActivity(callIntent);
+                Log.e("nonsense", Config.ENQUIRY_URL + "?id=" + id);
+                LayoutInflater li = LayoutInflater.from(HostelDetails.this);
+                //Creating a view to get the dialog box
+                View enquireDialog = li.inflate(R.layout.dialogue_enquirenow, null);
+                final TextView txtName = (TextView) enquireDialog.findViewById(R.id.txtName);
+                final RadioGroup radiogrpPhone = (RadioGroup) enquireDialog.findViewById(R.id.radioBtnGroup);
+                final RadioButton radiobtnPhone1 = (RadioButton) enquireDialog.findViewById(R.id.radioBtnPhone1);
+                final RadioButton radiobtnPhone2 = (RadioButton) enquireDialog.findViewById(R.id.radioBtnPhone2);
+               /* final TextView txtPrimaryPhone= (TextView) enquireDialog.findViewById(R.id.txtPrimaryPhone);
+                final TextView txtSecondaryPhone= (TextView) enquireDialog.findViewById(R.id.txtSecondaryPhone);*/
+                Button btnCall = (Button) enquireDialog.findViewById(R.id.buttonCall);
+
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(HostelDetails.this);
+                //Adding our dialog box to the view of alert dialog
+                alert.setView(enquireDialog);
+
+                //Creating an alert dialog
+                final AlertDialog alertDialog = alert.create();
+
+                //Displaying the alert dialog
+                alertDialog.show();
+
+                //Creating an string request
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.ENQUIRY_URL + "?id=" + id,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONArray jsonArray = new JSONArray(response);
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                        String id = jsonObject.getString("id");
+                                        String name = jsonObject.getString("fullname");
+                                        String password = jsonObject.getString("password");
+                                        String phone = jsonObject.getString("phone");
+                                        String secondaryphone = jsonObject.getString("secondaryphone");
+                                        txtName.setText(name);
+                                        radiobtnPhone1.setText("Primary Number " + phone);
+                                        radiobtnPhone2.setText("Secondary Number " + secondaryphone);
+                                     /* txtPrimaryPhone.setText(phone);
+                                      txtSecondaryPhone.setText(secondaryphone);*/
+                                    }
+                                    Log.d("Response:", response + "");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // alertDialog.dismiss();
+//                                Toast.makeText(Registeration.this, error.getMessage()+"zak marke", Toast.LENGTH_LONG).show();
+                            }
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<String, String>();
+                        //Adding the parameters otp and username
+
+                        return params;
+                    }
+                };
+
+
+                //Adding the request to the queue
+                requestQueue.add(stringRequest);
+                btnCall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent callIntent = new Intent(Intent.ACTION_CALL);
+
+                        String number;
+                        if (radiobtnPhone1.isChecked())
+                            number = radiobtnPhone1.getText().toString().split(" ")[2];
+                        else
+                            number = radiobtnPhone2.getText().toString().split(" ")[2];
+
+                        // =txtPrimaryPhone.getText().toString();
+                        callIntent.setData(Uri.parse("tel:" + number));
+
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            return;
+                        }
+                        startActivity(callIntent);
+
+                    }
+                });
             }
+
         });
 
         new AsyncFetch().execute();

@@ -10,28 +10,27 @@
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Terms And Conditions"
-        android:textColor="@color/grey"
-        android:textSize="25dp" />
+    <!--<TextView-->
+    <!--android:id="@+id/header"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:text="Terms And Conditions"-->
+    <!--android:textColor="@color/grey"-->
+    <!--android:textSize="25dp" />-->
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="10dp"
             android:text="@string/tandc"
             android:textColor="@color/grey"
             android:textSize="15dp" />

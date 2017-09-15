@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="#dcdddf"
     android:scrollbarStyle="insideOverlay"
+
     tools:context="com.xoxytech.ostello.HostelDetails"
     >
 
@@ -128,90 +129,91 @@
             android:elevation="8dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:gravity="left"
-        android:text="Hostel Details"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="10dp"
-        android:text="Vacancy : "
-        android:textSize="15dp" />
-    <TextView
-        android:id="@+id/textViewvacancy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Vacancies"
-        android:textSize="15dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left"
+                    android:text="Hostel Details"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Vacancy : "
+                    android:textSize="15dp" />
 
-
-
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView3"
-        android:text="Address : "
-        android:textSize="15dp" />
-
-    <TextView
-        android:id="@+id/textViewaddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView3"
-        android:layout_toRightOf="@+id/textView4"
-        android:maxLines="2"
-        android:lines="1"
-        android:text="Address : "
-        android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/textViewvacancy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/textView3"
+                    android:text="Vacancies"
+                    android:textSize="15dp" />
 
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Address : "
+                    android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/city1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/textViewaddress"
-        android:text="City         : "
-        android:textSize="15dp" />
-    <TextView
-        android:id="@+id/textViewcity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/city1"
-        android:layout_below="@+id/textViewaddress"
-        android:text="city"
-        android:textSize="15dp" />
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/textViewaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/textView4"
+                    android:lines="1"
+                    android:maxLines="2"
+                    android:text="Address : "
+                    android:textSize="15dp" />
+
+
+                <TextView
+                    android:id="@+id/city1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textViewaddress"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="City         : "
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewcity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewaddress"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/city1"
+                    android:text="city"
+                    android:textSize="15dp" />
+            </RelativeLayout>
 
         </android.support.v7.widget.CardView>
 

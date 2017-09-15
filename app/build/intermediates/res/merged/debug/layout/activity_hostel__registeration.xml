@@ -109,11 +109,11 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="none"
-                    android:paddingLeft="5dp"
-                    android:text="John"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:text="John"
+                    android:textColor="#bcbcbc" />
 
                 <TextView
                     android:id="@+id/txtmobilenumber1"
@@ -123,8 +123,7 @@
                     android:layout_below="@+id/txtusername"
                     android:layout_marginTop="20dp"
                     android:text="Mobile number1 *"
-                    android:textSize="15dp"
-                    />
+                    android:textSize="15dp" />
                 <EditText
                     android:id="@+id/editTextmobile1"
                     android:layout_width="match_parent"
@@ -139,11 +138,11 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="none"
-                    android:paddingLeft="5dp"
-                    android:text="9764200290"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:text="9764200290"
+                    android:textColor="#bcbcbc" />
                 <TextView
                     android:id="@+id/txtmobilenumber2"
                     android:layout_width="wrap_content"
@@ -168,10 +167,10 @@
                     android:focusableInTouchMode="true"
                     android:inputType="phone"
                     android:maxLength="10"
-                    android:paddingLeft="5dp"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
 
                 <TextView
                     android:id="@+id/txtpersonneldetail"
@@ -245,10 +244,10 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="text"
-                    android:paddingLeft="5dp"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
                 <TextView
                     android:id="@+id/txtaddress"
                     android:layout_width="wrap_content"
@@ -272,10 +271,10 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="text"
-                    android:paddingLeft="5dp"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
                 />
                 <TextView
                     android:id="@+id/txtprice"
@@ -298,10 +297,10 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="number"
-                    android:paddingLeft="5dp"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
                 <TextView
                     android:id="@+id/textvacancy"
                     android:layout_width="wrap_content"
@@ -324,10 +323,10 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:inputType="number"
-                    android:paddingLeft="5dp"
-                    android:textColor="#bcbcbc"
                     android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
 
 
 
@@ -356,9 +355,9 @@
                     android:layout_below="@+id/txttype"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
+                    android:paddingTop="5dp"
                     android:text="Gender *"
-                    android:textSize="15dp"
-                    android:paddingTop="5dp"/>
+                    android:textSize="15dp" />
                 <RadioGroup
                     android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
@@ -366,8 +365,7 @@
                     android:layout_alignTop="@+id/txtgender"
                     android:layout_marginLeft="110dp"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    >
+                    android:weightSum="3">
 
 
                     <RadioButton
@@ -376,8 +374,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="textAutoComplete"
-                        android:text="Girls"
-                        />
+                        android:text="Girls" />
                     <RadioButton
                         android:id="@+id/male"
                         android:layout_width="wrap_content"
@@ -678,11 +675,11 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
                             android:layout_toRightOf="@+id/toggleGym"
                             android:background="@drawable/hot_water"
                             android:textOff=""
-                            android:textOn=""
-                            android:layout_marginLeft="3dp"/>
+                            android:textOn="" />
 
 
                         <TextView
@@ -691,9 +688,9 @@
                             android:layout_alignStart="@+id/toggleHotwater"
                             android:layout_below="@+id/toggleHotwater"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
                             android:paddingLeft="5dp"
-                            android:text="Hot Water"
-                            android:layout_marginLeft="3dp"/>
+                            android:text="Hot Water" />
                     </LinearLayout>
 
                     <LinearLayout

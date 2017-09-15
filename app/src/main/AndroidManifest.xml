@@ -30,7 +30,10 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registeration">
+        <activity
+            android:name=".Registeration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +64,10 @@
         <!-- android:name="android.app.searchable" -->
         <!-- android:resource="@xml/searchable" /> -->
         <!-- </activity> -->
-        <activity android:name=".HostelDetails">
+        <activity
+            android:name=".HostelDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -69,7 +75,10 @@
                 />
             </intent-filter>
         </activity>
-        <activity android:name=".Splash">
+        <activity
+            android:name=".Splash"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MAIN" />
@@ -81,7 +90,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,7 +101,10 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".Contactus" />
+        <activity
+            android:name=".Contactus"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -105,13 +119,18 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:configChanges="orientation"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 />
             </intent-filter>
         </activity>
-        <activity android:name=".NewMenu">
+        <activity
+            android:name=".NewMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 />
@@ -119,6 +138,8 @@
         </activity>
         <activity
             android:name=".Filter"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -130,11 +151,26 @@
         <activity
             android:name=".Aboutus"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Forgotpassword" />
-        <activity android:name=".Hostel_Registeration" />
-        <activity android:name=".Temp" />
-        <activity android:name=".FilterNew" />
-        <activity android:name=".Uploadhostelimages"></activity>
+        <activity
+            android:name=".Forgotpassword"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Hostel_Registeration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Temp"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilterNew"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Uploadhostelimages"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

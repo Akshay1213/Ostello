@@ -53,7 +53,10 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.xoxytech.ostello.Registeration" >
+        <activity
+            android:name="com.xoxytech.ostello.Registeration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MAIN" />
@@ -84,7 +87,10 @@
         <!-- android:name="android.app.searchable" -->
         <!-- android:resource="@xml/searchable" /> -->
         <!-- </activity> -->
-        <activity android:name="com.xoxytech.ostello.HostelDetails" >
+        <activity
+            android:name="com.xoxytech.ostello.HostelDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -92,7 +98,10 @@
                 />
             </intent-filter>
         </activity>
-        <activity android:name="com.xoxytech.ostello.Splash" >
+        <activity
+            android:name="com.xoxytech.ostello.Splash"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MAIN" />
@@ -104,7 +113,9 @@
         </activity>
         <activity
             android:name="com.xoxytech.ostello.MainActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -113,7 +124,10 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.xoxytech.ostello.Contactus" />
+        <activity
+            android:name="com.xoxytech.ostello.Contactus"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -128,13 +142,18 @@
 
         <activity
             android:name="com.xoxytech.ostello.MapsActivity"
-            android:label="@string/title_activity_maps" >
+            android:configChanges="orientation"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 />
             </intent-filter>
         </activity>
-        <activity android:name="com.xoxytech.ostello.NewMenu" >
+        <activity
+            android:name="com.xoxytech.ostello.NewMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 />
@@ -142,6 +161,8 @@
         </activity>
         <activity
             android:name="com.xoxytech.ostello.Filter"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -153,11 +174,26 @@
         <activity
             android:name="com.xoxytech.ostello.Aboutus"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.xoxytech.ostello.Forgotpassword" />
-        <activity android:name="com.xoxytech.ostello.Hostel_Registeration" />
-        <activity android:name="com.xoxytech.ostello.Temp" />
-        <activity android:name="com.xoxytech.ostello.FilterNew" />
-        <activity android:name="com.xoxytech.ostello.Uploadhostelimages" />
+        <activity
+            android:name="com.xoxytech.ostello.Forgotpassword"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xoxytech.ostello.Hostel_Registeration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xoxytech.ostello.Temp"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xoxytech.ostello.FilterNew"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xoxytech.ostello.Uploadhostelimages"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

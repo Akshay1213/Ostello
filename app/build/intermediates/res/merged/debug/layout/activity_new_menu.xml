@@ -39,15 +39,16 @@
                 android:id="@+id/hostelList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="0dp"
                 android:layout_weight="0"
+                android:paddingTop="0dp"
                 />
+
             <TextView
+                android:id="@+id/textviewnoresultfound"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="oops..No Result Found..."
-                android:visibility="invisible"
-                android:id="@+id/textviewnoresultfound"/>
+                android:visibility="invisible" />
 
         </RelativeLayout>
 
@@ -73,8 +74,8 @@
         app:floatingSearch_searchBarMarginTop="@dimen/search_view_inset"
         app:floatingSearch_searchHint="Search..."
         app:floatingSearch_showSearchKey="true"
-        app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed"
-        app:floatingSearch_suggestionsListAnimDuration="250"/>
+        app:floatingSearch_suggestionsListAnimDuration="250"
+        app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed" />
 
 </android.support.design.widget.CoordinatorLayout>
 

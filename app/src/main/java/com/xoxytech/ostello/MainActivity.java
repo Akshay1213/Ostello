@@ -350,7 +350,7 @@ public class MainActivity extends AppCompatActivity
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_aboutus) {
 
 //            ActivityOptions options=ActivityOptions.makeScaleUpAnimation(getWindow().getDecorView().getRootView(),0,0,100,100);
             startActivity(new Intent(MainActivity.this,Aboutus.class));

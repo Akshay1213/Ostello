@@ -260,7 +260,7 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                             loading.dismiss();
                             Log.d("Zakmarya", response.toString());
                             try {
-                                Toast.makeText(Registeration.this, response, Toast.LENGTH_LONG).show();
+//                                Toast.makeText(Registeration.this, response, Toast.LENGTH_LONG).show();
                                 Log.d("wtf", response);
                                 //Creating the json object from the response
 //                            JSONObject jsonResponse = new JSONObject(response);
@@ -286,7 +286,7 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                             loading.dismiss();
                             if (error == null || error.networkResponse == null)
                                 return;
-                            Toast.makeText(Registeration.this, "ohh god error   ", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(Registeration.this, "ohh god error   ", Toast.LENGTH_LONG).show();
                             Toast.makeText(Registeration.this, error.getMessage(), Toast.LENGTH_LONG).show();
                             String body;
                             //get status code here

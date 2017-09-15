@@ -68,8 +68,10 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
     TextView textViewtandc;
     TextView textViewvacancies;
     String id;
+    RelativeLayout mainlayout;
     RequestQueue requestQueue;
     CardView cardSliderlayout, cardDetailslayout, cardFeatures, cardMaps, cardDesc;
+    private ProgressDialog loading;
     private GoogleMap mMap;
 
 
@@ -77,10 +79,13 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hostel_details);
+        mainlayout = (RelativeLayout) findViewById(R.id.layouthostelcontainer);
+        mainlayout.setVisibility(View.INVISIBLE);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+
 
         //getting id
         Bundle bundle = getIntent().getExtras();
@@ -140,6 +145,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
             public void onClick(View v) {
                 Log.e("nonsense", Config.ENQUIRY_URL + "?id=" + id);
                 LayoutInflater li = LayoutInflater.from(HostelDetails.this);
+                loading = ProgressDialog.show(HostelDetails.this, "Authenticating", "Please wait while we check the entered code", false, false);
                 //Creating a view to get the dialog box
                 View enquireDialog = li.inflate(R.layout.dialogue_enquirenow, null);
                 final TextView txtName = (TextView) enquireDialog.findViewById(R.id.txtName);
@@ -184,6 +190,8 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                                     Log.d("Response:", response + "");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
+                                } finally {
+                                    loading.dismiss();
                                 }
                             }
                         },

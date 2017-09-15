@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-140:12
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-160:12
 	package
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:3:5-35
 		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
@@ -76,7 +76,7 @@ MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/buil
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:23:22-76
 application
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:25:5-138:19
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:25:5-158:19
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/akshay/.android/build-cache/25ccc06437b91ad5dac5600d0ab69182f7a26aa4/output/AndroidManifest.xml:19:5-20:19
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/akshay/.android/build-cache/877693f06ee1e96761322d8eef317133ae1704a1/output/AndroidManifest.xml:5:5-19
@@ -123,115 +123,167 @@ MERGED from [com.android.support:support-compat:25.3.1] /home/akshay/.android/bu
 	android:theme
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:32:9-40
 activity#com.xoxytech.ostello.Registeration
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:33:9-40:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:33:9-42:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:35:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:34:13-48
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:33:19-48
 intent-filter#android.intent.action.MAIN+android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:34:13-39:29
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:36:13-41:29
 action#android.intent.action.MAIN
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:35:17-69
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:35:25-66
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:37:25-66
 action#android.intent.action.SEARCH
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:37:17-71
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:39:17-71
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:37:25-68
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:39:25-68
 action#android.intent.action.VIEW
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:38:17-69
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:38:25-66
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:40:25-66
 activity#com.xoxytech.ostello.Success
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:41:9-45
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:43:9-45
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:41:19-42
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:43:19-42
 activity#com.xoxytech.ostello.Login
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:42:9-43
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:44:9-43
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:42:19-40
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:44:19-40
 meta-data#android.app.default_searchable
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:44:9-46:51
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:46:9-48:51
 	android:value
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:46:13-48
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:48:13-48
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:45:13-58
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:47:13-58
 activity#com.xoxytech.ostello.HostelDetails
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:64:9-71:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:66:9-75:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:68:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:67:13-48
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:64:19-48
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:66:19-48
 intent-filter#android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:65:13-70:29
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:69:13-74:29
 activity#com.xoxytech.ostello.Splash
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:72:9-81:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:76:9-87:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:78:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:77:13-48
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:72:19-41
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:76:19-41
 intent-filter#android.intent.action.MAIN+android.intent.action.MAIN+android.intent.action.SEARCH+android.intent.action.VIEW+android.intent.category.LAUNCHER
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:73:13-80:29
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:79:13-86:29
 category#android.intent.category.LAUNCHER
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:79:17-77
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:85:17-77
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:79:27-74
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:85:27-74
 activity#com.xoxytech.ostello.MainActivity
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:82:9-92:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:88:9-100:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:92:13-49
 	android:label
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:84:13-56
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:90:13-56
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:91:13-48
 	android:theme
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:85:13-44
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:93:13-44
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:83:13-41
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:89:13-41
 activity#com.xoxytech.ostello.Contactus
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:93:9-47
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:101:9-102:51
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:102:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:101:46-81
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:93:19-44
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:101:19-44
 meta-data#com.google.android.geo.API_KEY
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:102:9-104:55
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:111:9-113:55
 	android:value
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:104:13-52
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:113:13-52
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:103:13-58
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:112:13-58
 activity#com.xoxytech.ostello.MapsActivity
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:106:9-113:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:115:9-124:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:119:13-49
 	android:label
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:108:13-56
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:117:13-56
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:118:13-48
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:107:13-41
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:116:13-41
 intent-filter#android.intent.action.MAIN
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:109:13-112:29
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:120:13-123:29
 activity#com.xoxytech.ostello.NewMenu
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:114:9-119:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:125:9-132:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:127:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:126:13-48
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:114:19-42
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:125:19-42
 activity#com.xoxytech.ostello.Filter
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:120:9-129:20
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:9-144:20
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:137:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:136:13-48
 	android:theme
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:122:13-53
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:135:13-53
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:121:13-35
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:134:13-35
 activity#com.xoxytech.ostello.Aboutus
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:130:9-132:47
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:145:9-147:47
 	android:theme
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:132:13-44
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:147:13-44
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:131:13-36
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:146:13-36
 activity#com.xoxytech.ostello.Forgotpassword
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:9-52
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:148:9-149:52
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:149:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:148:51-86
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:133:19-49
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:148:19-49
 activity#com.xoxytech.ostello.Hostel_Registeration
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:134:9-58
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:150:9-151:51
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:151:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:150:57-92
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:134:19-55
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:150:19-55
 activity#com.xoxytech.ostello.Temp
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:135:9-42
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:152:9-153:51
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:153:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:152:41-76
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:135:19-39
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:152:19-39
 activity#com.xoxytech.ostello.FilterNew
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:136:9-47
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:154:9-155:52
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:155:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:154:45-80
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:136:19-44
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:154:19-44
 activity#com.xoxytech.ostello.Uploadhostelimages
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:137:9-65
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:156:9-157:61
+	android:screenOrientation
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:157:13-49
+	android:configChanges
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:156:55-90
 	android:name
-		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:137:19-53
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:156:19-53
 uses-sdk
 INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:7:5-9:41

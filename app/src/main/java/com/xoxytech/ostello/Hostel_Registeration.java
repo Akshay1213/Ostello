@@ -1,8 +1,9 @@
 package com.xoxytech.ostello;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -27,14 +28,14 @@ public class Hostel_Registeration extends AppCompatActivity {
 
     EditText editText_ownername;
     Button submit;
-    TextView name, mobilenumber1, mobilenumber2, typetext, hostelname, hosteladdr, price, vacancy;
-    EditText textname, txtmobilenumber1, txtmobilenumber2, texthostelname, texthosteladdr, textprice, textvacancy;
-    String sname, smobilenumber1, smobilenumber2, stype, sgender, shostelname, saddress, sprice, svacancy, togglestatus = "";
+    TextView name, mobilenumber1, mobilenumber2, typetext, hostelname, hosteladdr, price, vacancy, city;
+    EditText textname, txtmobilenumber1, txtmobilenumber2, texthostelname, texthosteladdr, textprice, textvacancy, textCity;
+    String sname, smobilenumber1, smobilenumber2, stype, sgender = "", shostelname, saddress, sprice, svacancy, togglestatus = "", scity;
     ListView list;
     Spinner type;
     RadioGroup radioGroup;
     ToggleButton toggleelevator, toggledrinkingwater, togglecot, togglecctv, toggleac, toggleelectricity, togglegym, togglehotwater, toggletv, togglecleaning, toggleparking, togglewashingmachine, togglemess, togglestudytable, togglewifi;
-    int flag = 0;
+    int flag = 0, f;
     RequestQueue queue;
     String url;
 
@@ -65,6 +66,8 @@ public class Hostel_Registeration extends AppCompatActivity {
         txtmobilenumber1 = (EditText) findViewById(R.id.editTextmobile1);
         txtmobilenumber2 = (EditText) findViewById(R.id.editTextmobile2);
         hostelname = (TextView) findViewById(R.id.txthostelname);
+        city = (TextView) findViewById(R.id.txtcity);
+        textCity = (EditText) findViewById(R.id.editTextcity);
         hosteladdr = (TextView) findViewById(R.id.txtaddress);
         price = (TextView) findViewById(R.id.txtprice);
         vacancy = (TextView) findViewById(R.id.textvacancy);
@@ -93,6 +96,12 @@ public class Hostel_Registeration extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type.setAdapter(adapter);
+        type.setFocusable(true);
+        type.setFocusableInTouchMode(true);
+        type.requestFocus();
+        type.clearFocus();
+        radioGroup.setFocusable(true);
+        radioGroup.setFocusableInTouchMode(true);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,49 +112,72 @@ public class Hostel_Registeration extends AppCompatActivity {
                 sname = textname.getText().toString() + " ";
                 smobilenumber1 = txtmobilenumber1.getText().toString() + " ";
                 smobilenumber2 = txtmobilenumber2.getText().toString() + " ";
-
+                scity = textCity.getText().toString() + " ";
                 stype = type.getSelectedItem().toString() + " ";
                 sgender = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString() + " ";
                 shostelname = texthostelname.getText().toString() + " ";
+                shostelname = shostelname.replaceAll(" ", "_");
                 saddress = texthosteladdr.getText().toString() + " ";
+                saddress = saddress.replaceAll(" ", "_");
                 sprice = textprice.getText().toString() + " ";
                 svacancy = textvacancy.getText().toString() + " ";
                 if (textname.getText().toString().length() == 0) {
                     textname.setError("First name is required!");
                     flag = 1;
+                    f = 1;
                 }
 
 
                 if (txtmobilenumber1.getText().toString().length() == 0) {
                     txtmobilenumber1.setError("Mobile number is required!");
                     flag = 1;
+                    f = 2;
                 }
 
                 if (txtmobilenumber2.getText().toString().length() == 0) {
-                    txtmobilenumber2.setError("Email-id is required!");
+                    txtmobilenumber2.setError("Mobile number is required!");
                     flag = 1;
+                    f = 3;
+                }
+
+                if (txtmobilenumber2.getText().toString().length() < 10) {
+                    txtmobilenumber2.setError("Mobile number should be 10 digit!");
+                    txtmobilenumber2.requestFocus();
+                    flag = 1;
+                }
+
+
+                if (textCity.getText().toString().length() == 0) {
+                    textCity.setError("City is required!");
+                    flag = 1;
+                    f = 4;
                 }
 
 
                 if (texthostelname.getText().toString().length() == 0) {
                     texthostelname.setError("Hostel name is required!");
                     flag = 1;
+                    f = 5;
                 }
 
                 if (texthosteladdr.getText().toString().length() == 0) {
                     texthosteladdr.setError("Hostel address is required!");
                     flag = 1;
+                    f = 6;
                 }
 
                 if (textprice.getText().toString().length() == 0) {
                     textprice.setError("Price is required!");
                     flag = 1;
+                    f = 7;
                 }
 
                 if (textvacancy.getText().toString().length() == 0) {
                     textvacancy.setError("vacancy is required!");
                     flag = 1;
+                    f = 8;
                 }
+
 
                 if (toggleelevator.isChecked())
                     togglestatus += "1";
@@ -224,11 +256,11 @@ public class Hostel_Registeration extends AppCompatActivity {
 
                 if (flag == 0) {
 
-                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + saddress.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim(), new Response.Listener<String>() {
+                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim(), new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
-                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + saddress.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim());
+                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim());
 
 
                         }
@@ -240,21 +272,53 @@ public class Hostel_Registeration extends AppCompatActivity {
                         }
                     });
                     queue.add(postrequest);
-                    dialog1 = new ProgressDialog(Hostel_Registeration.this);
-                    dialog1.setMessage("Hostel registered successfully");
-                    dialog1.show();
 
-                    Runnable progressRunnable = new Runnable() {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Hostel_Registeration.this);
+                    builder1.setMessage("hostel registered successfully! To upload images Pls contact ostallohostels@gmail.com");
+                    builder1.setCancelable(true);
+                    builder1.setPositiveButton(
+                            "Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    final AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                    alert11.getWindow().setLayout(600, 350);
 
-                        @Override
-                        public void run() {
-                            dialog1.cancel();
-                        }
-                    };
+                    // txtmobilenumber1.getText().clear();
+                    txtmobilenumber2.getText().clear();
+                    texthostelname.getText().clear();
+                    texthosteladdr.getText().clear();
+                    textCity.getText().clear();
+                    textprice.getText().clear();
+                    textvacancy.getText().clear();
 
-                    Handler pdCanceller = new Handler();
-                    pdCanceller.postDelayed(progressRunnable, 2000);
+                } else {
+                    if (f == 3)
+                        txtmobilenumber2.requestFocus();
 
+                    if (f == 4)
+                        textCity.requestFocus();
+
+                    if (f == 5)
+                        texthostelname.requestFocus();
+
+                    if (f == 6)
+                        texthosteladdr.requestFocus();
+
+                    if (f == 7)
+                        textprice.requestFocus();
+
+                    if (f == 8)
+                        textvacancy.requestFocus();
+
+                    if (txtmobilenumber2.getText().toString().length() < 10) {
+                        txtmobilenumber2.setError("Mobile number should be 10 digit!");
+                        txtmobilenumber2.requestFocus();
+                    }
+                    flag = 0;
                 }
 
             }

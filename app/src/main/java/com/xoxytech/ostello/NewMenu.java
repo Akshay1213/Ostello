@@ -116,6 +116,7 @@ public class NewMenu extends Activity {
         }
         // Setup and Handover data to recyclerview
         mRVhostelList = (RecyclerView)findViewById(R.id.hostelList);
+        //mRVhostelList.setVisibility(View.INVISIBLE);
 
 //                LinearLayoutManager llm = new LinearLayoutManager(NewMenu.this);
 //                llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -309,6 +310,7 @@ public class NewMenu extends Activity {
                 else
                     errortext.setVisibility(View.INVISIBLE);
                 mAdapter = new Adapterhostel(NewMenu.this, filter);
+                mRVhostelList.setVisibility(View.VISIBLE);
                 mRVhostelList.setAdapter(mAdapter);
                 mRVhostelList.setLayoutManager(new LinearLayoutManager(NewMenu.this));
                 mAdapter.notifyDataSetChanged();
@@ -556,6 +558,7 @@ public class NewMenu extends Activity {
                     hostelData.price= json_data.getInt("rate");
                     hostelData.id=json_data.getString("hostel_id");
                     hostelData.facilities = json_data.getString("facilities");
+                    hostelData.views = json_data.getInt("views");
                     data.add(hostelData);
                 }
 

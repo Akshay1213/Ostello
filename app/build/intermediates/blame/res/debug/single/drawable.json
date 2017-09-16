@@ -12,16 +12,16 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/backtest.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/backtest.xml"
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/fadedrawforcontaonerbottom.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/fadedrawforcontaonerbottom.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cleaningred.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cleaningred.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/fadedrawforcontaonerbottom.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/fadedrawforcontaonerbottom.xml"
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/backtest.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/backtest.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
@@ -44,12 +44,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/eyedrawable.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_spinner_textfield_background_material.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/autosearchtopimage.png",

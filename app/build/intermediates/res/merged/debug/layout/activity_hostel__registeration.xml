@@ -8,6 +8,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/relativemain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
@@ -276,19 +277,50 @@
                     android:paddingTop="5dp"
                     android:textColor="#bcbcbc" />
                 />
+
+                <TextView
+                    android:id="@+id/txtcity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/txtprice"
+                    android:layout_alignStart="@+id/txthostelname"
+                    android:layout_below="@+id/editTextaddress"
+                    android:layout_marginTop="10dp"
+                    android:text="City*"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/editTextcity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextaddress"
+                    android:layout_marginLeft="135dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/style"
+                    android:editable="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="text"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#bcbcbc" />
+                />
+
                 <TextView
                     android:id="@+id/txtprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/txtaddress"
-                    android:layout_below="@+id/editTextaddress"
-                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/editTextcity"
+                    android:layout_marginTop="13dp"
                     android:text="Price *" />
                 <EditText
                     android:id="@+id/editTextprice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editTextaddress"
+                    android:layout_below="@+id/editTextcity"
                     android:layout_marginLeft="135dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="8dp"
@@ -346,7 +378,11 @@
                     android:layout_below="@+id/textvacancy"
                     android:layout_marginLeft="135dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp" />
+                    android:layout_marginTop="15dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:nextFocusDown="@+id/radioGroup"
+                    android:nextFocusUp="@+id/editTextvacancy" />
 
                 <TextView
                     android:id="@+id/txtgender"
@@ -364,6 +400,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/txtgender"
                     android:layout_marginLeft="110dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
@@ -373,6 +411,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:checked="true"
                         android:inputType="textAutoComplete"
                         android:text="Girls" />
                     <RadioButton

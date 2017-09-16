@@ -31,14 +31,14 @@
             android:scaleType="fitXY"
             android:visibility="visible" />
 
-        <!--   <view
-               android:layout_width="100dp"
-               android:layout_height="35dp"
-               android:layout_gravity="bottom|right"
-               android:layout_marginBottom="45dp"
-               android:text="price"
-               android:background="#2ed91b"
-               />-->
+    <!--   <view
+           android:layout_width="100dp"
+           android:layout_height="35dp"
+           android:layout_gravity="bottom|right"
+           android:layout_marginBottom="45dp"
+           android:text="price"
+           android:background="#2ed91b"
+           />-->
         <!--<ImageView-->
         <!--android:layout_width="match_parent"-->
         <!--android:scaleType="fitXY"-->
@@ -170,13 +170,13 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="bottom|right"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:drawableLeft="@drawable/eyedrawable"
         android:drawablePadding="5dp"
-        android:text="1000"
         android:gravity="center_vertical"
         android:scaleType="fitXY"
-        android:drawableLeft="@drawable/eyedrawable"
+        android:text="1000"
         android:visibility="visible" />
 </android.support.v7.widget.CardView>

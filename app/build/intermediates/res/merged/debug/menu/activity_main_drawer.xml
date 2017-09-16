@@ -16,14 +16,14 @@
             android:id="@+id/nav_slideshow"
             android:background="?android:attr/selectableItemBackground"
             android:icon="@drawable/ic_menu_slideshow"
-            android:visible="false"
-            android:title="Slideshow" />
+            android:title="Slideshow"
+            android:visible="false" />
         <item
             android:id="@+id/nav_manage"
-            android:visible="false"
             android:background="?android:attr/selectableItemBackground"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Tools"
+            android:visible="false" />
     </group>
 
     <item android:title="Communicate">

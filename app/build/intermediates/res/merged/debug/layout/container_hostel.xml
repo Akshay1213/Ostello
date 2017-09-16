@@ -12,7 +12,6 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     android:divider="@android:color/transparent"
-
     android:dividerHeight="2.0px"
     android:elevation="1dp"
     android:foreground="?android:attr/selectableItemBackground"

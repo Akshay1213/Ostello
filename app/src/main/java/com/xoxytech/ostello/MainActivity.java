@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onFocus() {
                 int headerHeight = getResources().getDimensionPixelOffset(R.dimen.sliding_search_view_header_height);
+                headerHeight = findViewById(R.id.header_view).getHeight();
                 ObjectAnimator anim = ObjectAnimator.ofFloat(mSearchView, "translationY",
                         headerHeight, 0);
                 anim.setDuration(350);
@@ -209,6 +210,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onFocusCleared() {
                 int headerHeight = getResources().getDimensionPixelOffset(R.dimen.sliding_search_view_header_height);
+                headerHeight = findViewById(R.id.header_view).getHeight();
+                Log.d("****size", "" + headerHeight);
+
                 ObjectAnimator anim = ObjectAnimator.ofFloat(mSearchView, "translationY",
                         0, headerHeight);
                 anim.setDuration(350);

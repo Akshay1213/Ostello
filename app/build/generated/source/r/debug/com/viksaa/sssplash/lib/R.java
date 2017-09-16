@@ -477,13 +477,13 @@ public final class R {
         public static final int end_padder = 0x7f10017b;
         public static final int expand_activities_button = 0x7f10007c;
         public static final int expanded_menu = 0x7f100091;
-        public static final int flCentral = 0x7f100129;
+        public static final int flCentral = 0x7f10012a;
         public static final int home = 0x7f100004;
         public static final int homeAsUp = 0x7f10001c;
         public static final int icon = 0x7f100080;
         public static final int ifRoom = 0x7f100057;
         public static final int image = 0x7f10007d;
-        public static final int imgLogo = 0x7f10012a;
+        public static final int imgLogo = 0x7f10012b;
         public static final int info = 0x7f100172;
         public static final int line1 = 0x7f100177;
         public static final int line3 = 0x7f100179;
@@ -500,8 +500,8 @@ public final class R {
         public static final int progress_circular = 0x7f100006;
         public static final int progress_horizontal = 0x7f100007;
         public static final int radio = 0x7f100094;
-        public static final int rfParent = 0x7f100126;
-        public static final int rlColor = 0x7f100127;
+        public static final int rfParent = 0x7f100127;
+        public static final int rlColor = 0x7f100128;
         public static final int rounded = 0x7f100046;
         public static final int screen = 0x7f100028;
         public static final int scrollView = 0x7f100087;
@@ -536,7 +536,7 @@ public final class R {
         public static final int title = 0x7f100081;
         public static final int title_template = 0x7f10008e;
         public static final int topPanel = 0x7f10008d;
-        public static final int txtTitle = 0x7f100128;
+        public static final int txtTitle = 0x7f100129;
         public static final int up = 0x7f10000d;
         public static final int useLogo = 0x7f100020;
         public static final int waves = 0x7f100049;

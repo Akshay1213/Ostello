@@ -40,8 +40,7 @@
                     android:background="@drawable/round"
                     android:gravity="center"
                     android:hint="Phone number"
-                    android:inputType="number"
-                    />
+                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <!--<android.support.design.widget.TextInputLayout-->
@@ -55,7 +54,6 @@
             <!--android:inputType="textPassword"-->
             <!--android:hint="Password"/>-->
             <!--</android.support.design.widget.TextInputLayout>-->
-
 
 
             <android.support.design.widget.TextInputLayout
@@ -105,8 +103,7 @@
                 android:background="@drawable/noaccountround"
                 android:gravity="center"
                 android:text="@string/NoAccount"
-                android:textSize="15sp"
-                />
+                android:textSize="15sp" />
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
@@ -116,9 +113,7 @@
                 android:src="@drawable/poweredby"/>
 
 
-
         </LinearLayout>
-
 
 
 </LinearLayout>

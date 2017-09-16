@@ -12,17 +12,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="0"
         android:background="@drawable/backtest">
 
         <ImageView
             android:id="@+id/header_view"
             android:layout_width="wrap_content"
             android:layout_height="450dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"
             android:paddingBottom="120dp"
             android:paddingLeft="80dp"
             android:paddingRight="80dp"
+            android:paddingTop="20dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ostalologo">
             <!--android:background="@drawable/transp_rect"-->

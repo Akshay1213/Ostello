@@ -49,6 +49,7 @@ public class NewMenu extends Activity {
     SearchView searchView = null;
     String city;
     List<Datahostel> data;
+    private ProgressDialog loading;
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
@@ -64,6 +65,7 @@ public class NewMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_menu);
+//        loading = ProgressDialog.show(NewMenu.this, "Loading", "Please wait.....", false, false);
         errortext = (TextView) findViewById(R.id.textviewnoresultfound);
         errortext.setVisibility(View.INVISIBLE);
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
@@ -116,7 +118,7 @@ public class NewMenu extends Activity {
         }
         // Setup and Handover data to recyclerview
         mRVhostelList = (RecyclerView)findViewById(R.id.hostelList);
-        //mRVhostelList.setVisibility(View.INVISIBLE);
+        mRVhostelList.setVisibility(View.INVISIBLE);
 
 //                LinearLayoutManager llm = new LinearLayoutManager(NewMenu.this);
 //                llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -553,6 +555,7 @@ public class NewMenu extends Activity {
                     hostelData.HostelImage = "http://ostallo.com/ostello/images/" + json_data.getString("hostel_id") + "/home.jpg";
                     Log.d("******->", "http://ostallo.com/ostello/images/" + json_data.getString("hostel_id") + "/home.jpg");
                     hostelData.HostelName= json_data.getString("hostelname");
+                    hostelData.HostelImage = hostelData.HostelImage.replace('_', ' ');
                     hostelData.catName= json_data.getString("category");
                     hostelData.type= json_data.getString("type");
                     hostelData.price= json_data.getInt("rate");
@@ -566,7 +569,8 @@ public class NewMenu extends Activity {
                 mRVhostelList = (RecyclerView)findViewById(R.id.hostelList);
 //                LinearLayoutManager llm = new LinearLayoutManager(NewMenu.this);
 //                llm.setOrientation(LinearLayoutManager.VERTICAL);
-
+                mRVhostelList.setVisibility(View.VISIBLE);
+//                loading.dismiss();
                 mAdapter = new Adapterhostel(NewMenu.this, data);
                 if (data.size() == 0)
                     errortext.setVisibility(View.VISIBLE);

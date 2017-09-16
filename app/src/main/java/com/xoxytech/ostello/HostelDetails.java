@@ -145,7 +145,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
             public void onClick(View v) {
                 Log.e("nonsense", Config.ENQUIRY_URL + "?id=" + id);
                 LayoutInflater li = LayoutInflater.from(HostelDetails.this);
-                loading = ProgressDialog.show(HostelDetails.this, "Authenticating", "Please wait while we check the entered code", false, false);
+                loading = ProgressDialog.show(HostelDetails.this, "Loading", "Please wait.....", false, false);
                 //Creating a view to get the dialog box
                 View enquireDialog = li.inflate(R.layout.dialogue_enquirenow, null);
                 final TextView txtName = (TextView) enquireDialog.findViewById(R.id.txtName);
@@ -165,7 +165,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                 final AlertDialog alertDialog = alert.create();
 
                 //Displaying the alert dialog
-                alertDialog.show();
+
 
                 //Creating an string request
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.ENQUIRY_URL + "?id=" + id,
@@ -192,6 +192,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                                     e.printStackTrace();
                                 } finally {
                                     loading.dismiss();
+                                    alertDialog.show();
                                 }
                             }
                         },
@@ -404,7 +405,8 @@ Log.d("*****************",result);
                     textViewcategory.setText( json_data.getString("category"));
                     textViewType.setText(json_data.getString("type"));
                     textViewrate.setText(json_data.getString("rate"));
-                    textViewaddress.setText(json_data.getString("address"));
+                    textViewaddress.setText(json_data.getString("address").replace('_', ' '));
+
                     textViewcity.setText(json_data.getString("city"));
                     textViewvacancies.setText(json_data.getString("vacancy"));
                     inittoggle_facilities(json_data.getString("facilities"));

@@ -22,7 +22,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="74dp"
                 android:background="@color/light_gray"
                 app:layout_scrollFlags="scroll|enterAlways"/>
 
@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
+
             android:src="@drawable/ic_filter_list_black_24dp" />
     </android.support.design.widget.CoordinatorLayout>
 

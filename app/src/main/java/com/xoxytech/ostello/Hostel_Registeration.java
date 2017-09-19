@@ -1,11 +1,13 @@
 package com.xoxytech.ostello;
 
-import android.app.ProgressDialog;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,7 +43,7 @@ public class Hostel_Registeration extends AppCompatActivity {
 
     TextView messageText;
     int serverResponseCode = 0;
-    ProgressDialog dialog1;
+    //ProgressDialog dialog1;
     String s, name1;
 
 
@@ -91,6 +93,12 @@ public class Hostel_Registeration extends AppCompatActivity {
         togglestudytable = (ToggleButton) findViewById(R.id.toggleStudytable);
         togglewifi = (ToggleButton) findViewById(R.id.toggleWifi);
         togglemess = (ToggleButton) findViewById(R.id.toggleMess);
+        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+        final String username = sp.getString("USER_NAME", null);
+        Log.d("Name", username);
+        String number = sp.getString("USER_PHONE", null);
+        editText_ownername.setText(username);
+        txtmobilenumber1.setText(number);
 
         type = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
@@ -273,7 +281,7 @@ public class Hostel_Registeration extends AppCompatActivity {
                     });
                     queue.add(postrequest);
 
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Hostel_Registeration.this);
+                   /*AlertDialog.Builder builder1 = new AlertDialog.Builder(Hostel_Registeration.this);
                     builder1.setMessage("hostel registered successfully! To upload images Pls contact ostallohostels@gmail.com");
                     builder1.setCancelable(true);
                     builder1.setPositiveButton(
@@ -285,15 +293,34 @@ public class Hostel_Registeration extends AppCompatActivity {
                             });
                     final AlertDialog alert11 = builder1.create();
                     alert11.show();
-                    alert11.getWindow().setLayout(600, 350);
-
+                    alert11.getWindow().setLayout(900,400);*/
+                    /*AlertDialog.Builder builder1 = new AlertDialog.Builder(Hostel_Registeration.this);
+                   final Dialog dialog=new Dialog(Hostel_Registeration.this);
+                    builder1.setContentView(R.layout.dialog);
+                    dialog.setCancelMessage((Message) R.string.dialog_text);
+*/
                     // txtmobilenumber1.getText().clear();
-                    txtmobilenumber2.getText().clear();
-                    texthostelname.getText().clear();
-                    texthosteladdr.getText().clear();
-                    textCity.getText().clear();
-                    textprice.getText().clear();
-                    textvacancy.getText().clear();
+
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Hostel_Registeration.this);
+                    LayoutInflater inflater = Hostel_Registeration.this.getLayoutInflater();
+                    alertDialog.setView(inflater.inflate(R.layout.dialog, null));
+                    alertDialog.setMessage("Hostel Register Successfully. To upload hostel images contact ostallohostels@gmail.com ");
+                    alertDialog.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    txtmobilenumber2.getText().clear();
+                                    texthostelname.getText().clear();
+                                    texthosteladdr.getText().clear();
+                                    textCity.getText().clear();
+                                    textprice.getText().clear();
+                                    textvacancy.getText().clear();
+                                    togglestatus = "";
+                                }
+                            });
+                    alertDialog.show();
+
 
                 } else {
                     if (f == 3)

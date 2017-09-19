@@ -2,8 +2,13 @@ package com.xoxytech.ostello;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -32,10 +37,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity implements  View.OnClickListener{
-    private TextView textView_NotRegistered;
+    Toast toast;
+    private TextView textView_NotRegistered, textView_forgot_password;
     private EditText editTextPassword;
     private EditText editTextUserphone;
     private String phone;
+    private long back_pressed = 0;
     private String password;
     private RequestQueue requestQueue;
     private Button login_button;
@@ -69,6 +76,14 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
 
         textView_NotRegistered=(TextView)findViewById(R.id.link_signup);
+            textView_forgot_password = (TextView) findViewById(R.id.link_forget_password);
+            textView_forgot_password.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Login.this, Forgotpassword.class));
+                    return;
+                }
+            });
             editTextUserphone = (EditText) findViewById(R.id.input_usernumber);
         editTextPassword=(EditText)findViewById(R.id.input_password);
         login_button=(Button)findViewById(R.id.btn_login);
@@ -84,6 +99,27 @@ login_button.setOnClickListener(this);
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            // need to cancel the toast here
+            toast.cancel();
+            // code for exit
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
+        } else {
+            // ask user to press back button one more time to close app
+            toast = Toast.makeText(getBaseContext(), "Press once again to exit!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        back_pressed = System.currentTimeMillis();
+
+
+    }
 
     void verify()
     {
@@ -181,7 +217,37 @@ login_button.setOnClickListener(this);
     public void onClick(View v) {
         if(v.getId()==R.id.btn_login)
         {
+            if (checkInternet())
             verify();
+            else
+                Snackbar.make(v, "Make sure you have Active internet connection", Snackbar.LENGTH_LONG)
+                        .setAction("Retry", null).show();
         }
+    }
+
+    boolean checkInternet() {
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        boolean isWifiConn = networkInfo.isConnected();
+
+        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        boolean isMobileConn = networkInfo.isConnected();
+
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        NetworkInfo i = connMgr.getActiveNetworkInfo();
+
+        if (wifiMgr.isWifiEnabled()) {
+            //Toast.makeText(MainActivity_permissions.this, "wifi is enabled", Toast.LENGTH_SHORT).show();
+            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+
+            if (wifiInfo.getNetworkId() == -1) {
+                return false;
+            } else if (i.isAvailable()) {
+                return true;
+            }
+
+        } else return isMobileConn;
+
+        return false;
     }
 }

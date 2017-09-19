@@ -8,6 +8,7 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="25" />
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -65,7 +66,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.xoxytech.ostello.Success" />
-        <activity android:name="com.xoxytech.ostello.Login" />
+        <activity
+            android:name="com.xoxytech.ostello.Login"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="android.app.default_searchable"
@@ -194,6 +198,8 @@
             android:name="com.xoxytech.ostello.Uploadhostelimages"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
+        <activity android:name="com.xoxytech.ostello.Confirm_Password" />
+        <activity android:name="com.xoxytech.ostello.Login_to_continue" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

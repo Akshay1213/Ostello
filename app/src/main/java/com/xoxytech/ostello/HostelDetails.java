@@ -290,6 +290,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                 Log.d("********", "" + i + ") " + facilities.charAt(i));
 
             }
+            tb[i].setClickable(false);
             i++;
         }
 
@@ -387,7 +388,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
             try {
 
                 JSONArray jArray = new JSONArray(result);
-Log.d("*****************",result);
+                Log.d("*****************", result);
                 // Extract data from json and store into ArrayList as class objects
                 for(int i=0;i<jArray.length();i++) {
                     JSONObject json_data=jArray.getJSONObject(i);

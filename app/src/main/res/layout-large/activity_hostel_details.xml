@@ -300,6 +300,7 @@
                             android:layout_toRightOf="@id/toggleElevator"
                             android:layout_weight="1"
                             android:background="@drawable/drinking_water"
+                            android:clickable="false"
                             android:textAlignment="center"
                             android:textOff=""
                             android:textOn="" />
@@ -333,6 +334,7 @@
                             android:layout_toRightOf="@id/toggleDrinkingwater"
                             android:layout_weight="1"
                             android:background="@drawable/cot"
+                            android:clickable="false"
                             android:textAlignment="center"
                             android:textOff=""
                             android:textOn="" />
@@ -372,6 +374,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/cctv"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn=""
 
@@ -404,6 +407,7 @@
                             android:layout_toRightOf="@id/togglecctv"
                             android:layout_weight="1"
                             android:background="@drawable/ac"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -434,6 +438,7 @@
                             android:layout_toRightOf="@+id/toggleAc"
                             android:layout_weight="1"
                             android:background="@drawable/electricity"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -467,6 +472,7 @@
                             android:layout_height="70dp"
                             android:layout_gravity="center"
                             android:background="@drawable/gym"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -495,6 +501,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_toRightOf="@+id/toggleGym"
                             android:background="@drawable/hot_water"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -524,6 +531,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/toggleHotwater"
                             android:background="@drawable/tv"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -558,6 +566,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="0dp"
                             android:background="@drawable/cleaning"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn=""
 
@@ -587,6 +596,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/toggleCleaning"
                             android:background="@drawable/parking"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -615,6 +625,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/toggleParking"
                             android:background="@drawable/washingmachine"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -651,6 +662,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
                             android:background="@drawable/mess"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -680,6 +692,7 @@
                             android:layout_marginLeft="8dp"
                             android:layout_toRightOf="@+id/toggleMess"
                             android:background="@drawable/studytable"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 
@@ -708,6 +721,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/toggleStudytable"
                             android:background="@drawable/wifi"
+                            android:clickable="false"
                             android:textOff=""
                             android:textOn="" />
 

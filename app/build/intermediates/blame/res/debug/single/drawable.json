@@ -16,12 +16,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/fadedrawforcontaonerbottom.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cleaningred.png",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cleaningred.png"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/backtest.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/backtest.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cleaningred.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cleaningred.png"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
@@ -44,12 +44,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/eyedrawable.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
-        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_search_api_material.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_search_api_material.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/autosearchtopimage.png",
@@ -224,6 +224,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/drinking_water.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/background_register.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/background_register.png"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/toggleback.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/toggleback.xml"
     },
@@ -328,6 +332,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/girlred.png"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/forgot_password_phone.jpg",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/forgot_password_phone.jpg"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/poweredby.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/poweredby.png"
     },
@@ -382,6 +390,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/wifired.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/wifired.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/forgotpassback.jpg",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/forgotpassback.jpg"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/aboutusback.png",
@@ -452,12 +464,16 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/roundimg.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/addimage.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/addimage.png"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/acgrey.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/acgrey.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/addimage.png",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/addimage.png"
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/blackglass.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/blackglass.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
@@ -496,6 +512,10 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/notification_icon_background.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/loginback.jpg",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/loginback.jpg"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
@@ -530,6 +550,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/ac.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/ac.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/registerback.jpg",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/registerback.jpg"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/mess.xml",
@@ -588,12 +612,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/washingmachinered.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cot.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cot.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cctv.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cctv.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cot.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cot.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",

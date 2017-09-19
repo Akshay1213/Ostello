@@ -8,16 +8,22 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -26,11 +32,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
+import com.arlib.floatingsearchview.util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,11 +56,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,7 +82,7 @@ public class MainActivity extends AppCompatActivity
     private View mDimSearchViewBackground;
     private ImageView profile;
     private Toast toast;
-
+    private RelativeLayout relativeLayoutNoInternetCon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +91,18 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
         String username = sp.getString("USER_PHONE", null);
         Log.d("*********",username);
+        getUserName();
+
+        relativeLayoutNoInternetCon = (RelativeLayout) findViewById(R.id.layouterror);
+
+        if (checkInternet()) {
+            relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+            findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
+
+        } else {
+            relativeLayoutNoInternetCon.setVisibility(View.VISIBLE);
+            findViewById(R.id.mainlayout).setVisibility(View.INVISIBLE);
+        }
 
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
 
@@ -102,7 +133,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         cities=new ArrayList<>();
-        TAG="**********";
+        TAG = "*****kay rao**";
         new AsyncFetch().execute();
 
 
@@ -138,10 +169,34 @@ public class MainActivity extends AppCompatActivity
 
         });
 
+        mSearchView.setOnBindSuggestionCallback(new SearchSuggestionsAdapter.OnBindSuggestionCallback() {
+            @Override
+            public void onBindSuggestion(View suggestionView, ImageView leftIcon, TextView textView, SearchSuggestion item, int itemPosition) {
+                CitySuggetions citySuggetions = (CitySuggetions) item;
+
+                if (citySuggetions.getBody().equalsIgnoreCase(mLastQuery))
+                    citySuggetions.setHistory(true);
+                Log.d("zandan", "am called" + itemPosition + "  " + item.getBody());
+                if (citySuggetions.isHistory()) {
+                    leftIcon.setImageDrawable(ResourcesCompat.getDrawable(getResources(),
+                            R.drawable.ic_history_black_24dp, null));
+
+                    Util.setIconColor(leftIcon, Color.GRAY);
+                    leftIcon.setAlpha(1f);
+                } else {
+                    leftIcon.setImageDrawable(ResourcesCompat.getDrawable(getResources(),
+                            R.drawable.ic_call_received_black_24dp, null));
+
+                    Util.setIconColor(leftIcon, Color.GRAY);
+                    leftIcon.setAlpha(.30f);
+                }
+            }
+        });
         mSearchView.setOnSearchListener(new FloatingSearchView.OnSearchListener() {
             @Override
             public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
-                CitySuggetions citySuggetions = (CitySuggetions) searchSuggestion;
+                CitySuggetions citySuggetions1 = (CitySuggetions) searchSuggestion;
+
 
                 Log.d(TAG, "onSuggestionClicked()");
 
@@ -388,6 +443,83 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void getUserName() {
+        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+        String phone1 = sp.getString("USER_PHONE", null);
+        Log.d("response", Config.USERNAME_URL + "?phone=" + phone1);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.USERNAME_URL + "?phone=" + phone1,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("response", response);
+                        String[] name = response.split("\n");
+                        Log.d("Username", name[1] + "");
+
+                        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("USER_NAME", name[1]);
+                        // Log.d("@@@",name[1]);//username the user has entered
+                        editor.commit();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        if (error == null || error.networkResponse == null)
+                            return;
+//                            Toast.makeText(Registeration.this, "ohh god error   ", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(Registeration.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                        String body;
+                        Log.d("response", error.getMessage());
+                        //get status code here
+
+                        try {
+
+                            body = new String(error.networkResponse.data, "UTF-8");
+//                            Toast.makeText(Registeration.this, body, Toast.LENGTH_LONG).show();
+                        } catch (UnsupportedEncodingException e) {
+                            // exception
+                        }
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                return super.getParams();
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    boolean checkInternet() {
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        boolean isWifiConn = networkInfo.isConnected();
+
+        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        boolean isMobileConn = networkInfo.isConnected();
+
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        NetworkInfo i = connMgr.getActiveNetworkInfo();
+
+        if (wifiMgr.isWifiEnabled()) {
+            //Toast.makeText(MainActivity_permissions.this, "wifi is enabled", Toast.LENGTH_SHORT).show();
+            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+
+            if (wifiInfo.getNetworkId() == -1) {
+                return false;
+            } else if (i.isAvailable()) {
+                return true;
+            }
+
+        } else return isMobileConn;
+
+        return false;
+    }
+
     public class AsyncFetch extends AsyncTask<String, String, String> {
 
         HttpURLConnection conn;
@@ -499,4 +631,6 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+
 }

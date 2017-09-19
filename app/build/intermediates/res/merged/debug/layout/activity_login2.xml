@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/myLoginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backtest"
-    android:focusableInTouchMode="true"
+    android:background="@drawable/loginback"
+    android:focusable="true"
+
     android:scaleType="centerCrop"
     tools:context="com.xoxytech.ostello.Login">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:orientation="vertical"
             android:paddingLeft="24dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:paddingRight="24dp">
+
+
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -32,11 +37,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:layout_marginTop="8dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:gravity="center">
                 <EditText
                     android:id="@+id/input_usernumber"
+                    android:focusableInTouchMode="true"
                     android:layout_width="250sp"
                     android:layout_height="50sp"
+                    android:focusable="true"
                     android:background="@drawable/round"
                     android:gravity="center"
                     android:hint="Phone number"
@@ -61,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:layout_marginTop="0dp"
+                android:focusableInTouchMode="true"
                 android:gravity="center">
 
                 <EditText
@@ -69,6 +79,7 @@
                     android:layout_height="50sp"
                     android:background="@drawable/round"
                     android:gravity="center"
+                    android:focusableInTouchMode="true"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -93,7 +104,16 @@
                 android:paddingTop="0dp"
                 android:text="Login"
                 android:textColor="@color/white" />
-
+            <TextView
+                android:id="@+id/link_forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Forgot Password?"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/link_signup"
                 android:layout_width="wrap_content"
@@ -116,4 +136,4 @@
         </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>

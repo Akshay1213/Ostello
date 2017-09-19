@@ -3,8 +3,13 @@ package com.xoxytech.ostello;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -170,11 +175,12 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Hiding the alert dialog
+
+                if (checkInternet()) { //Hiding the alert dialog
                 alertDialog.dismiss();
 
                 //Displaying a progressbar
-                loading = ProgressDialog.show(Registeration.this, "Authenticating", "Please wait while we check the entered code", false,false);
+                    loading = ProgressDialog.show(Registeration.this, "Authenticating", "Please wait while we check the entered code", false, false);
 
                 //Getting the user entered otp from edittext
                 final String otp = editTextConfirmOtp.getText().toString().trim();
@@ -194,11 +200,11 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                                     editor.putString("USER_PHONE", phone);
                                     editor.commit();
                                     //Starting a new activity
-                                    Toast.makeText(Registeration.this,"Congratulations Welcome to ostallo",Toast.LENGTH_SHORT);
+                                    Toast.makeText(Registeration.this, "Congratulations Welcome to ostallo", Toast.LENGTH_SHORT);
                                     startActivity(new Intent(Registeration.this, MainActivity.class));
-                                }else{
+                                } else {
                                     //Displaying a toast if the otp entered is wrong
-                                    Toast.makeText(Registeration.this,"Wrong OTP Please Try Again",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Registeration.this, "Wrong OTP Please Try Again", Toast.LENGTH_LONG).show();
                                     try {
                                         //Asking user to enter otp again
                                         confirmOtp();
@@ -214,10 +220,10 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
                                 alertDialog.dismiss();
 //                                Toast.makeText(Registeration.this, error.getMessage()+"zak marke", Toast.LENGTH_LONG).show();
                             }
-                        }){
+                        }) {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<String, String>();
+                        Map<String, String> params = new HashMap<String, String>();
                         //Adding the parameters otp and username
                         params.put(Config.KEY_OTP, otp);
                         params.put(Config.KEY_USERNAME, username);
@@ -227,8 +233,13 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
                 //Adding the request to the queue
                 requestQueue.add(stringRequest);
+            } else {
+                    Snackbar.make(v, "Make sure you have Active internet connection", Snackbar.LENGTH_LONG)
+                            .setAction("Retry", null).show();
+                }
             }
         });
+        loading.dismiss();
     }
 
     @Override
@@ -355,8 +366,12 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
             if (ed.length()>3) {
                 ed=(EditText)findViewById(R.id.editTextPhone);
                 if (ed.length()==10) {
+                    if (checkInternet())
+                        register();
+                    else
+                        Snackbar.make(v, "Make sure you have Active internet connection", Snackbar.LENGTH_LONG)
+                                .setAction("Retry", null).show();
 
-                    register();
                 }
                 else
                 {
@@ -374,5 +389,31 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
             Snackbar.make(findViewById(R.id.registerlayout), "Minimum length of username should be greater than three", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
 
+    }
+
+    boolean checkInternet() {
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        boolean isWifiConn = networkInfo.isConnected();
+
+        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        boolean isMobileConn = networkInfo.isConnected();
+
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        NetworkInfo i = connMgr.getActiveNetworkInfo();
+
+        if (wifiMgr.isWifiEnabled()) {
+            //Toast.makeText(MainActivity_permissions.this, "wifi is enabled", Toast.LENGTH_SHORT).show();
+            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+
+            if (wifiInfo.getNetworkId() == -1) {
+                return false;
+            } else if (i.isAvailable()) {
+                return true;
+            }
+
+        } else return isMobileConn;
+
+        return false;
     }
 }

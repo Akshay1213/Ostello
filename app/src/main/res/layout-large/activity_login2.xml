@@ -4,7 +4,7 @@
     android:id="@+id/myLoginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backtest"
+    android:background="@drawable/loginback"
     android:focusableInTouchMode="true"
     android:scaleType="centerCrop"
     tools:context="com.xoxytech.ostello.Login">
@@ -32,14 +32,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:layout_marginTop="20dp"
+            android:focusableInTouchMode="true"
             android:gravity="center">
 
             <EditText
                 android:id="@+id/input_usernumber"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
-
                 android:background="@drawable/round"
+                android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:hint="Phone number"
                 android:inputType="number" />
@@ -63,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:layout_marginTop="20dp"
+            android:focusableInTouchMode="true"
             android:gravity="center">
 
             <EditText
@@ -70,6 +72,7 @@
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
+                android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:hint="@string/prompt_password"
                 android:imeActionId="@+id/login"
@@ -95,6 +98,19 @@
             android:paddingTop="0dp"
             android:text="Login"
             android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/link_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Forgot Password?Click Here"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/link_signup"

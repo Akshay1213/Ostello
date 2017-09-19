@@ -20,6 +20,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_local_taxi_black_24dp.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/ic_call_received_black_24dp.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_call_received_black_24dp.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/ic_history_black_24dp.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_history_black_24dp.xml"
     },

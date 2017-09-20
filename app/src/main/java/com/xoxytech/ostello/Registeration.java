@@ -233,13 +233,14 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
                 //Adding the request to the queue
                 requestQueue.add(stringRequest);
+                    loading.dismiss();
             } else {
                     Snackbar.make(v, "Make sure you have Active internet connection", Snackbar.LENGTH_LONG)
                             .setAction("Retry", null).show();
                 }
             }
         });
-        loading.dismiss();
+
     }
 
     @Override

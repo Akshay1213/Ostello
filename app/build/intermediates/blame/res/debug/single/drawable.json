@@ -44,12 +44,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/eyedrawable.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_spinner_textfield_background_material.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/autosearchtopimage.png",
@@ -58,6 +58,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/boygrey.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/boygrey.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/vpi__tab_indicator.xml",
+        "source": "/home/akshay/.android/build-cache/10fed5e2d9c4d666550231fc011d3e6ebeeb38fd/output/res/drawable/vpi__tab_indicator.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
@@ -94,6 +98,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/shadowback1.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/shadowback1.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/white_radius.xml",
+        "source": "/home/akshay/.android/build-cache/f51a474dd755836424a36297a66ccbb32c1e6858/output/res/drawable/white_radius.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/shadoweffectforlayout.xml",

@@ -25,6 +25,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -47,6 +48,7 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.arlib.floatingsearchview.util.Util;
+import com.viewpagerindicator.CirclePageIndicator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,6 +66,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -75,7 +79,11 @@ public class MainActivity extends AppCompatActivity
     private static final long ANIM_DURATION = 350;
     public static List<CitySuggetions> cities;
     private static long back_pressed;
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
     DrawerLayout drawer;
+    ImageView image;
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
@@ -83,10 +91,25 @@ public class MainActivity extends AppCompatActivity
     private ImageView profile;
     private Toast toast;
     private RelativeLayout relativeLayoutNoInternetCon;
+    private ArrayList<Imagemodel> imageModelArrayList;
+
+    private String[] myImageList = new String[]{"http://ostallo.com/ostello/images/1/1.jpg", "http://ostallo.com/ostello/images/1/2.jpg", "http://ostallo.com/ostello/images/1/3.jpg", "http://ostallo.com/ostello/images/1/4.jpg", "http://ostallo.com/ostello/images/1/5.jpg"};
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        image = (ImageView) findViewById(R.id.imageview);
+        imageModelArrayList = new ArrayList<>();
+        imageModelArrayList = populateList();
+
+        init();
+
+
         Toast.makeText(MainActivity.this," Welcome to ostallo",Toast.LENGTH_SHORT);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
         String username = sp.getString("USER_PHONE", null);
@@ -518,6 +541,84 @@ public class MainActivity extends AppCompatActivity
         } else return isMobileConn;
 
         return false;
+    }
+
+    private ArrayList<Imagemodel> populateList() {
+
+        ArrayList<Imagemodel> list = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            Imagemodel imageModel = new Imagemodel();
+            //imageModel.setImage(myImageList[i]);
+            imageModel.setImage_drawable(myImageList[i]);
+            list.add(imageModel);
+        }
+        return list;
+    }
+
+    private void init() {
+
+        mPager = (ViewPager) findViewById(R.id.viewpager);
+
+
+        mPager.setAdapter(new SlidingimageAdapter(MainActivity.this, imageModelArrayList));
+
+        CirclePageIndicator indicator = (CirclePageIndicator)
+                findViewById(R.id.circlepage);
+
+        indicator.setViewPager(mPager);
+
+        final float density = getResources().getDisplayMetrics().density;
+
+//Set circle indicator radius
+        indicator.setRadius(5 * density);
+        indicator.setX(5);
+        indicator.setY(450);
+        indicator.setVisibility(View.GONE);
+
+        NUM_PAGES = imageModelArrayList.size();
+
+        // Auto start of viewpager
+        final android.os.Handler handler = new android.os.Handler();
+
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                handler.post(Update);
+            }
+        }, 3000, 3000);
+
+        // Pager listener over indicator
+        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageSelected(int position) {
+                currentPage = position;
+
+            }
+
+            @Override
+            public void onPageScrolled(int pos, float arg1, int arg2) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int pos) {
+
+            }
+        });
+
     }
 
     public class AsyncFetch extends AsyncTask<String, String, String> {

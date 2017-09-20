@@ -15,12 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="24dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
             android:paddingRight="24dp">
-
 
 
             <ImageView
@@ -42,11 +41,11 @@
                 android:gravity="center">
                 <EditText
                     android:id="@+id/input_usernumber"
-                    android:focusableInTouchMode="true"
                     android:layout_width="250sp"
                     android:layout_height="50sp"
-                    android:focusable="true"
                     android:background="@drawable/round"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:gravity="center"
                     android:hint="Phone number"
                     android:inputType="number" />
@@ -78,8 +77,8 @@
                     android:layout_width="250sp"
                     android:layout_height="50sp"
                     android:background="@drawable/round"
-                    android:gravity="center"
                     android:focusableInTouchMode="true"
+                    android:gravity="center"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -114,6 +113,7 @@
                 android:text="Forgot Password?"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp" />
+
             <TextView
                 android:id="@+id/link_signup"
                 android:layout_width="wrap_content"

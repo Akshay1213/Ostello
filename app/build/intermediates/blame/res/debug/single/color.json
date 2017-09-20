@@ -20,6 +20,10 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/color/abc_tint_default.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/color/vpi__light_theme.xml",
+        "source": "/home/akshay/.android/build-cache/10fed5e2d9c4d666550231fc011d3e6ebeeb38fd/output/res/color/vpi__light_theme.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/color/abc_hint_foreground_material_dark.xml"
     },
@@ -30,6 +34,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/color/vpi__dark_theme.xml",
+        "source": "/home/akshay/.android/build-cache/10fed5e2d9c4d666550231fc011d3e6ebeeb38fd/output/res/color/vpi__dark_theme.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",

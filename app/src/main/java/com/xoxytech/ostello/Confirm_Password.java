@@ -91,7 +91,6 @@ public class Confirm_Password extends AppCompatActivity {
                 //get status code here
 
                 try {
-
                     body = new String(error.networkResponse.data, "UTF-8");
 //
                 } catch (UnsupportedEncodingException e) {

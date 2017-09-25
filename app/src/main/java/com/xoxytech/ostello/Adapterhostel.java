@@ -1,11 +1,14 @@
 package com.xoxytech.ostello;
 
-/**
- * Created by akshay on 1/7/17.
- */
 
-
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,8 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.SliderLayout;
@@ -31,6 +36,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private Context context;
     private LayoutInflater inflater;
     private int prevpos;
+
     // create constructor to innitilize context and data sent frm MainActivity
     public Adapterhostel(Context context, List<Datahostel> data){
         this.context=context;
@@ -80,7 +86,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         // Get current position of item in recyclerview to bind data and assign values from list
-        MyHolder myHolder= (MyHolder) holder;
+        final MyHolder myHolder = (MyHolder) holder;
         Datahostel current=data.get(position);
         myHolder.texthostelName.setText(current.HostelName);
         myHolder.textSize.setText(current.type);
@@ -88,23 +94,106 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textViewviews.setText(current.views + "");
         myHolder.textPrice.setText("Rs. " + current.price + "/mo.");
         myHolder.hiddenfacilities.setText(current.facilities);
-       // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
+        myHolder.textLikeCount.setText(current.likes + "");
+        myHolder.textDislikeCount.setText(current.dislikes + "");
+        // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
         Log.d("imageurl",current.HostelImage);
         // load image into imageview using glide
-        Glide.with(context).load(current.HostelImage)
+        Glide.with(context).load(current.HostelImage).asBitmap().override(600, 600)
                 .placeholder(R.drawable.sorryimagenotavailable)
                 .error(R.drawable.sorryimagenotavailable)
                 .into(myHolder.ivhostel);
 
-//        TextSliderView textSliderView = new TextSliderView(context);
-//        textSliderView
-//
-//                .image("https://images.unsplash.com/photo-1462496591979-5ba58a2ddec6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=7973ca2b89e7907cb01759f4966e5189");
-//
-//        myHolder.sliderShow.addSlider(textSliderView);
 
-prevpos=position;
+        prevpos = position;
+
+        myHolder.ivhostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                Toast.makeText(NewMenu.this, "Card at " + position + " is clicked"+tv.getText(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, HostelDetails.class);
+
+//Create the bundle
+                Bundle bundle = new Bundle();
+
+//Add your data to bundle
+                bundle.putString("id", myHolder.hiddenid.getText().toString());
+
+//Add the bundle to the intent
+                i.putExtras(bundle);
+
+//Fire that second activity
+                context.startActivity(i);
+            }
+
+        });
+        myHolder.toggleCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (myHolder.toggleCall.isChecked()) {
+                }
+
+
+                String username = myHolder.sp.getString("USER_PHONE", null);
+                Log.d("Phone", username);
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + username));
+                if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                context.startActivity(callIntent);
+            }
+        });
+        CompoundButton.OnCheckedChangeListener toggleListener = new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (compoundButton == myHolder.toggleLike) {
+                    if (myHolder.toggleLike.isChecked()) {
+                        myHolder.toggleDislike.setChecked(false);
+                        myHolder.toggleLike.setChecked(true);
+                        myHolder.textLikeCount.setText("" + (Integer.parseInt(myHolder.textLikeCount.getText().toString()) + 1));
+                        // TODO: 22/9/17 make inc req to inc like
+                    } else {
+                        myHolder.toggleLike.setChecked(false);
+
+                        myHolder.textLikeCount.setText("" + (Integer.parseInt(myHolder.textLikeCount.getText().toString()) - 1));
+                        //// TODO: 22/9/17 make derement request to like
+                    }
+                }
+                if (compoundButton == myHolder.toggleDislike) {
+                    if (myHolder.toggleDislike.isChecked()) {
+                        myHolder.toggleLike.setChecked(false);
+                        myHolder.toggleDislike.setChecked(true);
+                        myHolder.textDislikeCount.setText("" + (Integer.parseInt(myHolder.textDislikeCount.getText().toString()) + 1));
+                       /* int imgResource = R.drawable.unlike_active;
+                        myHolder.toggleDislike.setCompoundDrawablesWithIntrinsicBounds(imgResource, 0, 0, 0);*/
+
+                    } else {
+                        myHolder.toggleDislike.setChecked(false);
+                        myHolder.textDislikeCount.setText("" + (Integer.parseInt(myHolder.textDislikeCount.getText().toString()) - 1));
+                      /*  int imgResource = R.drawable.unlike_inactive;
+                        myHolder.toggleDislike.setCompoundDrawablesWithIntrinsicBounds(imgResource, 0, 0, 0);*/
+                    }
+                }
+
+            }
+        };
+
+
+        myHolder.toggleLike.setOnCheckedChangeListener(toggleListener);
+        myHolder.toggleDislike.setOnCheckedChangeListener(toggleListener);
+
+
+
     }
 
     // return total item from List
@@ -116,7 +205,7 @@ prevpos=position;
 
     class MyHolder extends RecyclerView.ViewHolder{
 
-        TextView texthostelName;
+        TextView texthostelName, textLikeCount, textDislikeCount;
         ImageView ivhostel;
         TextView textSize;
         TextView textType, textViewviews;
@@ -124,10 +213,13 @@ prevpos=position;
         TextView textPrice;
         TextView hiddenid, hiddenfacilities;
         SliderLayout sliderShow;
+        SharedPreferences sp;
+        ToggleButton toggleCall, toggleLike, toggleDislike;
 
         // create constructor to get widget reference
         public MyHolder(View itemView) {
             super(itemView);
+            sp = context.getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
             texthostelName= (TextView) itemView.findViewById(R.id.texthostelName);
             ivhostel= (ImageView) itemView.findViewById(R.id.ivhostel);
             textViewviews = (TextView) itemView.findViewById(R.id.iveyeviews);
@@ -138,6 +230,11 @@ prevpos=position;
             hiddenid=(TextView)itemView.findViewById(R.id.hiddenid);
             hiddenfacilities = (TextView) itemView.findViewById(R.id.hiddenfacilities);
             cardView = (CardView) itemView.findViewById(R.id.layoutcardview);
+            toggleLike = (ToggleButton) itemView.findViewById(R.id.toggleLike);
+            toggleDislike = (ToggleButton) itemView.findViewById(R.id.toggleDislike);
+            toggleCall = (ToggleButton) itemView.findViewById(R.id.toggleCall);
+            textLikeCount = (TextView) itemView.findViewById(R.id.txtLikeCount);
+            textDislikeCount = (TextView) itemView.findViewById(R.id.txtDislikeCount);
         }
 
     }

@@ -133,6 +133,8 @@ public class NewMenu extends Activity {
         mAdapter.notifyDataSetChanged();
 
 
+
+/*
         mRVhostelList.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -155,6 +157,7 @@ public class NewMenu extends Activity {
 
             }
         }));
+*/
 
 
         //Make call to AsyncTask
@@ -562,6 +565,8 @@ public class NewMenu extends Activity {
                     hostelData.id=json_data.getString("hostel_id");
                     hostelData.facilities = json_data.getString("facilities");
                     hostelData.views = json_data.getInt("views");
+                    hostelData.likes = json_data.getInt("likes");
+                    hostelData.dislikes = json_data.getInt("dislikes");
                     data.add(hostelData);
                 }
 

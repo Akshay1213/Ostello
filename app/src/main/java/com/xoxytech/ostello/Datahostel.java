@@ -11,7 +11,7 @@ public class Datahostel {
         public String HostelName;
         public String catName;
     public String type, facilities;
-    public int price, views;
+    public int price, views, likes, dislikes;
     public String id;
     
 }

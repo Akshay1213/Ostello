@@ -116,6 +116,10 @@
         "source": "/home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/res/raw/walkway_bold.ttf"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/raw/welcome.mp3",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/raw/welcome.mp3"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/raw/roboto_black.ttf",
         "source": "/home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/res/raw/roboto_black.ttf"
     },

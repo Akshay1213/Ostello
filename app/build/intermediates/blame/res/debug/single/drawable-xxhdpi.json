@@ -52,6 +52,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_filter_list_black_24dp.png"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_delete_forever_black_24dp.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_delete_forever_black_24dp.png"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_clear.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_clear.png"
     },
@@ -86,6 +90,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_voice_search_inverted.png",
         "source": "/home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/res/drawable-xxhdpi/ic_action_voice_search_inverted.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_favorite_black_24dp.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_favorite_black_24dp.png"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_local_taxi_black_24dp.png",

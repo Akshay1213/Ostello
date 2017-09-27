@@ -27,11 +27,14 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity
     private static int NUM_PAGES = 0;
     DrawerLayout drawer;
     ImageView image;
+    private RequestQueue queue;
     private FloatingSearchView mSearchView;
     private ColorDrawable mDimDrawable;
     private String mLastQuery="Search...",TAG;
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity
 
         init();
 
-
+        queue = Volley.newRequestQueue(getApplicationContext());
         Toast.makeText(MainActivity.this," Welcome to ostallo",Toast.LENGTH_SHORT);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
         String username = sp.getString("USER_PHONE", null);
@@ -409,6 +413,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        final AlertDialog alertDialog;
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
@@ -420,9 +425,60 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this,Login.class));
         } else if (id == R.id.nav_addhostel) {
             startActivity(new Intent(MainActivity.this, Hostel_Registeration.class));
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_deleteUserAccount) {
 
+            TextView txtYes, txtNo;
+            LayoutInflater li = LayoutInflater.from(MainActivity.this);
+            //Creating a view to get the dialog box
+            View deleteConfirmDialog = li.inflate(R.layout.dialogue_confirm_delete, null);
+            txtYes = (TextView) deleteConfirmDialog.findViewById(R.id.txtYes);
+            txtNo = (TextView) deleteConfirmDialog.findViewById(R.id.txtNo);
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            //Adding our dialog box to the view of alert dialog
+            alert.setView(deleteConfirmDialog);
+            //Creating an alert dialog
+            alertDialog = alert.create();
+            alertDialog.show();
+
+            txtYes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    deleteAccount();
+
+                    LayoutInflater li = LayoutInflater.from(MainActivity.this);
+                    //Creating a view to get the dialog box
+                    View deleteConfirmDialog1 = li.inflate(R.layout.dialog_delete_ok, null);
+                    Button btnOk = (Button) deleteConfirmDialog1.findViewById(R.id.buttonOk);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                    //Adding our dialog box to the view of alert dialog
+                    alert.setView(deleteConfirmDialog1);
+                    //Creating an alert dialog
+                    final AlertDialog alertDialog = alert.create();
+                    alertDialog.show();
+                    btnOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            Intent intent = new Intent(MainActivity.this, Login.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                }
+            });
+            txtNo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    alertDialog.dismiss();
+              /* Intent intent=new Intent(DeleteAccount.this,Login.class);
+            startActivity(intent);*/
+
+                }
+            });
         } else if (id == R.id.nav_manage) {
+            startActivity(new Intent(MainActivity.this, ManageHostels.class));
 
         } else if (id == R.id.nav_share) {
             Intent sendIntent = new Intent();
@@ -438,6 +494,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this,Aboutus.class));
 
 
+        } else if (id == R.id.nav_favourite) {
+            startActivity(new Intent(MainActivity.this, Favourite.class));
 
         }
 
@@ -619,6 +677,54 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+    }
+
+    public void deleteAccount() {
+        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+        String phone1 = sp.getString("USER_PHONE", null);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.DELETEACCOUNT_URL + "?phone=" + phone1, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Account deleted", response);
+                SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                               /* editor.clear();*/
+                editor.putString("USER_NAME", null);
+                editor.putString("USER_PHONE", null);
+                editor.commit();
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                if (error == null || error.networkResponse == null)
+                    return;
+
+                String body;
+                Log.d("response", error.getMessage());
+                //get status code here
+
+                try {
+
+                    body = new String(error.networkResponse.data, "UTF-8");
+//
+                } catch (UnsupportedEncodingException e) {
+                    // exception
+                }
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                return super.getParams();
+            }
+        };
+
+        queue.add(stringRequest);
     }
 
     public class AsyncFetch extends AsyncTask<String, String, String> {

@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="hostel name"
+            android:text="0"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/RvtextColor"
             android:visibility="invisible"

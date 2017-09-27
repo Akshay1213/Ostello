@@ -14,13 +14,15 @@ public class Config {
     public static final String AutoComplete_URL = "http://ostallo.com/ostello/fetchcities.php";
     public static final String SEARCHHOSTELS_URL = "http://ostallo.com/ostello/fetchhostels.php";
     public static final String VERIFYOTP_URL = "http://ostallo.com/ostello/checkotp.php";
-
+    public static final String LIKESDISLIKES_URL = "http://ostallo.com/ostello/returnLikesOfHostel.php";
+    public static final String DELETEACCOUNT_URL = "http://ostallo.com/ostello/DeleteUserAccount.php";
     public static final String SEARCHSPECIFICHOSTEL_URL = "http://ostallo.com/ostello/fetchrequestedhostel.php";
     public static final String ENQUIRY_URL = "http://ostallo.com/ostello/fetchownerdeatils.php";
+    public static final String UPDATELIKEDISLIKE_URL = "http://ostallo.com/ostello/updatelikedislike.php";
     public static final String USERNAME_URL = "http://ostallo.com/ostello/getusername.php";
-
     public static final String FETCHONCLICKHOSTELS_URL = "http://ostallo.com/ostello/fetchhostelsonclick.php";
     public static final String CONTACTUS_URL = "http://ostallo.com/ostello/sendmail.php";
+    public static final String FAVOURITES_URL = "http://ostallo.com/ostello/getFavouriteHostels.php";
     //Keys to send username, password, phone and otp
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";

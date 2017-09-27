@@ -201,7 +201,14 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name="com.xoxytech.ostello.Confirm_Password" />
-        <activity android:name="com.xoxytech.ostello.Login_to_continue" />
+        <activity android:name="com.xoxytech.ostello.Login_to_continue" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xoxytech.ostello.ManageHostels2" />
+        <activity android:name="com.xoxytech.ostello.ManageHostels" />
+        <activity android:name="com.xoxytech.ostello.Favourite" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

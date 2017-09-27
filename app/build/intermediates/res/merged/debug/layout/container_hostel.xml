@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="hostel name"
+            android:text="0"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/RvtextColor"
             android:visibility="invisible"
@@ -170,76 +170,79 @@
         android:layout_marginTop="230dp">
 
         <ToggleButton
+            android:id="@+id/toggleCall"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/toggleCall"
-            android:layout_marginTop="10dp"
-            android:textOff=""
-            android:textOn=""
             android:layout_marginLeft="10dp"
-            android:background="@drawable/call"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/call"
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
+            android:id="@+id/toggleFavourite"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/toggleFavourite"
-            android:background="@drawable/favourite"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/favourite"
             android:textOff=""
-            android:textOn=""
-            android:layout_marginLeft="60dp"/>
+            android:textOn="" />
+
         <ToggleButton
             android:id="@+id/toggleLike"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="@drawable/like_drawable"
-            android:textSize="10dp"
-            android:textOff=""
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="110dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/like_drawable"
             android:textColor="@color/grey"
-            android:textOn="" />
+            android:textOff=""
+            android:textOn=""
+            android:textSize="10dp" />
+
         <TextView
+            android:id="@+id/txtLikeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLikeCount"
-            android:text="0"
+            android:layout_marginLeft="150dp"
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
-            android:layout_marginLeft="150dp"/>
+            android:text="0" />
 
         <ToggleButton
             android:id="@+id/toggleDislike"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="@drawable/dislike_drawable"
-            android:textSize="10dp"
-            android:textOff=""
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="190dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dislike_drawable"
             android:textColor="@color/grey"
-            android:textOn="" />
+            android:textOff=""
+            android:textOn=""
+            android:textSize="10dp" />
+
         <TextView
+            android:id="@+id/txtDislikeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDislikeCount"
-            android:text="0"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
-            android:layout_marginLeft="230dp"/>
+            android:text="0" />
 
         <TextView
             android:id="@+id/iveyeviews"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/eyedrawable"
             android:gravity="center_vertical"
+            android:paddingLeft="15dp"
             android:text="1000"
             android:textSize="20dp"
-            android:paddingLeft="15dp"
             android:visibility="visible" />
 
     </RelativeLayout>

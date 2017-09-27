@@ -32,12 +32,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/search_view.xml",
-        "source": "/home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/res/layout/search_view.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dropdownforautocomplete.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dropdownforautocomplete.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/search_view.xml",
+        "source": "/home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/res/layout/search_view.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/fragment_filterfragment.xml",
@@ -120,8 +120,16 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_manage_hostels.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_manage_hostels.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
         "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialogue_confirm_delete.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialogue_confirm_delete.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
@@ -268,6 +276,10 @@
         "source": "/home/akshay/.android/build-cache/49185ec37e3263730fbe529f4ff4886844d12876/output/res/layout/render_type_text.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_manage_hostels2.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_manage_hostels2.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/floating_search_layout.xml",
         "source": "/home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/res/layout/floating_search_layout.xml"
     },
@@ -294,6 +306,14 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
         "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialog_delete_ok.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialog_delete_ok.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_favourite.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_favourite.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",

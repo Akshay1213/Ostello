@@ -22,20 +22,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.SliderLayout;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener{
 
+    protected boolean amuser = true;
     List<Datahostel> data= Collections.emptyList();
     Datahostel current;
     int currentPos=0;
+    RequestQueue requestQueue;
+    String hostel_id = "", phone = "", status = "", body;
+    MyHolder myHolder;
     private Context context;
     private LayoutInflater inflater;
     private int prevpos;
+
 
     // create constructor to innitilize context and data sent frm MainActivity
     public Adapterhostel(Context context, List<Datahostel> data){
@@ -85,8 +100,13 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
+//        hostel_id = myHolder.hiddenid.getText().toString();
+
         // Get current position of item in recyclerview to bind data and assign values from list
         final MyHolder myHolder = (MyHolder) holder;
+        phone = myHolder.sp.getString("USER_PHONE", null);
+        requestQueue = Volley.newRequestQueue(context);
+
         Datahostel current=data.get(position);
         myHolder.texthostelName.setText(current.HostelName);
         myHolder.textSize.setText(current.type);
@@ -98,6 +118,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myHolder.textDislikeCount.setText(current.dislikes + "");
         // myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.white));
         myHolder.hiddenid.setText(current.id);
+        setLikeDislike(myHolder);
         Log.d("imageurl",current.HostelImage);
         // load image into imageview using glide
         Glide.with(context).load(current.HostelImage).asBitmap().override(600, 600)
@@ -107,7 +128,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
 
         prevpos = position;
-
+        //setLikeDislike(myHolder);
         myHolder.ivhostel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,45 +174,104 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 context.startActivity(callIntent);
             }
         });
+        myHolder.ivhostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//             Toast.makeText(NewMenu.this, "Card at " + position + " is clicked"+tv.getText(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, HostelDetails.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", myHolder.hiddenid.getText().toString());
+                i.putExtras(bundle);
+                context.startActivity(i);
+            }
+
+        });
+        myHolder.toggleCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (myHolder.toggleCall.isChecked()) {
+
+                    phone = myHolder.sp.getString("USER_PHONE", null);
+                    Log.d("Phone", phone);
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:" + phone));
+                    if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    context.startActivity(callIntent);
+                }
+            }
+        });
         CompoundButton.OnCheckedChangeListener toggleListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton == myHolder.toggleLike) {
+                if (compoundButton == myHolder.toggleLike && isuser()) {
                     if (myHolder.toggleLike.isChecked()) {
                         myHolder.toggleDislike.setChecked(false);
                         myHolder.toggleLike.setChecked(true);
                         myHolder.textLikeCount.setText("" + (Integer.parseInt(myHolder.textLikeCount.getText().toString()) + 1));
+                        status = "1";
+                        Log.d("s", status);
+                        setStatus(status, myHolder);
+
+
+
                         // TODO: 22/9/17 make inc req to inc like
                     } else {
                         myHolder.toggleLike.setChecked(false);
-
                         myHolder.textLikeCount.setText("" + (Integer.parseInt(myHolder.textLikeCount.getText().toString()) - 1));
+                        status = "0";
+                        setStatus(status, myHolder);
+
                         //// TODO: 22/9/17 make derement request to like
                     }
                 }
-                if (compoundButton == myHolder.toggleDislike) {
+                if (compoundButton == myHolder.toggleDislike && isuser()) {
                     if (myHolder.toggleDislike.isChecked()) {
                         myHolder.toggleLike.setChecked(false);
                         myHolder.toggleDislike.setChecked(true);
                         myHolder.textDislikeCount.setText("" + (Integer.parseInt(myHolder.textDislikeCount.getText().toString()) + 1));
+                        status = "-1";
+                        setStatus(status, myHolder);
+
                        /* int imgResource = R.drawable.unlike_active;
                         myHolder.toggleDislike.setCompoundDrawablesWithIntrinsicBounds(imgResource, 0, 0, 0);*/
 
                     } else {
                         myHolder.toggleDislike.setChecked(false);
                         myHolder.textDislikeCount.setText("" + (Integer.parseInt(myHolder.textDislikeCount.getText().toString()) - 1));
+                        status = "-2";
+                        setStatus(status, myHolder);
+
                       /*  int imgResource = R.drawable.unlike_inactive;
                         myHolder.toggleDislike.setCompoundDrawablesWithIntrinsicBounds(imgResource, 0, 0, 0);*/
                     }
                 }
-
+                if (compoundButton == myHolder.toggleFavourite && isuser()) {
+                    if (myHolder.toggleFavourite.isChecked()) {
+                        // Toast.makeText(context,"Added to favourite list",Toast.LENGTH_LONG).show();
+                        status = "3";
+                        setStatus(status, myHolder);
+                    } else {
+                        // Toast.makeText(context,"Removed from favourite list",Toast.LENGTH_LONG).show();
+                        status = "4";
+                        setStatus(status, myHolder);
+                    }
+                }
             }
         };
 
-
         myHolder.toggleLike.setOnCheckedChangeListener(toggleListener);
         myHolder.toggleDislike.setOnCheckedChangeListener(toggleListener);
-
+        myHolder.toggleFavourite.setOnCheckedChangeListener(toggleListener);
 
 
     }
@@ -202,6 +282,103 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return data.size();
     }
 
+    public void setLikeDislike(final MyHolder myHolder) {
+        Log.d("Like_URL", Config.LIKESDISLIKES_URL + "?hostel_id=" + myHolder.hiddenid.getText() + "&phone=" + phone);
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, Config.LIKESDISLIKES_URL + "?hostel_id=" + myHolder.hiddenid.getText() + "&phone=" + phone,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        amuser = false;
+                        Log.d("ResLike***", response + myHolder.hiddenid.getText());
+                        if (!response.contains("no rows found")) {
+                            String[] res1 = response.split("\n");
+                            String[] res = res1[1].split(" ");
+                            Log.d("ResLike***", res[0] + "**********" + res[1]);
+                            if (res[0].equals("1")) {
+                                myHolder.toggleLike.setChecked(true);
+                                //Log.d("ResLike***",res[1]+"");
+                            } else if (res[0].equals("-1")) {
+                                myHolder.toggleDislike.setChecked(true);
+                                // Log.d("ResDislike***",res[1]+"");
+                            }
+                            if (res[1].equals("1")) {
+                                myHolder.toggleFavourite.setChecked(true);
+                                // Log.d("ResFavourite***",res[1]+"");
+                            }
+
+                        }
+                        amuser = true;
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        if (error == null || error.networkResponse == null)
+
+
+                            Log.d("response", error.getMessage());
+                        //get status code here
+
+                        try {
+
+                            body = new String(error.networkResponse.data, "UTF-8");
+//
+                        } catch (UnsupportedEncodingException e) {
+                            // exception
+                        }
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                return super.getParams();
+            }
+        };
+        requestQueue.add(stringRequest1);
+    }
+
+    boolean isuser() {
+        return amuser;
+    }
+
+    public void setStatus(String status1, MyHolder myHolder) {
+
+//            Log.d("Status",Config.UPDATELIKEDISLIKE_URL + "?hostel_id=" + hostel_id + "&phone=" + phone + "&status=" + status1);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.UPDATELIKEDISLIKE_URL + "?hostel_id=" + myHolder.hiddenid.getText() + "&phone=" + phone + "&status=" + status1,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.d("status", response);
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        if (error == null || error.networkResponse == null)
+
+
+                            Log.d("Error", error.getMessage());
+                        //get status code here
+
+
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                return super.getParams();
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
 
     class MyHolder extends RecyclerView.ViewHolder{
 
@@ -214,12 +391,16 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         TextView hiddenid, hiddenfacilities;
         SliderLayout sliderShow;
         SharedPreferences sp;
-        ToggleButton toggleCall, toggleLike, toggleDislike;
+        RequestQueue requestQueue;
+
+        ToggleButton toggleCall, toggleLike, toggleDislike, toggleFavourite;
 
         // create constructor to get widget reference
         public MyHolder(View itemView) {
             super(itemView);
             sp = context.getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+            requestQueue = Volley.newRequestQueue(context);
+
             texthostelName= (TextView) itemView.findViewById(R.id.texthostelName);
             ivhostel= (ImageView) itemView.findViewById(R.id.ivhostel);
             textViewviews = (TextView) itemView.findViewById(R.id.iveyeviews);
@@ -235,6 +416,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             toggleCall = (ToggleButton) itemView.findViewById(R.id.toggleCall);
             textLikeCount = (TextView) itemView.findViewById(R.id.txtLikeCount);
             textDislikeCount = (TextView) itemView.findViewById(R.id.txtDislikeCount);
+            toggleFavourite = (ToggleButton) itemView.findViewById(R.id.toggleFavourite);
         }
 
     }

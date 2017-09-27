@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -184,24 +185,29 @@ public class Registeration extends AppCompatActivity implements View.OnClickList
 
                 //Getting the user entered otp from edittext
                 final String otp = editTextConfirmOtp.getText().toString().trim();
-                Log.e("nonsense", Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + username + "&password=" + password + "&phone=" + phone);
+                    Log.e("nonsense", Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + (username.replace(" ", "_")) + "&password=" + password + "&phone=" + phone);
                 //Creating an string request
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + username + "&password=" + password + "&phone=" + phone,
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.CONFIRM_URL + "?otp=" + otp + "&fullname=" + (username.replace(" ", "_")) + "&password=" + password + "&phone=" + phone,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 //if the server response is success
                                 if (response.contains("Registered Successfully")) {
                                     //dismissing the progressbar
-                                    loading.dismiss();
+
                                     SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sp.edit();
+                                    MediaPlayer mediaPlayer;
+                                    mediaPlayer = MediaPlayer.create(Registeration.this, R.raw.welcome);
+
                                     editor.putString("USER_NAME", username); //username the user has entered
                                     editor.putString("USER_PHONE", phone);
                                     editor.commit();
                                     //Starting a new activity
                                     Toast.makeText(Registeration.this, "Congratulations Welcome to ostallo", Toast.LENGTH_SHORT);
                                     startActivity(new Intent(Registeration.this, MainActivity.class));
+                                    mediaPlayer.start();
+                                    loading.dismiss();
                                 } else {
                                     //Displaying a toast if the otp entered is wrong
                                     Toast.makeText(Registeration.this, "Wrong OTP Please Try Again", Toast.LENGTH_LONG).show();

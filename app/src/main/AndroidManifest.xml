@@ -178,7 +178,18 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".Confirm_Password" />
-        <activity android:name=".Login_to_continue"></activity>
+        <activity android:name=".Login_to_continue">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".ManageHostels2" />
+        <activity android:name=".ManageHostels" />
+        <activity android:name=".Favourite"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class Login_to_continue extends AppCompatActivity {
 
@@ -19,6 +22,9 @@ public class Login_to_continue extends AppCompatActivity {
             }
         });
 
-
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.bounce);
+        ImageView iv = (ImageView) findViewById(R.id.imageViewdone);
+        iv.startAnimation(animation1);
     }
 }

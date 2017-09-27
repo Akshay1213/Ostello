@@ -18,8 +18,8 @@ public final class R {
         public static final int fl_strokeWidth = 0x7f010125;
     }
     public static final class color {
-        public static final int fillColor = 0x7f0e0047;
-        public static final int strokeColor = 0x7f0e007b;
+        public static final int fillColor = 0x7f0e0048;
+        public static final int strokeColor = 0x7f0e007c;
     }
     public static final class dimen {
         public static final int fourthSampleStrokeWidth = 0x7f0a008d;

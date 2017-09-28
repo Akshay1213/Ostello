@@ -112,7 +112,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         textViewtandc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 7/9/17 add dialogue box of conditions
+
                 LayoutInflater li = LayoutInflater.from(HostelDetails.this);
                 //Creating a view to get the dialog box
                 View confirmDialog = li.inflate(R.layout.dialog_tandc, null);

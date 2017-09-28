@@ -653,7 +653,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run() {
 
-                handler.post(Update);
+                // handler.post(Update);
             }
         }, 3000, 3000);
 
@@ -663,6 +663,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onPageSelected(int position) {
                 currentPage = position;
+//                Toast.makeText(MainActivity.this,"position changed "+(position%(NUM_PAGES)),Toast.LENGTH_LONG).show();
 
             }
 

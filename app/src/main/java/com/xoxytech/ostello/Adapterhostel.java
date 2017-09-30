@@ -129,51 +129,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         prevpos = position;
         //setLikeDislike(myHolder);
-        myHolder.ivhostel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-//                Toast.makeText(NewMenu.this, "Card at " + position + " is clicked"+tv.getText(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(context, HostelDetails.class);
-
-//Create the bundle
-                Bundle bundle = new Bundle();
-
-//Add your data to bundle
-                bundle.putString("id", myHolder.hiddenid.getText().toString());
-
-//Add the bundle to the intent
-                i.putExtras(bundle);
-
-//Fire that second activity
-                context.startActivity(i);
-            }
-
-        });
-        myHolder.toggleCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (myHolder.toggleCall.isChecked()) {
-                }
-
-
-                String username = myHolder.sp.getString("USER_PHONE", null);
-                Log.d("Phone", username);
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:" + username));
-                if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                context.startActivity(callIntent);
-            }
-        });
         myHolder.ivhostel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

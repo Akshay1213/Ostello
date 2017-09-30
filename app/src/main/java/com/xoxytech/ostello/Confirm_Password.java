@@ -71,7 +71,7 @@ public class Confirm_Password extends AppCompatActivity {
 
     public void setPassword() {
         phone1 = getIntent().getStringExtra("phone");
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.RESETPASSWORD_URL + "?phone" + phone1 + ",&password" + pwd, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.RESETPASSWORD_URL + "?phone=" + phone1 + "&password=" + pwd, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Password changed", response + Config.RESETPASSWORD_URL + "?phone=" + phone1 + "&password=" + pwd);

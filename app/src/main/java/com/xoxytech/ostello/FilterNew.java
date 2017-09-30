@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,8 @@ public class FilterNew extends AppCompatActivity {
     Button submit;
     Spinner type;
     String togglestatus = "", gender = "", price = "";
-    TextView tvMin, tvMax;
+    TextView tvMin, tvMax, txtreset;
+    RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,9 @@ public class FilterNew extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type.setAdapter(adapter);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relativetype);
 
+        txtreset = (TextView) findViewById(R.id.txtReset);
         togglebuttongirls = (ToggleButton) findViewById(R.id.togglegirls);
         togglebuttoncoed = (ToggleButton) findViewById(R.id.togglecoed);
         toggleelevator = (ToggleButton) findViewById(R.id.toggleElevator);
@@ -149,6 +153,35 @@ public class FilterNew extends AppCompatActivity {
         togglebuttongirls.setOnClickListener(toggleListner);
 
 
+        txtreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                togglebuttongirls.setChecked(false);
+                togglebuttoncoed.setChecked(false);
+                togglebuttonboys.setChecked(false);
+                toggleelevator.setChecked(false);
+                toggledrinkingwater.setChecked(false);
+                togglecot.setChecked(false);
+                togglecctv.setChecked(false);
+                toggleac.setChecked(false);
+                toggleelectricity.setChecked(false);
+                togglegym.setChecked(false);
+                togglehotwater.setChecked(false);
+                toggletv.setChecked(false);
+                togglecleaning.setChecked(false);
+                toggleparking.setChecked(false);
+                togglewashingmachine.setChecked(false);
+                togglemess.setChecked(false);
+                togglestudytable.setChecked(false);
+                togglewifi.setChecked(false);
+                type.setSelection(0);
+                rangeSeekbar.setMinStartValue(500).setMaxStartValue(30000).apply();
+                relativeLayout.requestFocus();
+            }
+        });
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +193,7 @@ public class FilterNew extends AppCompatActivity {
                     gender = "Girls";
 
                 else if (togglebuttoncoed.isChecked())
-                    gender = "CO-ed";
+                    gender = "Co-ed";
                 else
                     gender = "none";
 
@@ -242,6 +275,7 @@ public class FilterNew extends AppCompatActivity {
                 price += tvMax.getText().toString();
 
                 //Toast.makeText(FilterNew.this,togglestatus+gender+price,Toast.LENGTH_LONG).show();
+
 
                 // togglestatus="";
                 //gender="";

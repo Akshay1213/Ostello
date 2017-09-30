@@ -42,7 +42,9 @@
             <RelativeLayout
                 android:id="@+id/relativetype"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
 
                 <TextView
@@ -57,6 +59,8 @@
                     android:id="@+id/lineargender"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:weightSum="3">
 
                     <LinearLayout
@@ -694,7 +698,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textvacancy"
-                android:layout_marginLeft="135dp"
+                android:layout_marginLeft="180dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="15dp" />
         </android.support.v7.widget.CardView>
@@ -774,12 +778,22 @@
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
+        <TextView
+            android:id="@+id/txtReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeSeekbar"
+            android:gravity="center"
+            android:text="Reset Filter"
+            android:textColor="#4141fc"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeSeekbar"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/txtReset"
+            android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark"
             android:text="Apply Filter"
             android:textColor="@color/white" />

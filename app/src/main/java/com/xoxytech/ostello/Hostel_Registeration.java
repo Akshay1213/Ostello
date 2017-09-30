@@ -1,9 +1,17 @@
 package com.xoxytech.ostello;
 
+
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,8 +34,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class Hostel_Registeration extends AppCompatActivity {
 
+public class Hostel_Registeration extends AppCompatActivity implements LocationListener {
+
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+    protected String latitude, longitude;
+    protected boolean gps_enabled, network_enabled;
     EditText editText_ownername;
     Button submit;
     TextView name, mobilenumber1, mobilenumber2, typetext, hostelname, hosteladdr, price, vacancy, city;
@@ -40,18 +54,21 @@ public class Hostel_Registeration extends AppCompatActivity {
     int flag = 0, f;
     RequestQueue queue;
     String url;
-
     TextView messageText;
     int serverResponseCode = 0;
     //ProgressDialog dialog1;
     String s, name1;
-
+    TextView txtLat;
+    String provider;
+    double lat, lag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_hostel__registeration);
+        txtLat = (TextView) findViewById(R.id.txtlocation);
+
 
         //SharedPreferences sp = getSharedPreferences("YourSharedPreference",Activity.MODE_PRIVATE);
         // final String username= sp.getString("USER_NAME",null);
@@ -110,6 +127,14 @@ public class Hostel_Registeration extends AppCompatActivity {
         type.clearFocus();
         radioGroup.setFocusable(true);
         radioGroup.setFocusableInTouchMode(true);
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        //txtLat.setText("Latitude:");
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,10 +208,11 @@ public class Hostel_Registeration extends AppCompatActivity {
                 if (textvacancy.getText().toString().length() == 0) {
                     textvacancy.setError("vacancy is required!");
                     flag = 1;
+                    Location location;
                     f = 8;
                 }
 
-
+                togglestatus = "";
                 if (toggleelevator.isChecked())
                     togglestatus += "1";
                 else
@@ -264,11 +290,11 @@ public class Hostel_Registeration extends AppCompatActivity {
 
                 if (flag == 0) {
 
-                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim(), new Response.Listener<String>() {
+                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim() + "&location=" + lat + "," + lag, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
-                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim());
+                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim() + "&location=" + lat + "," + lag);
 
 
                         }
@@ -304,19 +330,35 @@ public class Hostel_Registeration extends AppCompatActivity {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(Hostel_Registeration.this);
                     LayoutInflater inflater = Hostel_Registeration.this.getLayoutInflater();
                     alertDialog.setView(inflater.inflate(R.layout.dialog, null));
-                    alertDialog.setMessage("Hostel Register Successfully. To upload hostel images contact ostallohostels@gmail.com ");
+                    alertDialog.setMessage("Hostel Register Successfully. To upload hostel images contact ostallohostels@gmail.com.Yo");
                     alertDialog.setPositiveButton(
                             "OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
+
+                                    toggleelevator.setChecked(false);
+                                    toggledrinkingwater.setChecked(false);
+                                    togglecot.setChecked(false);
+                                    togglecctv.setChecked(false);
+                                    toggleac.setChecked(false);
+                                    toggleelectricity.setChecked(false);
+                                    togglegym.setChecked(false);
+                                    togglehotwater.setChecked(false);
+                                    toggletv.setChecked(false);
+                                    togglecleaning.setChecked(false);
+                                    toggleparking.setChecked(false);
+                                    togglewashingmachine.setChecked(false);
+                                    togglemess.setChecked(false);
+                                    togglestudytable.setChecked(false);
+                                    togglewifi.setChecked(false);
                                     txtmobilenumber2.getText().clear();
                                     texthostelname.getText().clear();
                                     texthosteladdr.getText().clear();
                                     textCity.getText().clear();
                                     textprice.getText().clear();
                                     textvacancy.getText().clear();
-                                    togglestatus = "";
+
                                 }
                             });
                     alertDialog.show();
@@ -353,7 +395,31 @@ public class Hostel_Registeration extends AppCompatActivity {
         });
 
 
+    }
 
+    @Override
+    public void onLocationChanged(Location location) {
+        txtLat.setText("" + location.getLatitude() + "," + location.getLongitude());
+
+        lat = location.getLatitude();
+        lag = location.getLongitude();
+        //txtLat.setText("yooooooooooooo");
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude", "disable");
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude", "enable");
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude", "status");
     }
 }
 

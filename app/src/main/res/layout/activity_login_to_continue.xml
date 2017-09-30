@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/password_changed_successfully1"
+    android:background="@drawable/change_password"
     tools:context="com.xoxytech.ostello.Login_to_continue">
 
-    <ImageView
-        android:id="@+id/imageViewdone"
-        android:layout_width="200sp"
-        android:layout_height="200sp"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="94dp"
-        android:layout_weight="0"
-        android:src="@drawable/done_green" />
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="344dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text=" Password Changed Successfully!! Please Login To continue.."
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:transitionName=""
-            android:visibility="invisible"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="206dp" />
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/imageViewdone"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="0sp"
+            android:layout_weight="0"
+            android:padding="50dp"
+            android:src="@drawable/lock" />
+
+        <ImageView
+            android:id="@+id/imageViewlock"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="0sp"
+            android:layout_weight="0"
+            android:src="@drawable/done_green" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/confirmround"
-            android:paddingBottom="0dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="0dp"
-            android:text="Login"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/regiterround"
+            android:padding="10dp"
+            android:text="Click here to Login "
             android:textColor="@color/white" />
-    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:baselineAlignBottom="true"
+            android:src="@drawable/poweredby" />
 
 
-</RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
+
+

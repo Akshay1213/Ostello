@@ -72,12 +72,12 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_hostel__registeration.xml",
@@ -124,12 +124,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_manage_hostels.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
-        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_bottom_navigation_item.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialogue_confirm_delete.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialogue_confirm_delete.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_bottom_navigation_item.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
@@ -292,6 +292,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_aboutus.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/slidingimage.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/slidingimage.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_temp.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_temp.xml"
     },
@@ -300,24 +304,24 @@
         "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_navigation_menu_item.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/slidingimage.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/slidingimage.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
         "source": "/home/akshay/.android/build-cache/10b90273215883bb90d49531753985127a11a158/output/res/layout/design_layout_snackbar_include.xml"
-    },
-    {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialog_delete_ok.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialog_delete_ok.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_favourite.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_favourite.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialog_delete_ok.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialog_delete_ok.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_history.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_history.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",

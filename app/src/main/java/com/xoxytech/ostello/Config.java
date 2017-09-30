@@ -13,6 +13,7 @@ public class Config {
     public static final String LOGIN_URL = "http://ostallo.com/ostello/login_verification.php";
     public static final String AutoComplete_URL = "http://ostallo.com/ostello/fetchcities.php";
     public static final String SEARCHHOSTELS_URL = "http://ostallo.com/ostello/fetchhostels.php";
+    public static final String History_URL = "http://ostallo.com/ostello/getUserHistory.php";
     public static final String VERIFYOTP_URL = "http://ostallo.com/ostello/checkotp.php";
     public static final String LIKESDISLIKES_URL = "http://ostallo.com/ostello/returnLikesOfHostel.php";
     public static final String DELETEACCOUNT_URL = "http://ostallo.com/ostello/DeleteUserAccount.php";

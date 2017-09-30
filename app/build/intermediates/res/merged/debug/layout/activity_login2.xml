@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/loginback"
     android:focusable="true"
-
-    android:scaleType="centerCrop"
     tools:context="com.xoxytech.ostello.Login">
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,6 +20,7 @@
             android:orientation="vertical"
             android:paddingLeft="24dp"
             android:paddingRight="24dp">
+
 
 
             <ImageView
@@ -132,8 +133,30 @@
 
                 android:src="@drawable/poweredby"/>
 
-
         </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutCheckInternet"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="No Internet Connection"
+            android:id="@+id/txtInternetConnection"
+            android:gravity="center"
+            android:textSize="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRetry"
+            android:layout_marginLeft="140dp"
+            android:layout_below="@+id/txtInternetConnection"
+            android:layout_gravity="center"
+            android:text="Retry"/>
+    </RelativeLayout>
 
+</RelativeLayout>
 
 </ScrollView>

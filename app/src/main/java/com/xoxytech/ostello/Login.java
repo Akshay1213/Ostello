@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,10 +47,16 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     private String password;
     private RequestQueue requestQueue;
     private Button login_button;
+    private RelativeLayout layoutcheckInternetConnection;
+    private Button btnRetry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+
+        layoutcheckInternetConnection = (RelativeLayout) findViewById(R.id.layoutCheckInternet);
+        btnRetry = (Button) findViewById(R.id.btnRetry);
+
 
 
         try

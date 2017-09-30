@@ -1,8 +1,10 @@
 package com.xoxytech.ostello;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -92,6 +94,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
 
 //Extract the data…
         id = bundle.getString("id");
+        addHostelInHistory(id);
 
         sliderShow = (SliderLayout) findViewById(R.id.slider);
         for(int i=1;i<=5;i++) {
@@ -183,7 +186,10 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                                         String secondaryphone = jsonObject.getString("secondaryphone");
                                         txtName.setText(name);
                                         radiobtnPhone1.setText("Primary Number " + phone);
+                                        if (!secondaryphone.contains("null"))
                                         radiobtnPhone2.setText("Secondary Number " + secondaryphone);
+                                        else
+                                            radiobtnPhone2.setVisibility(View.INVISIBLE);
                                      /* txtPrimaryPhone.setText(phone);
                                       txtSecondaryPhone.setText(secondaryphone);*/
                                     }
@@ -295,6 +301,34 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         }
 
 
+    }
+
+    public void addHostelInHistory(String hostel_id) {
+
+        SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+        String history = sp.getString("HISTORY", null);
+        if (history == null) {
+            history = hostel_id;
+        } else {
+            boolean flag = false;
+            String[] strings = history.split(",");
+
+            for (String s : strings) {
+
+                if (s.equals(hostel_id)) {
+
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                history += "," + hostel_id;
+        }
+
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("HISTORY", history);
+        editor.commit();
+        Log.d("***history", history);
     }
 
     private class AsyncFetch extends AsyncTask<String, String, String> {

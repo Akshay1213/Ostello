@@ -32,12 +32,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-ldpi/ic_lock_black_24dp.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_search.png",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-ldpi/ic_search.png"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_delete_forever_black_24dp.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-ldpi/ic_delete_forever_black_24dp.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_search.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/build/generated/res/pngs/debug/drawable-ldpi/ic_search.png"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_lock_open_black_24dp.png",

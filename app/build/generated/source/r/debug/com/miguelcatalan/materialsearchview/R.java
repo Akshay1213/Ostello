@@ -552,18 +552,18 @@ public final class R {
         public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f02004f;
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f020050;
         public static final int abc_textfield_search_material = 0x7f020051;
-        public static final int color_cursor_white = 0x7f020078;
-        public static final int design_fab_background = 0x7f020095;
-        public static final int design_snackbar_background = 0x7f020099;
-        public static final int ic_action_action_search = 0x7f0200bf;
-        public static final int ic_action_navigation_arrow_back = 0x7f0200c0;
-        public static final int ic_action_navigation_arrow_back_inverted = 0x7f0200c1;
-        public static final int ic_action_navigation_close = 0x7f0200c2;
-        public static final int ic_action_navigation_close_inverted = 0x7f0200c3;
-        public static final int ic_action_voice_search = 0x7f0200c4;
-        public static final int ic_action_voice_search_inverted = 0x7f0200c5;
-        public static final int ic_suggestion = 0x7f0200e4;
-        public static final int notification_template_icon_bg = 0x7f02013c;
+        public static final int color_cursor_white = 0x7f020076;
+        public static final int design_fab_background = 0x7f020093;
+        public static final int design_snackbar_background = 0x7f020097;
+        public static final int ic_action_action_search = 0x7f0200bd;
+        public static final int ic_action_navigation_arrow_back = 0x7f0200be;
+        public static final int ic_action_navigation_arrow_back_inverted = 0x7f0200bf;
+        public static final int ic_action_navigation_close = 0x7f0200c0;
+        public static final int ic_action_navigation_close_inverted = 0x7f0200c1;
+        public static final int ic_action_voice_search = 0x7f0200c2;
+        public static final int ic_action_voice_search_inverted = 0x7f0200c3;
+        public static final int ic_suggestion = 0x7f0200e2;
+        public static final int notification_template_icon_bg = 0x7f02013a;
     }
     public static final class id {
         public static final int action0 = 0x7f100191;

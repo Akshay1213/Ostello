@@ -32,12 +32,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dropdownforautocomplete.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dropdownforautocomplete.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/search_view.xml",
         "source": "/home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/res/layout/search_view.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dropdownforautocomplete.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dropdownforautocomplete.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/fragment_filterfragment.xml",

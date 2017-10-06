@@ -10,14 +10,13 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -146,7 +145,11 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
         btnEnquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("nonsense", Config.ENQUIRY_URL + "?id=" + id);
+                if (!CheckInternet.checkinternet(getApplicationContext()))
+                    Toast.makeText(HostelDetails.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
+                else {
+
+                    Log.e("nonsense", Config.ENQUIRY_URL + "?id=" + id);
                 LayoutInflater li = LayoutInflater.from(HostelDetails.this);
                 loading = ProgressDialog.show(HostelDetails.this, "Loading", "Please wait.....", false, false);
                 //Creating a view to get the dialog box
@@ -187,7 +190,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                                         txtName.setText(name);
                                         radiobtnPhone1.setText("Primary Number " + phone);
                                         if (!secondaryphone.contains("null"))
-                                        radiobtnPhone2.setText("Secondary Number " + secondaryphone);
+                                            radiobtnPhone2.setText("Secondary Number " + secondaryphone);
                                         else
                                             radiobtnPhone2.setVisibility(View.INVISIBLE);
                                      /* txtPrimaryPhone.setText(phone);
@@ -235,20 +238,17 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                         // =txtPrimaryPhone.getText().toString();
                         callIntent.setData(Uri.parse("tel:" + number));
 
-                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-                            return;
+
+                        if (ContextCompat.checkSelfPermission(HostelDetails.this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(HostelDetails.this, new String[]{android.Manifest.permission.CALL_PHONE}, 1);
+                        } else {
+                            startActivity(callIntent);
                         }
-                        startActivity(callIntent);
+
 
                     }
                 });
+                }
             }
 
         });
@@ -453,7 +453,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
 //                    hostelData.HostelImage= "https://upload.wikimedia.org/wikipedia/commons/e/e8/Hostel_Dormitory.jpg";
                     RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layouthostelcontainer);
                     relativeLayout.setVisibility(View.VISIBLE);
-                    Animation animation = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
+                   /* Animation animation = AnimationUtils.loadAnimation(HostelDetails.this, R.anim.slide_in_right);
                     int x = 300;
                     animation.setStartOffset(x);
                     // animation.setDuration(500);
@@ -481,7 +481,7 @@ public class HostelDetails extends AppCompatActivity implements OnMapReadyCallba
                     cardMaps.startAnimation(animation4);
                     cardDesc.startAnimation(animation5);
                     btnEnquiry.startAnimation(animation6);
-
+*/
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -5,7 +5,7 @@
         android:fromYScale="0.0"
         android:toXScale="1.0"
         android:toYScale="1.0"
-        android:duration="700"
+        android:duration="300"
         android:fillBefore="false" />
     <translate
         android:fromXDelta="950"

@@ -9,7 +9,7 @@ import android.net.NetworkInfo;
  */
 
 public class CheckInternet {
-    public static boolean checkInternet(Context context) {
+    public static boolean checkinternet(Context context) {
         ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
         return activeNetworkInfo != null;

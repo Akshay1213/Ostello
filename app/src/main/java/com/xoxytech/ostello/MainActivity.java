@@ -8,15 +8,10 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -85,6 +80,9 @@ public class MainActivity extends AppCompatActivity
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
+    FloatingActionButton fab;
+    AlertDialog alertDialog;
+    Button btnRetry;
     DrawerLayout drawer;
     ImageView image;
     private RequestQueue queue;
@@ -112,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         imageModelArrayList = populateList();
 
         init();
-
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         queue = Volley.newRequestQueue(getApplicationContext());
         Toast.makeText(MainActivity.this," Welcome to ostallo",Toast.LENGTH_SHORT);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
@@ -122,18 +120,34 @@ public class MainActivity extends AppCompatActivity
 
         relativeLayoutNoInternetCon = (RelativeLayout) findViewById(R.id.layouterror);
 
-        if (checkInternet()) {
+        relativeLayoutNoInternetCon = (RelativeLayout) findViewById(R.id.layouterror);
+        btnRetry = (Button) findViewById(R.id.btnRetry);
+        if (CheckInternet.checkinternet(getApplicationContext())) {
+            fab.setVisibility(View.VISIBLE);
             relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
             findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
 
         } else {
             relativeLayoutNoInternetCon.setVisibility(View.VISIBLE);
             findViewById(R.id.mainlayout).setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.INVISIBLE);
+            btnRetry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("wth", "I got executed");
+                    if (CheckInternet.checkinternet(getApplicationContext())) {
+                        getUserName();
+                        relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+                        fab.setVisibility(View.VISIBLE);
+                        findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
+                    }
+                }
+            });
         }
 
         mSearchView=(FloatingSearchView)findViewById(R.id.floating_search_view);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +174,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         cities=new ArrayList<>();
-        TAG = "*****kay rao**";
+
         new AsyncFetch().execute();
 
 
@@ -281,7 +295,10 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         //show suggestions when search bar gains focus (typically history suggestions)
+                        if (CheckInternet.checkinternet(getApplicationContext()))
                         new AsyncFetch().execute();
+                        else
+                            Toast.makeText(MainActivity.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
                     }
                 });
                 anim.start();
@@ -331,10 +348,11 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    //////////////////////////////////
+
     void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
         searchView.attachNavigationDrawerToMenuButton(drawer);
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -413,39 +431,98 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        final AlertDialog alertDialog;
+
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putString("USER_NAME", null); //username the user has entered
-            editor.putString("USER_PHONE", null); //username the user has entered
-            editor.commit();
-            startActivity(new Intent(MainActivity.this,Login.class));
-        } else if (id == R.id.nav_addhostel) {
-            startActivity(new Intent(MainActivity.this, Hostel_Registeration.class));
-        } else if (id == R.id.nav_deleteUserAccount) {
-
-            TextView txtYes, txtNo;
             LayoutInflater li = LayoutInflater.from(MainActivity.this);
             //Creating a view to get the dialog box
-            View deleteConfirmDialog = li.inflate(R.layout.dialogue_confirm_delete, null);
-            txtYes = (TextView) deleteConfirmDialog.findViewById(R.id.txtYes);
-            txtNo = (TextView) deleteConfirmDialog.findViewById(R.id.txtNo);
+            View logoutConfirmDialog = li.inflate(R.layout.dialogue_confirm_logout, null);
+            TextView txtYes = (TextView) logoutConfirmDialog.findViewById(R.id.txtYes);
+            TextView txtNo = (TextView) logoutConfirmDialog.findViewById(R.id.txtNo);
             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
             //Adding our dialog box to the view of alert dialog
-            alert.setView(deleteConfirmDialog);
+            alert.setView(logoutConfirmDialog);
             //Creating an alert dialog
             alertDialog = alert.create();
             alertDialog.show();
-
             txtYes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    deleteAccount();
+                    SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("USER_NAME", null); //username the user has entered
+                    editor.putString("USER_PHONE", null); //username the user has entered
+                    editor.commit();
+                    startActivity(new Intent(MainActivity.this, Login.class));
 
+                }
+            });
+            txtNo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+
+        } else if (id == R.id.nav_addhostel) {
+            startActivity(new Intent(MainActivity.this, Hostel_Registeration.class));
+
+        } else if (id == R.id.nav_deleteUserAccount) {
+
+            deleteUserAccount();
+
+        } else if (id == R.id.nav_manage) {
+            LaunchActivity(new Intent(MainActivity.this, ManageHostels.class));
+        } else if (id == R.id.nav_share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Hey check out my app at: https://play.google.com/store/apps/details?id=com.xoxytech.ostello");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+
+        } else if (id == R.id.nav_aboutus) {
+
+//            ActivityOptions options=ActivityOptions.makeScaleUpAnimation(getWindow().getDecorView().getRootView(),0,0,100,100);
+            startActivity(new Intent(MainActivity.this, Aboutus.class));
+
+
+        } else if (id == R.id.nav_favourite) {
+//            LaunchActivity(new Intent(MainActivity.this, Favourite.class));
+            startActivity(new Intent(MainActivity.this, Favourite.class));
+
+
+        } else if (id == R.id.nav_history) {
+            LaunchActivity(new Intent(MainActivity.this, History.class));
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void deleteUserAccount() {
+        TextView txtYes, txtNo;
+        LayoutInflater li = LayoutInflater.from(MainActivity.this);
+        //Creating a view to get the dialog box
+        View deleteConfirmDialog = li.inflate(R.layout.dialogue_confirm_delete, null);
+        txtYes = (TextView) deleteConfirmDialog.findViewById(R.id.txtYes);
+        txtNo = (TextView) deleteConfirmDialog.findViewById(R.id.txtNo);
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        //Adding our dialog box to the view of alert dialog
+        alert.setView(deleteConfirmDialog);
+        //Creating an alert dialog
+        alertDialog = alert.create();
+        alertDialog.show();
+
+        txtYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CheckInternet.checkinternet(getApplicationContext())) {
+                    deleteAccount();
                     LayoutInflater li = LayoutInflater.from(MainActivity.this);
                     //Creating a view to get the dialog box
                     View deleteConfirmDialog1 = li.inflate(R.layout.dialog_delete_ok, null);
@@ -465,45 +542,21 @@ public class MainActivity extends AppCompatActivity
                         }
                     });
 
-                }
-            });
-            txtNo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    alertDialog.dismiss();
-              /* Intent intent=new Intent(DeleteAccount.this,Login.class);
-            startActivity(intent);*/
-
-                }
-            });
-        } else if (id == R.id.nav_manage) {
-            startActivity(new Intent(MainActivity.this, ManageHostels.class));
-
-        } else if (id == R.id.nav_share) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT,
-                    "Hey check out my app at: https://play.google.com/store/apps/details?id=com.raunak.motivation365&hl=en");
-            sendIntent.setType("text/plain");
-            startActivity(sendIntent);
-
-        } else if (id == R.id.nav_aboutus) {
-
-//            ActivityOptions options=ActivityOptions.makeScaleUpAnimation(getWindow().getDecorView().getRootView(),0,0,100,100);
-            startActivity(new Intent(MainActivity.this,Aboutus.class));
+                } else
+                    Toast.makeText(MainActivity.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
-        } else if (id == R.id.nav_favourite) {
-            startActivity(new Intent(MainActivity.this, Favourite.class));
+        txtNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        } else if (id == R.id.nav_history) {
-            startActivity(new Intent(MainActivity.this, History.class));
-        }
+                alertDialog.dismiss();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+            }
+        });
+
     }
     private void fadeDimBackground(int from, int to, Animator.AnimatorListener listener) {
         ValueAnimator anim = ValueAnimator.ofInt(from, to);
@@ -577,30 +630,32 @@ public class MainActivity extends AppCompatActivity
         requestQueue.add(stringRequest);
     }
 
-    boolean checkInternet() {
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        boolean isWifiConn = networkInfo.isConnected();
+    void LaunchActivity(final Intent I) {
+        if (CheckInternet.checkinternet(getApplicationContext())) {
 
-        networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-        boolean isMobileConn = networkInfo.isConnected();
+            relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
+            startActivity(I);
+        } else {
+            relativeLayoutNoInternetCon.setVisibility(View.VISIBLE);
+            fab.setVisibility(View.INVISIBLE);
+            findViewById(R.id.mainlayout).setVisibility(View.INVISIBLE);
+            btnRetry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                       /* Log.d("wth","nope I got executed");
+                        Boolean res=checkInternet();*/
+                    if (CheckInternet.checkinternet(getApplicationContext())) {
+                        relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+                        fab.setVisibility(View.VISIBLE);
+                        findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
+                        startActivity(I);
+                    }
+                }
+            });
+        }
 
-        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        NetworkInfo i = connMgr.getActiveNetworkInfo();
-
-        if (wifiMgr.isWifiEnabled()) {
-            //Toast.makeText(MainActivity_permissions.this, "wifi is enabled", Toast.LENGTH_SHORT).show();
-            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-
-            if (wifiInfo.getNetworkId() == -1) {
-                return false;
-            } else if (i.isAvailable()) {
-                return true;
-            }
-
-        } else return isMobileConn;
-
-        return false;
     }
 
     private ArrayList<Imagemodel> populateList() {

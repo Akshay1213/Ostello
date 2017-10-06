@@ -8,6 +8,6 @@ package com.bartoszlipinski.viewpropertyobjectanimator;
 
 public final class R {
     public static final class string {
-        public static final int app_name = 0x7f09003e;
+        public static final int app_name = 0x7f09003f;
     }
 }

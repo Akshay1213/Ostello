@@ -136,6 +136,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/nav_header_main.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_get_location.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_get_location.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/activity_success.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/activity_success.xml"
     },
@@ -378,6 +382,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialog_confirm.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialog_confirm.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/dialogue_confirm_logout.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/layout/dialogue_confirm_logout.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",

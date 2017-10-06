@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-192:12
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:2:1-198:12
 	package
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:3:5-35
 		INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml
@@ -80,7 +80,7 @@ MERGED from [com.google.firebase:firebase-iid:10.0.1] /home/akshay/.android/buil
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:24:22-76
 application
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:26:5-190:19
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:26:5-196:19
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-auth:10.0.1] /home/akshay/.android/build-cache/25ccc06437b91ad5dac5600d0ab69182f7a26aa4/output/AndroidManifest.xml:19:5-20:19
 MERGED from [com.mcxiaoke.volley:library-aar:1.0.0] /home/akshay/.android/build-cache/877693f06ee1e96761322d8eef317133ae1704a1/output/AndroidManifest.xml:5:5-19
@@ -94,11 +94,12 @@ MERGED from [com.android.support:transition:25.3.1] /home/akshay/.android/build-
 MERGED from [com.android.support:cardview-v7:25.3.1] /home/akshay/.android/build-cache/b8cf291479470b330a424a723f0b74f0e8aa0d3f/output/AndroidManifest.xml:26:5-20
 MERGED from [com.vstechlab.easyfonts:easyfonts:1.0.0] /home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/AndroidManifest.xml:11:5-14:19
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:18:5-20:19
 MERGED from [com.crystal:crystalrangeseekbar:1.1.1] /home/akshay/.android/build-cache/62943aefe35bacf61f87475a9078610e5a496232/output/AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/akshay/.android/build-cache/547c8cf73667adc8375341e3836426e5f63d32af/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/akshay/.android/build-cache/37faabc870a28fc387a8c2e7c0d43d262eb386d7/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-location:10.0.1] /home/akshay/.android/build-cache/4de7999a0943720908fb479156e797b2ee3a0087/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.firebase:firebase-core:10.0.1] /home/akshay/.android/build-cache/1d88dfffecc62717a9a09968be554689b946ec14/output/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:24:5-28:19
@@ -317,9 +318,13 @@ ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:188:19-44
 activity#com.xoxytech.ostello.History
-ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:189:9-54
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:189:9-45
 	android:name
 		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:189:19-42
+activity#com.xoxytech.ostello.GetLocation
+ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:190:9-195:20
+	android:name
+		ADDED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml:190:19-46
 uses-sdk
 INJECTED from /home/akshay/AndroidStudioProjects/Ostello/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/akshay/.android/build-cache/72190d749bf19cd923278e0c9b3340af2048363b/output/AndroidManifest.xml:7:5-9:41
@@ -344,12 +349,14 @@ MERGED from [com.android.support:cardview-v7:25.3.1] /home/akshay/.android/build
 MERGED from [com.bartoszlipinski:viewpropertyobjectanimator:1.2.0] /home/akshay/.android/build-cache/b23bbc6ae012792441e2632a6455b89a604d7a09/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.vstechlab.easyfonts:easyfonts:1.0.0] /home/akshay/.android/build-cache/04d9bf8bdf1371004bf459fc49814030c8ed0ab8/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/akshay/.android/build-cache/8d8c97cae6e38442369f90385e7cf7891406f0c3/output/AndroidManifest.xml:23:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:17:5-42
 MERGED from [com.crystal:crystalrangeseekbar:1.1.1] /home/akshay/.android/build-cache/62943aefe35bacf61f87475a9078610e5a496232/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/akshay/.android/build-cache/547c8cf73667adc8375341e3836426e5f63d32af/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/akshay/.android/build-cache/37faabc870a28fc387a8c2e7c0d43d262eb386d7/output/AndroidManifest.xml:20:5-43
 MERGED from [com.github.JakeWharton:ViewPagerIndicator:2.4.1] /home/akshay/.android/build-cache/10fed5e2d9c4d666550231fc011d3e6ebeeb38fd/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-location:10.0.1] /home/akshay/.android/build-cache/4de7999a0943720908fb479156e797b2ee3a0087/output/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/AndroidManifest.xml:17:5-42
+MERGED from [com.jakewharton:butterknife:8.5.1] /home/akshay/.android/build-cache/ca2dcbd4571f05ae3f754b5beaabe408452cfa97/output/AndroidManifest.xml:5:5-43
 MERGED from [com.google.firebase:firebase-core:10.0.1] /home/akshay/.android/build-cache/1d88dfffecc62717a9a09968be554689b946ec14/output/AndroidManifest.xml:4:5-42
 MERGED from [com.google.firebase:firebase-analytics:10.0.1] /home/akshay/.android/build-cache/36563a4e019cc376f6e87828a24cd5cb3a46c492/output/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] /home/akshay/.android/build-cache/433aa63ae339d95dbfcfc0aa29f2e328dd7934d6/output/AndroidManifest.xml:17:5-42

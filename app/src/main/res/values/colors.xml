@@ -24,5 +24,11 @@
     <color name="list_background_normal">#FCFCFC</color>
     <!-- secondary colors for drawer -->
     <color name="list_background_secondary_normal">#F2F2F2</color>
+    <color name="proceed_disable">#DEDEDE</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
 
+
+    <color name="proceed_enable">#72D63A</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

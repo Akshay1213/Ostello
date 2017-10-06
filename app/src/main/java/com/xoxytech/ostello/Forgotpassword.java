@@ -53,7 +53,11 @@ public class Forgotpassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 phone = editTextphone.getText().toString();
-                sendotp();
+                if (CheckInternet.checkinternet(getApplicationContext()))
+                    sendotp();
+                else
+                    Toast.makeText(Forgotpassword.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -84,55 +88,60 @@ public class Forgotpassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Hiding the alert dialog
-                alertDialog.dismiss();
+                if (CheckInternet.checkinternet(getApplicationContext())) {
+                    sendotp();
 
-                //Displaying a progressbar
-                loading = ProgressDialog.show(Forgotpassword.this, "Authenticating", "Please wait while we check the entered OTP", false, false);
+                    alertDialog.dismiss();
 
-                //Getting the user entered otp from edittext
-                final String otp = editTextConfirmOtp.getText().toString().trim();
-                //Creating an string request
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.VERIFYOTP_URL + "?phone=" + phone + "&otp=" + otp,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                //if the server response is success
-                                if (response.contains("OTP verified successfully")) {
-                                    Intent intent_confirm_password = new Intent(Forgotpassword.this, Confirm_Password.class);
-                                    intent_confirm_password.putExtra("phone", phone);
-                                    startActivity(intent_confirm_password);
-                                } else {
+                    //Displaying a progressbar
+                    loading = ProgressDialog.show(Forgotpassword.this, "Authenticating", "Please wait while we check the entered OTP", false, false);
 
-                                    Toast.makeText(Forgotpassword.this, "Wrong OTP Please Try Again", Toast.LENGTH_LONG).show();
-                                    try {
-                                        //Asking user to enter otp again
-                                        confirmOtp();
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                    //Getting the user entered otp from edittext
+                    final String otp = editTextConfirmOtp.getText().toString().trim();
+                    //Creating an string request
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.VERIFYOTP_URL + "?phone=" + phone + "&otp=" + otp,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    //if the server response is success
+                                    if (response.contains("OTP verified successfully")) {
+                                        Intent intent_confirm_password = new Intent(Forgotpassword.this, Confirm_Password.class);
+                                        intent_confirm_password.putExtra("phone", phone);
+                                        startActivity(intent_confirm_password);
+                                    } else {
+
+                                        Toast.makeText(Forgotpassword.this, "Wrong OTP Please Try Again", Toast.LENGTH_LONG).show();
+                                        try {
+                                            //Asking user to enter otp again
+                                            confirmOtp();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
                                 }
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                alertDialog.dismiss();
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    alertDialog.dismiss();
 //                                Toast.makeText(Registeration.this, error.getMessage()+"zak marke", Toast.LENGTH_LONG).show();
-                            }
-                        }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        //Adding the parameters otp and username
-                        params.put(Config.KEY_OTP, otp);
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            //Adding the parameters otp and username
+                            params.put(Config.KEY_OTP, otp);
 
-                        return params;
-                    }
-                };
+                            return params;
+                        }
+                    };
 
-                //Adding the request to the queue
-                requestQueue.add(stringRequest);
-                loading.dismiss();
+                    //Adding the request to the queue
+                    requestQueue.add(stringRequest);
+                    loading.dismiss();
+                } else
+                    Toast.makeText(Forgotpassword.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
             }
         });
     }

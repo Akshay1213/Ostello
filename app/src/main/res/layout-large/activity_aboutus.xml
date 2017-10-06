@@ -59,7 +59,7 @@
                 android:layout_height="282dp"
                 android:layout_margin="15dp"
                 android:paddingTop="25dp"
-                android:text="@string/loremipsum"
+                android:text="@string/aboutus"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="22dp" />
 

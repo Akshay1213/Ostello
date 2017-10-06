@@ -244,7 +244,7 @@ login_button.setOnClickListener(this);
         NetworkInfo i = connMgr.getActiveNetworkInfo();
 
         if (wifiMgr.isWifiEnabled()) {
-            //Toast.makeText(MainActivity_permissions.this, "wifi is enabled", Toast.LENGTH_SHORT).show();
+
             WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
 
             if (wifiInfo.getNetworkId() == -1) {

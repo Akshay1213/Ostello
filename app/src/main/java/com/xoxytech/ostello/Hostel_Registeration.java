@@ -1,10 +1,17 @@
 
 package com.xoxytech.ostello;
 
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,8 +34,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class Hostel_Registeration extends AppCompatActivity {
+public class Hostel_Registeration extends AppCompatActivity implements LocationListener {
 
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+    protected String latitude, longitude;
+    protected boolean gps_enabled, network_enabled;
     EditText editText_ownername;
     Button submit;
     TextView name, mobilenumber1, mobilenumber2, typetext, hostelname, hosteladdr, price, vacancy, city;
@@ -38,15 +50,14 @@ public class Hostel_Registeration extends AppCompatActivity {
     Spinner type;
     RadioGroup radioGroup;
     ToggleButton toggleelevator, toggledrinkingwater, togglecot, togglecctv, toggleac, toggleelectricity, togglegym, togglehotwater, toggletv, togglecleaning, toggleparking, togglewashingmachine, togglemess, togglestudytable, togglewifi;
-    int flag = 0, f;
+    int flag = 0, f, fs = 0, name_length, i = 0;
     RequestQueue queue;
     String url;
-
-    TextView messageText;
-    int serverResponseCode = 0;
-    //ProgressDialog dialog1;
+    TextView location1;
     String s, name1;
-
+    int serverResponseCode = 0;
+    String provider;
+    double lat, lag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +105,8 @@ public class Hostel_Registeration extends AppCompatActivity {
         togglestudytable = (ToggleButton) findViewById(R.id.toggleStudytable);
         togglewifi = (ToggleButton) findViewById(R.id.toggleWifi);
         togglemess = (ToggleButton) findViewById(R.id.toggleMess);
+        mobilenumber1 = (TextView) findViewById(R.id.txtmobilenumber1);
+        location1 = (TextView) findViewById(R.id.txtlocation);
         SharedPreferences sp = getSharedPreferences("YourSharedPreference", Activity.MODE_PRIVATE);
         final String username = sp.getString("USER_NAME", null);
         Log.d("Name", username);
@@ -112,6 +125,13 @@ public class Hostel_Registeration extends AppCompatActivity {
         radioGroup.setFocusable(true);
         radioGroup.setFocusableInTouchMode(true);
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +141,7 @@ public class Hostel_Registeration extends AppCompatActivity {
                 sname = textname.getText().toString() + " ";
                 smobilenumber1 = txtmobilenumber1.getText().toString() + " ";
                 smobilenumber2 = txtmobilenumber2.getText().toString() + " ";
-                scity = textCity.getText().toString() + " ";
+                scity = textCity.getText().toString().replaceAll(" ", "_") + " ";
                 stype = type.getSelectedItem().toString() + " ";
                 sgender = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString() + " ";
                 shostelname = texthostelname.getText().toString() + " ";
@@ -130,6 +150,41 @@ public class Hostel_Registeration extends AppCompatActivity {
                 saddress = saddress.replaceAll(" ", "_");
                 sprice = textprice.getText().toString() + " ";
                 svacancy = textvacancy.getText().toString() + " ";
+                i = 0;
+                while (i < shostelname.length()) {
+                    if (shostelname.charAt(i) == '$') {
+                        texthostelname.setError("use of $ is not allowed!");
+                        f = 9;
+                        flag = 1;
+                    }
+                    i++;
+                }
+
+
+                i = 0;
+                while (i < saddress.length()) {
+                    if (saddress.charAt(i) == '$' || saddress.charAt(i) == '&') {
+                        texthosteladdr.setError("use of $,& is not allowed!");
+                        f = 10;
+                        flag = 1;
+
+                    }
+                    i++;
+                }
+
+                i = 0;
+                while (i < scity.length()) {
+                    if (scity.charAt(i) == '$' || scity.charAt(i) == '&') {
+                        textCity.setError("use of $,& is not allowed!");
+                        f = 11;
+                        flag = 1;
+
+                    }
+                    i++;
+                }
+
+
+
                 if (textname.getText().toString().length() == 0) {
                     textname.setError("First name is required!");
                     flag = 1;
@@ -143,7 +198,7 @@ public class Hostel_Registeration extends AppCompatActivity {
                     f = 2;
                 }
 
-                if (txtmobilenumber2.getText().toString().length() == 0) {
+               /* if (txtmobilenumber2.getText().toString().length() == 0) {
                     txtmobilenumber2.setError("Mobile number is required!");
                     flag = 1;
                     f = 3;
@@ -153,7 +208,14 @@ public class Hostel_Registeration extends AppCompatActivity {
                     txtmobilenumber2.setError("Mobile number should be 10 digit!");
                     txtmobilenumber2.requestFocus();
                     flag = 1;
-                }
+                }*/
+                if (txtmobilenumber2.getText().toString().length() != 0 && txtmobilenumber2.getText().toString().length() != 10) {
+                    txtmobilenumber2.setError("Mobile number should be 10 digit!");
+                    txtmobilenumber2.requestFocus();
+                    flag = 1;
+                    fs = 1;
+                } else
+                    smobilenumber2 = "null";
 
 
                 if (textCity.getText().toString().length() == 0) {
@@ -187,7 +249,7 @@ public class Hostel_Registeration extends AppCompatActivity {
                     f = 8;
                 }
 
-
+                togglestatus = " ";
                 if (toggleelevator.isChecked())
                     togglestatus += "1";
                 else
@@ -265,11 +327,11 @@ public class Hostel_Registeration extends AppCompatActivity {
 
                 if (flag == 0) {
 
-                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim(), new Response.Listener<String>() {
+                    StringRequest postrequest = new StringRequest(Request.Method.POST, url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + stype.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + sgender.trim() + "&facilities=" + togglestatus.trim() + "&location=" + lat + "," + lag, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
-                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim());
+                            Log.d("*****", url + "?phone=" + smobilenumber1.trim() + "&secondaryphone=" + smobilenumber2.trim() + "&hostel_name=" + shostelname.trim() + "&category=" + sgender.trim() + "&vacancy=" + svacancy.trim() + "&rate=" + sprice.trim() + "&address=" + saddress.trim() + "&city=" + scity.trim() + "&type=" + stype.trim() + "&facilities=" + togglestatus.trim() + "&location=" + lat + "," + lag);
 
 
                         }
@@ -296,7 +358,7 @@ public class Hostel_Registeration extends AppCompatActivity {
                     alert11.show();
                     alert11.getWindow().setLayout(900,400);*/
                     /*AlertDialog.Builder builder1 = new AlertDialog.Builder(Hostel_Registeration.this);
-                   final Dialog dialog=new Dialog(Hostel_Registeration.this);
+                       final Dialog dialog=new Dialog(Hostel_Registeration.this);
                     builder1.setContentView(R.layout.dialog);
                     dialog.setCancelMessage((Message) R.string.dialog_text);
 */
@@ -311,6 +373,22 @@ public class Hostel_Registeration extends AppCompatActivity {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
+                                    toggleelevator.setChecked(false);
+                                    toggledrinkingwater.setChecked(false);
+                                    togglecot.setChecked(false);
+                                    togglecctv.setChecked(false);
+                                    toggleac.setChecked(false);
+                                    toggleelectricity.setChecked(false);
+                                    togglegym.setChecked(false);
+                                    togglehotwater.setChecked(false);
+                                    toggletv.setChecked(false);
+                                    togglecleaning.setChecked(false);
+                                    toggleparking.setChecked(false);
+                                    togglewashingmachine.setChecked(false);
+                                    togglemess.setChecked(false);
+                                    togglestudytable.setChecked(false);
+                                    togglewifi.setChecked(false);
+                                    type.setSelection(0);
                                     txtmobilenumber2.getText().clear();
                                     texthostelname.getText().clear();
                                     texthosteladdr.getText().clear();
@@ -324,8 +402,8 @@ public class Hostel_Registeration extends AppCompatActivity {
 
 
                 } else {
-                    if (f == 3)
-                        txtmobilenumber2.requestFocus();
+                    /*if (f == 3)
+                        txtmobilenumber2.requestFocus();*/
 
                     if (f == 4)
                         textCity.requestFocus();
@@ -341,11 +419,18 @@ public class Hostel_Registeration extends AppCompatActivity {
 
                     if (f == 8)
                         textvacancy.requestFocus();
+                    if (f == 9)
+                        texthostelname.requestFocus();
+                    if (f == 10)
+                        texthosteladdr.requestFocus();
 
-                    if (txtmobilenumber2.getText().toString().length() < 10) {
+                    if (f == 11)
+                        textCity.requestFocus();
+
+                   /* if (txtmobilenumber2.getText().toString().length() < 10) {
                         txtmobilenumber2.setError("Mobile number should be 10 digit!");
                         txtmobilenumber2.requestFocus();
-                    }
+                    }*/
                     flag = 0;
                 }
 
@@ -354,6 +439,31 @@ public class Hostel_Registeration extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+
+        location1.setText("" + location.getLatitude() + "," + location.getLongitude());
+
+        lat = location.getLatitude();
+        lag = location.getLongitude();
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
 
     }
 }

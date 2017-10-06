@@ -1,17 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.xoxytech.ostello.Favourite">
-    favouriteList
 
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardviewFavourite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="1.0px"
+        android:elevation="1dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingTop="0dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        tools:context="com.example.user.registeration.MainActivity">
+
+
+        <TextView
+            android:id="@+id/txtregisterhostel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="5dp"
+
+            android:text="Favourite Hostel"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No Favourite Hostel!!"
+        android:textSize="25dp"
+        android:visibility="invisible" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/favouriteList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/cardviewFavourite"
+        android:layout_margin="5dp"
         android:layout_weight="0"
         android:paddingTop="0dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

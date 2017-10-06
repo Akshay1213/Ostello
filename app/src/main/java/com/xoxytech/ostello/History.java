@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -134,8 +135,10 @@ public class History extends AppCompatActivity {
             data = new ArrayList<>();
             if (result.contains("no rows")) {
                 Toast.makeText(History.this, "No Recent History", Toast.LENGTH_LONG).show();
+                findViewById(R.id.textViewError).setVisibility(View.VISIBLE);
                 return;
-            }
+            } else
+                findViewById(R.id.textViewError).setVisibility(View.INVISIBLE);
             try {
 
                 JSONArray jArray = new JSONArray(result);

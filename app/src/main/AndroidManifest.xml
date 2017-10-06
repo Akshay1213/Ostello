@@ -186,7 +186,13 @@
         <activity android:name=".ManageHostels2" />
         <activity android:name=".ManageHostels" />
         <activity android:name=".Favourite" />
-        <activity android:name=".History"></activity>
+        <activity android:name=".History" />
+        <activity android:name=".GetLocation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

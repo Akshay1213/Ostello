@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.android.volley.AuthFailureError;
@@ -32,7 +34,6 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.SliderLayout;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -135,11 +136,15 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             public void onClick(View view) {
 
 //             Toast.makeText(NewMenu.this, "Card at " + position + " is clicked"+tv.getText(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(context, HostelDetails.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("id", myHolder.hiddenid.getText().toString());
-                i.putExtras(bundle);
-                context.startActivity(i);
+                if (CheckInternet.checkinternet(context)) {
+                    Intent i = new Intent(context, HostelDetails.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", myHolder.hiddenid.getText().toString());
+                    i.putExtras(bundle);
+                    context.startActivity(i);
+                } else {
+                    Toast.makeText(context, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
+                }
             }
 
         });
@@ -152,29 +157,30 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     Log.d("Phone", phone);
                     Intent callIntent = new Intent(Intent.ACTION_CALL);
                     callIntent.setData(Uri.parse("tel:" + phone));
-                    if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-                        return;
+
+                    if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.CALL_PHONE}, 1);
+                    } else {
+                        context.startActivity(callIntent);
                     }
-                    context.startActivity(callIntent);
+
+
                 }
             }
         });
         CompoundButton.OnCheckedChangeListener toggleListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Animation animation1 = AnimationUtils.loadAnimation(context,
+                        R.anim.bounce);
+
                 if (compoundButton == myHolder.toggleLike && isuser()) {
                     if (myHolder.toggleLike.isChecked()) {
                         myHolder.toggleDislike.setChecked(false);
                         myHolder.toggleLike.setChecked(true);
                         myHolder.textLikeCount.setText("" + (Integer.parseInt(myHolder.textLikeCount.getText().toString()) + 1));
                         status = "1";
+                        compoundButton.startAnimation(animation1);
                         Log.d("s", status);
                         setStatus(status, myHolder);
 
@@ -193,6 +199,7 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 if (compoundButton == myHolder.toggleDislike && isuser()) {
                     if (myHolder.toggleDislike.isChecked()) {
                         myHolder.toggleLike.setChecked(false);
+                        compoundButton.startAnimation(animation1);
                         myHolder.toggleDislike.setChecked(true);
                         myHolder.textDislikeCount.setText("" + (Integer.parseInt(myHolder.textDislikeCount.getText().toString()) + 1));
                         status = "-1";
@@ -213,12 +220,14 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 }
                 if (compoundButton == myHolder.toggleFavourite && isuser()) {
                     if (myHolder.toggleFavourite.isChecked()) {
+                        compoundButton.startAnimation(animation1);
                         // Toast.makeText(context,"Added to favourite list",Toast.LENGTH_LONG).show();
                         status = "3";
                         setStatus(status, myHolder);
                     } else {
                         // Toast.makeText(context,"Removed from favourite list",Toast.LENGTH_LONG).show();
                         status = "4";
+                        compoundButton.startAnimation(animation1);
                         setStatus(status, myHolder);
                     }
                 }
@@ -276,13 +285,13 @@ public class Adapterhostel extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                             Log.d("response", error.getMessage());
                         //get status code here
 
-                        try {
+                        /*try {
 
-                            body = new String(error.networkResponse.data, "UTF-8");
+//                            body = new String(error.networkResponse.data, "UTF-8");
 //
                         } catch (UnsupportedEncodingException e) {
                             // exception
-                        }
+                        }*/
                     }
                 }) {
             @Override

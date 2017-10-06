@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -131,6 +132,12 @@ public class Favourite extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             //this method will be running on UI thread
+            if (result.contains("no rows")) {
+                findViewById(R.id.textViewError).setVisibility(View.VISIBLE);
+                pdLoading.dismiss();
+                return;
+            } else
+                findViewById(R.id.textViewError).setVisibility(View.INVISIBLE);
             Log.d("*******************", result);
             pdLoading.dismiss();
             data = new ArrayList<>();
@@ -164,6 +171,7 @@ public class Favourite extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(Favourite.this, "Error " + e.toString(), Toast.LENGTH_LONG).show();
             }
+
         }
     }
 }

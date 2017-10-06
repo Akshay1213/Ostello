@@ -18,13 +18,13 @@ public final class R {
         public static final int fl_strokeWidth = 0x7f010125;
     }
     public static final class color {
-        public static final int fillColor = 0x7f0e0048;
-        public static final int strokeColor = 0x7f0e007c;
+        public static final int fillColor = 0x7f0e0049;
+        public static final int strokeColor = 0x7f0e0081;
     }
     public static final class dimen {
         public static final int fourthSampleStrokeWidth = 0x7f0a008d;
         public static final int fourthSampleViewSize = 0x7f0a008e;
-        public static final int strokeWidth = 0x7f0a00b5;
+        public static final int strokeWidth = 0x7f0a00bc;
     }
     public static final class id {
         public static final int bites = 0x7f100044;
@@ -39,7 +39,7 @@ public final class R {
         public static final int strokeDrawingDuration = 0x7f0d0010;
     }
     public static final class string {
-        public static final int app_name = 0x7f09003e;
+        public static final int app_name = 0x7f09003f;
     }
     public static final class styleable {
         public static final int[] FillableLoader = { 0x7f010123, 0x7f010124, 0x7f010125, 0x7f010126, 0x7f010127, 0x7f010128, 0x7f010129, 0x7f01012a };

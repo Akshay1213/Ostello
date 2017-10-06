@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -59,7 +60,11 @@ public class Confirm_Password extends AppCompatActivity {
                     flag = 1;
                 }
                 if (flag == 0) {
-                    setPassword();
+                    if (CheckInternet.checkinternet(getApplicationContext()))
+                        setPassword();
+                    else
+                        Toast.makeText(Confirm_Password.this, "Make sure you have Active Internet Connection", Toast.LENGTH_LONG).show();
+
 
                 }
 

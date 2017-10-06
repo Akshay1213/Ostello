@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +18,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class NewMenu extends Activity {
     private static final int FILTER_REQUEST_CODE = 1;
     public static List<CitySuggetions> cities;
     private static long back_pressed;
+    FloatingActionButton fab;
     SearchView searchView = null;
     String city;
     List<Datahostel> data;
@@ -82,7 +84,7 @@ public class NewMenu extends Activity {
         cities=new ArrayList<>();
         TAG="**********";
         new AsyncFetch().execute();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +94,7 @@ public class NewMenu extends Activity {
                 startActivityForResult(i, FILTER_REQUEST_CODE, options.toBundle());
 
 
-                Snackbar.make(view, "Filter Applied successfully ", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//                Snackbar.make(view, "Filter Applied successfully ", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
 
 //                Snackbar.make(view, "Filter", Snackbar.LENGTH_LONG)
@@ -161,8 +163,32 @@ public class NewMenu extends Activity {
 
 
         //Make call to AsyncTask
-        new NewMenu.AsyncFetch().execute();
-        new NewMenu.AsyncFetchLoadHostels().execute();
+        final RelativeLayout relativeLayoutNoInternetCon = (RelativeLayout) findViewById(R.id.layouterror);
+        Button btnRetry = (Button) findViewById(R.id.btnRetry);
+        if (CheckInternet.checkinternet(getApplicationContext())) {
+            fab.setVisibility(View.VISIBLE);
+            relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+            new NewMenu.AsyncFetch().execute();
+            new NewMenu.AsyncFetchLoadHostels().execute();
+
+        } else {
+            relativeLayoutNoInternetCon.setVisibility(View.VISIBLE);
+            fab.setVisibility(View.INVISIBLE);
+            btnRetry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (CheckInternet.checkinternet(getApplicationContext())) {
+                        relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
+                        fab.setVisibility(View.VISIBLE);
+                        new NewMenu.AsyncFetch().execute();
+                        new NewMenu.AsyncFetchLoadHostels().execute();
+
+                    }
+                }
+            });
+        }
+
 
 
         mSearchView.swapSuggestions(cities);

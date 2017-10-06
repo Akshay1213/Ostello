@@ -32,6 +32,10 @@
         "source": "/home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/ic_pick.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/ic_pick.png"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ratingbar_indicator_material.xml"
     },
@@ -88,12 +92,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/shadoweffectforlayout.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/home/akshay/.android/build-cache/ba865c28c82dff4707592f3343a675acf03e352a/output/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/parkingred.png",
@@ -304,12 +308,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/addimage.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/transp_rect.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/transp_rect.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/transp_rect.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/transp_rect.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
@@ -318,6 +322,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/unlike_active.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/unlike_active.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/bg_proceed_enable.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/bg_proceed_enable.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/study_tablered.png",
@@ -384,12 +392,12 @@
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/tv.xml",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/tv.xml"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/tv.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/tv.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cleaning.xml",
@@ -428,6 +436,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/gymgrey.png"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/button_selector.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/button_selector.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/home/akshay/.android/build-cache/e954b1a6828b838c469f02d10bba69dcd353f8d6/output/res/drawable/abc_ic_search_api_material.xml"
     },
@@ -446,6 +458,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/cctvred.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/cctvred.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/bg_proceed_disable.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/bg_proceed_disable.xml"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/suggestion_item_background.xml",
@@ -492,12 +508,12 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/girlsactive.png"
     },
     {
-        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/registerationbackground.png",
-        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/registerationbackground.png"
-    },
-    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/login_background.png",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/login_background.png"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/registerationbackground.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/registerationbackground.png"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/messgrey.png",
@@ -652,6 +668,10 @@
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/eye_logo.png"
     },
     {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/bg_cta_button.xml",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/bg_cta_button.xml"
+    },
+    {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/oval_btn_selector.xml",
         "source": "/home/akshay/.android/build-cache/2ac32ca3dcd5cd3d5eac25c7e3a4968396a5eaf9/output/res/drawable/oval_btn_selector.xml"
     },
@@ -690,6 +710,10 @@
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/ac.xml",
         "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/ac.xml"
+    },
+    {
+        "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/get_location.png",
+        "source": "/home/akshay/AndroidStudioProjects/Ostello/app/src/main/res/drawable/get_location.png"
     },
     {
         "merged": "/home/akshay/AndroidStudioProjects/Ostello/app/build/intermediates/res/merged/debug/drawable/registerback.jpg",

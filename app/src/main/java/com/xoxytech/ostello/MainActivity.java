@@ -490,8 +490,8 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_favourite) {
-//            LaunchActivity(new Intent(MainActivity.this, Favourite.class));
-            startActivity(new Intent(MainActivity.this, Favourite.class));
+            LaunchActivity(new Intent(MainActivity.this, Favourite.class));
+//            startActivity(new Intent(MainActivity.this, Favourite.class));
 
 
         } else if (id == R.id.nav_history) {
@@ -632,11 +632,11 @@ public class MainActivity extends AppCompatActivity
 
     void LaunchActivity(final Intent I) {
         if (CheckInternet.checkinternet(getApplicationContext())) {
-
+            startActivity(I);
             relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
             fab.setVisibility(View.VISIBLE);
             findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
-            startActivity(I);
+
         } else {
             relativeLayoutNoInternetCon.setVisibility(View.VISIBLE);
             fab.setVisibility(View.INVISIBLE);
@@ -647,10 +647,11 @@ public class MainActivity extends AppCompatActivity
                        /* Log.d("wth","nope I got executed");
                         Boolean res=checkInternet();*/
                     if (CheckInternet.checkinternet(getApplicationContext())) {
+                        startActivity(I);
                         relativeLayoutNoInternetCon.setVisibility(View.INVISIBLE);
                         fab.setVisibility(View.VISIBLE);
                         findViewById(R.id.mainlayout).setVisibility(View.VISIBLE);
-                        startActivity(I);
+
                     }
                 }
             });
